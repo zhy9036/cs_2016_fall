@@ -3,3 +3,7 @@
 
 # swap file
 *.swp
+
+# windows
+*.ini
+*.db
