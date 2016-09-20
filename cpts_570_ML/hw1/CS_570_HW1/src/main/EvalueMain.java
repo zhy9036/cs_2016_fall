@@ -32,7 +32,7 @@ public class EvalueMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//showGraph();
-		//binaryClassifierTest(50);	
+		binaryClassifierTest(50);	
 		multiClassifierTests(50);
 	}
 	
@@ -173,13 +173,13 @@ public class EvalueMain {
 			e.printStackTrace();
 		}
 		System.out.println(pt_train.size());
-		//showGraph(stat, "binaryPerceptron", "iter", "errors(aveg)",16000,18000);
-		//showGraph(stat1, "binaryPassiveAggressive", "iter", "errors(aveg)",16000,18000);
-		//showGraph(pt_train, "binaryPerceptron Accuracy(train)", "iter", "accuracy(%)",60,75);
-		//showGraph(pt_test, "binaryPerceptron Accuracy(test)", "iter", "accuracy(%)",60,75);
-		//showGraph(ptAveg_train, "binaryPerceptron average Accuracy(train)", "iter", "accuracy(%)",60,75);
-		//showGraph(ptAveg_test, "binaryPerceptron average Accuracy(test)", "iter", "accuracy(%)",60,75);
-		//showGraph(pa_train, "binaryPassiveAggressive Accuracy(train)", "iter", "accuracy(%)",60,75);
+		showGraph(stat, "binaryPerceptron", "iter", "errors(aveg)",16000,18000);
+		showGraph(stat1, "binaryPassiveAggressive", "iter", "errors(aveg)",16000,18000);
+		showGraph(pt_train, "binaryPerceptron Accuracy(train)", "iter", "accuracy(%)",60,75);
+		showGraph(pt_test, "binaryPerceptron Accuracy(test)", "iter", "accuracy(%)",60,75);
+		showGraph(ptAveg_train, "binaryPerceptron average Accuracy(train)", "iter", "accuracy(%)",60,75);
+		showGraph(ptAveg_test, "binaryPerceptron average Accuracy(test)", "iter", "accuracy(%)",60,75);
+		showGraph(pa_train, "binaryPassiveAggressive Accuracy(train)", "iter", "accuracy(%)",60,75);
 		showGraph(pa_test, "binaryPassiveAggressive Accuracy(test)", "iter", "accuracy(%)",60,75);
 		showGraph(pt_learning, "binaryPerceptron learning curve", "sample size", "accuracy(%)",55,75);
 		showGraph(pa_learning, "binaryPassive-Aggressive learning curve", "sample size", "accuracy(%)",55,75);
@@ -360,17 +360,17 @@ public class EvalueMain {
 			e.printStackTrace();
 		}
 		//System.out.println(pt_train.size());
-		//showGraph(stat, "Multi-Perceptron", "iter", "errors(aveg)",18000,22000);
-		//showGraph(stat1, "Multi-PassiveAggressive", "iter", "errors(aveg)",18000,22000);
-		//showGraph(pt_train, "Multi-Perceptron Accuracy(train)", "iter", "accuracy(%)",55,70);
-		//showGraph(pt_test, "Multi-Perceptron Accuracy(test)", "iter", "accuracy(%)",55,70);
-		//showGraph(ptAveg_train, "Multi-Perceptron average Accuracy(train)", "iter", "accuracy(%)",55,70);
-		//showGraph(ptAveg_test, "Multi-Perceptron average Accuracy(test)", "iter", "accuracy(%)",55,70);
-		//showGraph(pa_train, "Multi-PassiveAggressive Accuracy(train)", "iter", "accuracy(%)",55,70);
-		//showGraph(pa_test, "Multi-PassiveAggressive Accuracy(test)", "iter", "accuracy(%)",55,70);
-		showGraph(pt_learning, "binaryPerceptron learning curve", "sample size", "accuracy(%)",55,75);
-		showGraph(pa_learning, "binaryPassive-Aggressive learning curve", "sample size", "accuracy(%)",55,75);
-		showGraph(ptAveg_learning, "binaryPerceptron Averaged learning curve", "sample size", "accuracy(%)",55,75);
+		showGraph(stat, "Multi-Perceptron", "iter", "errors(aveg)",18000,22000);
+		showGraph(stat1, "Multi-PassiveAggressive", "iter", "errors(aveg)",18000,22000);
+		showGraph(pt_train, "Multi-Perceptron Accuracy(train)", "iter", "accuracy(%)",55,70);
+		showGraph(pt_test, "Multi-Perceptron Accuracy(test)", "iter", "accuracy(%)",55,70);
+		showGraph(ptAveg_train, "Multi-Perceptron average Accuracy(train)", "iter", "accuracy(%)",55,70);
+		showGraph(ptAveg_test, "Multi-Perceptron average Accuracy(test)", "iter", "accuracy(%)",55,70);
+		showGraph(pa_train, "Multi-PassiveAggressive Accuracy(train)", "iter", "accuracy(%)",55,70);
+		showGraph(pa_test, "Multi-PassiveAggressive Accuracy(test)", "iter", "accuracy(%)",55,70);
+		showGraph(pt_learning, "Multi-Perceptron learning curve", "sample size", "accuracy(%)",25,105);
+		showGraph(pa_learning, "Multi-Passive-Aggressive learning curve", "sample size", "accuracy(%)",25,105);
+		showGraph(ptAveg_learning, "Multi-Perceptron Averaged learning curve", "sample size", "accuracy(%)",25,105);
 	}
 	/*
 	public static void multiClassifierTest(int iterations){
