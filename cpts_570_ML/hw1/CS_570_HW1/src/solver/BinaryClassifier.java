@@ -21,21 +21,20 @@ public class BinaryClassifier {
 	
 	public double[][] perceptron(Set<Pair<double[], Integer>> data, int maxIterations){
 		//error = 0;
-		return algorithemSolver(Mode.Perceptron, data, maxIterations);
+		return algorithemSolver(Mode.Perceptron, data, maxIterations).clone();
 	}
 	
 	public double[][] passiveAggressive(Set<Pair<double[], Integer>> data, int maxIterations){
 		//error = 0;
-		return algorithemSolver(Mode.PassiveAggressive, data, maxIterations);
+		return algorithemSolver(Mode.PassiveAggressive, data, maxIterations).clone();
 	}
 	
 	public double[][] perceptronAveg(Set<Pair<double[], Integer>> data, int maxIterations){
 		//error = 0;
-		return algorithemSolver(Mode.PerceptronAveg, data, maxIterations);
+		return algorithemSolver(Mode.PerceptronAveg, data, maxIterations).clone();
 	}
 	
 	private double[][] algorithemSolver(Mode mode,Set<Pair<double[], Integer>> data, int maxIterations){
-		
 		double[] weight = new double[128];
 		double[] weightAveg = new double[128];
 		//System.out.println(Arrays.toString(weight));

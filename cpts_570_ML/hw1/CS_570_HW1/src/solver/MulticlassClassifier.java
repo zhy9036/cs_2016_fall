@@ -1,7 +1,11 @@
 package solver;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
+
+import solver.BinaryClassifier.Mode;
 
 public class MulticlassClassifier {
 	
@@ -10,44 +14,51 @@ public class MulticlassClassifier {
 	}
 	
 	int classNum;
+	private int[] error;
 	
 	public MulticlassClassifier(int classNum){
 		this.classNum = classNum;
+		error = new int[50];
 
 	}
 	
-	public ArrayList<double[]> perceptron(Set<Pair<double[],Character>> data,
+	public ArrayList<List<double[]>> perceptron(Set<Pair<double[],Character>> data,
 			int maxIterations){
 		
 		return algorithemSolver(Mode.Perceptron, data, maxIterations);
 	}
 	
-	public ArrayList<double[]> passiveAggressive(Set<Pair<double[],Character>> data,
+	public ArrayList<List<double[]>> passiveAggressive(Set<Pair<double[],Character>> data,
 			int maxIterations){
 		
 		return algorithemSolver(Mode.PassiveAggressive, data, maxIterations);
 	}
 	
-	public ArrayList<double[]> perceptronAveg(Set<Pair<double[],Character>> data,
+	public ArrayList<List<double[]>> perceptronAveg(Set<Pair<double[],Character>> data,
 			int maxIterations){
 		
 		return algorithemSolver(Mode.PerceptronAveg, data, maxIterations);
 	}
 	
-	private ArrayList<double[]> algorithemSolver(Mode mode, 
+	private ArrayList<List<double[]>> algorithemSolver(Mode mode, 
 			Set<Pair<double[],Character>> data, int maxIterations){
 		
+		ArrayList<List<double[]>> weights = new ArrayList<List<double[]>>();
+		//ArrayList<List<double[]>> weightAvegs = new ArrayList<List<double[]>>();
+		
+		//double[] weight = new double[128];
+		//double[] weightAveg = new double[128];
 		ArrayList<double[]> weight = new ArrayList<double[]>();
 		ArrayList<double[]> weightAveg = new ArrayList<double[]>();
 		for(int j = 0; j < classNum; j++){
 			weight.add(j, new double[128]);
-			weightAveg.add(j, new double[128]);
-		
+			weightAveg.add(j, new double[128]);			
 		}
-		//double[] weight = new double[128];
-		//double[] weightAveg = new double[128];
 		for(int i = 0; i < maxIterations; i++){
 			int count = 1;
+			int err = 0;
+			
+			
 			for(Pair<double[], Character> sample : data){
 				char actual = sample.getSecond();
 				double[] dataFeature = sample.getFirst();
@@ -62,7 +73,7 @@ public class MulticlassClassifier {
 				boolean wrong = (mode == Mode.PassiveAggressive)? goodScore-bestBadScore < 1 
 						: goodScore - bestBadScore <= 0; 
 				if(wrong){ //made mistake
-					
+					err++;
 					//wi*ci
 					if(mode == Mode.PerceptronAveg){
 						for(int j = 0; j < weight.size(); j++){
@@ -78,8 +89,18 @@ public class MulticlassClassifier {
 					count++;
 				}
 			}
+			error[i]=err;
+			ArrayList<double[]> tmp = new ArrayList<double[]>();
+			ArrayList<double[]> tmpAveg = new ArrayList<double[]>();
+			for(int x = 0; x < weight.size(); x++){
+				tmp.add(weight.get(x).clone());
+				tmpAveg.add(weightAveg.get(x).clone());
+			}
+			weights.add((mode == Mode.PerceptronAveg) ? tmpAveg: tmp);
+			//weightAvegs.add(weightAveg);
+			
 		}
-		return (mode == Mode.PerceptronAveg) ? weightAveg : weight;
+		return weights;
 	}
 	
 	private double paLearningRate(ArrayList<double[]> weight, 
@@ -139,6 +160,11 @@ public class MulticlassClassifier {
 		weight.set(predict-'a', yFalse);
 		
 		return weight;
+	}
+
+	public int[] getErrorCount() {
+		// TODO Auto-generated method stub
+		return error;
 	}
 	
 }
