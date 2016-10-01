@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -29,13 +30,57 @@ import solver.Pair;
 
 public class EvalueMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		//showGraph();
-		binaryClassifierTest(50);	
-		multiClassifierTests(50);
+		//binaryClassifierTest(50);	
+		//multiClassifierTests(50);
+		int c = 0;
+		for(int exp = 0; exp < 10; exp++){
+			c += separateFile(String.format("OCRdata/ocr_fold%d_sm_train.txt",exp), exp);
+		}
+		System.out.println(4*c/50);
 	}
 	
+	
+	
+	private static int separateFile(String fname, int exp) throws IOException {
+		
+		
+		String line = null;
+		int count = 0;
+		FileInputStream fis = new FileInputStream(new File(fname));
+		BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+		PrintWriter trainWriter = new PrintWriter(String.format("fold%d_sm_train.txt",exp));
+		PrintWriter valWriter = new PrintWriter(String.format("fold%d_sm_validation.txt",exp));
+
+		while ((line = br.readLine()) != null) {
+			if(!line.matches("\\s*")){
+				String[] buf = line.split("\\s+");		
+				
+				int actual=buf[2].charAt(0)-'a';
+				String dataFeature = ""+actual+" ";
+				//System.out.println(buf[0]);
+				String feature = buf[1].substring(2);
+				for(int i = 1; i <= feature.length(); i++){
+					dataFeature += (i+":"+(feature.charAt(i-1))+" ");
+				}
+				dataFeature += "\n";
+				count++;
+				if(count < 4172)
+					trainWriter.print(dataFeature);
+				else
+					valWriter.print(dataFeature);
+			}				
+		}
+		//System.out.println(count);
+		br.close();
+		trainWriter.close();
+		valWriter.close();
+
+		
+		return count;
+	}
 
 	
 	public static void binaryClassifierTest(int iterations){
