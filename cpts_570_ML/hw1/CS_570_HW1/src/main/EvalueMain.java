@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -36,13 +37,117 @@ public class EvalueMain {
 		//binaryClassifierTest(50);	
 		//multiClassifierTests(50);
 		int c = 0;
-		for(int exp = 0; exp < 10; exp++){
-			c += separateFile(String.format("OCRdata/ocr_fold%d_sm_train.txt",exp), exp);
+		/*
+		for(int i = 2; i <= 4; i++){
+			for(int exp = 0; exp < 10; exp++){
+				//c += separateFile(String.format("OCRdata/ocr_fold%d_sm_train.txt",exp), exp);
+				//transferFormat(String.format("OCRdata/ocr_fold%d_sm_train.txt",exp), exp);
+				c+=calculateSV(String.format("OCRdata/polymodel%d%d",i,exp));
+			}
+			System.out.println(c/10);
+			c=0;
 		}
-		System.out.println(4*c/50);
+		*/
+		System.out.print("    ");
+		for(int i = 0; i < 26; i++){
+			System.out.print("~"+(char)('a'+i)+" ");
+		}
+		System.out.println();
+		int[][] matrix = confusionMatrix("OCRdata/fullOutput0", "OCRdata/fold0_sm_fullTrain.txt");
+		for(int i = 0; i < 26; i++){
+			System.out.print((char)('a'+i) + "   ");
+			for(int j = 0; j < 26; j++){
+				String space = (matrix[i][j] > 9)? " ": "  ";
+				System.out.print(matrix[i][j]+space);
+			}
+			System.out.println();
+		}
+		
+	}
+
+	
+	private static int calculateSV(String fname) throws IOException {
+		int n = 0;
+		String line = null;
+		int count = 0;
+		FileInputStream fis = new FileInputStream(new File(fname));
+		BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+		while ((line = br.readLine()) != null) {
+			if(!line.matches("\\s*")){
+				String[] buf = line.split("\\s+");		
+				
+				if(buf[0].equals("total_sv")){
+					n = Integer.valueOf(buf[1]);
+				}
+			}				
+		}
+		//System.out.println(count);
+		br.close();
+		return n;
 	}
 	
+	private static int[][] confusionMatrix(String f1, String f2) throws IOException{
+		int[][] rst = new int[26][26];
+		FileInputStream fout = new FileInputStream(new File(f1));
+		FileInputStream fin = new FileInputStream(new File(f2));
+		BufferedReader br1 = new BufferedReader(new InputStreamReader(fout));
+		BufferedReader br2 = new BufferedReader(new InputStreamReader(fin));
+		String line1 = null;
+		String line2 = null;
+		int count = 0;
+		while ((line1 = br1.readLine()) != null && (line2 = br2.readLine())!=null) {
+			if(!line1.matches("\\s*")){
+				count++;
+				String[] buf = line2.split("\\s+");
+				double perdict = Double.valueOf(line1);
+				int actual = Integer.valueOf(buf[0]);
+				if(perdict == actual){
+					rst[actual][actual]++;
+				}else{
+					rst[actual][(int) perdict]++;
+				}				
+
+			}				
+		}
+		System.out.println(count);
+		
+		br1.close();
+		br2.close();
+		
+		return rst;
+	}
 	
+	private static int transferFormat(String fname, int exp) throws IOException {
+		
+		
+		String line = null;
+		int count = 0;
+		FileInputStream fis = new FileInputStream(new File(fname));
+		BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+		PrintWriter trainWriter = new PrintWriter(String.format("fold%d_sm_fullTrain.txt",exp));
+
+		while ((line = br.readLine()) != null) {
+			if(!line.matches("\\s*")){
+				String[] buf = line.split("\\s+");		
+				
+				int actual=buf[2].charAt(0)-'a';
+				String dataFeature = ""+actual+" ";
+				//System.out.println(buf[0]);
+				String feature = buf[1].substring(2);
+				for(int i = 1; i <= feature.length(); i++){
+					dataFeature += (i+":"+(feature.charAt(i-1))+" ");
+				}
+				dataFeature += "\n";
+				count++;
+
+				trainWriter.print(dataFeature);
+			}				
+		}
+		//System.out.println(count);
+		br.close();
+		trainWriter.close();
+		return count;
+	}
 	
 	private static int separateFile(String fname, int exp) throws IOException {
 		
