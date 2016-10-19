@@ -48,15 +48,17 @@ public class EvalueMain {
 			c=0;
 		}
 		*/
+		
+		
 		System.out.print("    ");
-		for(int i = 0; i < 26; i++){
-			System.out.print("~"+(char)('a'+i)+" ");
+		for(int i = 0; i < 2; i++){
+			System.out.print("~"+(1+4*i)+" ");
 		}
 		System.out.println();
-		int[][] matrix = confusionMatrix("OCRdata/fullOutput0", "OCRdata/fold0_sm_fullTrain.txt");
-		for(int i = 0; i < 26; i++){
-			System.out.print((char)('a'+i) + "   ");
-			for(int j = 0; j < 26; j++){
+		int[][] matrix = cs534hw5("data.csv");//confusionMatrix("OCRdata/fullOutput0", "OCRdata/fold0_sm_fullTrain.txt");
+		for(int i = 0; i < 2; i++){
+			System.out.print(1+4*i + "   ");
+			for(int j = 0; j < 2; j++){
 				String space = (matrix[i][j] > 9)? " ": "  ";
 				System.out.print(matrix[i][j]+space);
 			}
@@ -115,6 +117,27 @@ public class EvalueMain {
 		br2.close();
 		
 		return rst;
+	}
+	
+	private static int[][] cs534hw5(String fname) throws IOException{
+		int[][] cm = new int[2][2];
+		String line = null;
+		FileInputStream fis = new FileInputStream(new File(fname));
+		BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+		while ((line = br.readLine()) != null) {
+			
+			String[] buf = line.split(",");
+			int label = Integer.valueOf(buf[1]);
+			int perdict = Double.valueOf(buf[2])>2.5 ? 5 : 1;
+			if(label != perdict){
+				if(label == 1) cm[0][1]++;
+				else cm[1][0]++;
+			}else{
+				if(label == 1) cm[0][0]++;
+				else cm[1][1]++;
+			}
+		}
+		return cm;
 	}
 	
 	private static int transferFormat(String fname, int exp) throws IOException {
