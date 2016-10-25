@@ -1,0 +1,56 @@
+
+ /*****************************************
+ BST Node class
+ *****************************************/
+
+public class BSTreeNode {
+	BSTreeNode left;
+	BSTreeNode right;
+	int data;
+	
+	public BSTreeNode(int data){
+		this(data, null, null);
+	}
+	
+	public BSTreeNode(int data, BSTreeNode left, BSTreeNode right){
+		this.data = data;
+		this.left = left;
+		this.right = right;
+	}
+	
+}
+
+
+ /*****************************************
+ BST search algorithm
+ *****************************************/
+public class BSTSearch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		BSTreeNode root = constructTree();
+		System.out.println("search for 23: " + search(root, 23));
+		System.out.println("search for 25: " + search(root, 25));
+
+	}
+	
+	public static BSTreeNode constructTree(){
+		BSTreeNode root = new BSTreeNode(22, new BSTreeNode(9), new BSTreeNode(35));
+		BSTreeNode left1 = root.left;
+		left1.left = new BSTreeNode(3, null, new BSTreeNode(8));
+		left1.right = new BSTreeNode(14, new BSTreeNode(12), new BSTreeNode(21));
+		BSTreeNode right1 = root.right;
+		right1.left = new BSTreeNode(28, new BSTreeNode(23), null);
+		right1.right = new BSTreeNode(46, new BSTreeNode(40), null);
+		
+		return root;
+	}
+	
+	public static boolean search(BSTreeNode root, int key){
+		if (root == null) return false;
+		else if(key == root.data) return true;
+		else if(key > root.data) return search(root.right, key);
+		else return search(root.left, key);
+	}
+
+}
