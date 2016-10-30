@@ -1,4 +1,8 @@
- 
+/******************************************
+Yang Zhang
+11529139
+CS 580 HW3
+*******************************************/ 
  /*****************************************
  HuffmanNode class
  *****************************************/
@@ -57,8 +61,7 @@ public class HuffmanTree{
          HuffmanNode temp0 = pq.remove();
          HuffmanNode temp1 = pq.remove();
          //System.out.println(temp0.freq + " : " + temp1.freq);
-         pq.add(new HuffmanNode(' ',temp0.freq+temp1.freq,temp0,temp1));// ' ' here is a dummy value for constructing 
-                                                                        // huffman node object
+         pq.add(new HuffmanNode(' ',temp0.freq+temp1.freq,temp0,temp1));
       }
       overallRoot = pq.remove();
    }

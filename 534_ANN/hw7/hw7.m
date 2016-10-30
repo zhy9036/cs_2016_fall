@@ -28,13 +28,14 @@ D(:,4) = D(:,3).*x50;
 D(:,5) = D(:,4).*x50;
 %disp(V)
 lam = 0;
-A=V'*V + lam;
+A=V'*V + lam.*eye(5,5);
 b= V'*y5;
 x=A\b;
 fit4=V*x;
 fit4e=D*x;
-Eval = (fit4e-y50)'*(fit4e-y50);
-disp(Eval)
+Ein(1) = (fit4-y5)'*(fit4-y5);
+Eval(1) = (fit4e-y50)'*(fit4e-y50);
+%disp(Eval)
 y = x(1) + x(2)*xeq + x(3)*xeq.^2 + x(4)*xeq.^3 + x(5)*xeq.^4;
 figure();
 plot(xeq, f(xeq))
@@ -43,16 +44,18 @@ plot(x5,y5,'rs','MarkerFaceColor', 'r')
 plot(xeq, y, 'r')
 hold off
 
-
+ary(1) = 0;
 lam = 0.0001;
 for i = 1:6
-    A=V'*V + lam;
+    ary(1+i) = lam;
+    A=V'*V + lam.*eye(5,5);
     b= V'*y5;
     x=A\b;
     fit4=V*x;
     fit4e=D*x;
-    Eval = (fit4e-y50)'*(fit4e-y50);
-    disp(Eval)
+    Ein(1+i) = (fit4-y5)'*(fit4-y5);
+    Eval(1+i) = (fit4e-y50)'*(fit4e-y50);
+    %disp(Eval)
     y = x(1) + x(2)*xeq + x(3)*xeq.^2 + x(4)*xeq.^3 + x(5)*xeq.^4;
     figure();
     plot(xeq, f(xeq))
@@ -62,6 +65,11 @@ for i = 1:6
     hold off
     lam = lam*10;
 end
+
+figure();
+plot(Ein,'red');
+figure();
+plot(Eval);
 
 
 
