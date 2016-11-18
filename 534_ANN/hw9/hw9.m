@@ -34,7 +34,11 @@ disp(pov(3));
 figure(1);
 plot(pov);
 
-
+for i=1:rows
+   xt=[a(i,1),a(i,2),a(i,3),a(i,4),a(i,5),a(i,6),a(i,7),a(i,8),a(i,9)]; 
+   z1(i) = xt*V(:,9);
+   z2(i) = xt*V(:,8);
+end
 
 figure();
-plot(a(:,1),a(:,2),'r*')
+plot(z1,z2,'r*')
