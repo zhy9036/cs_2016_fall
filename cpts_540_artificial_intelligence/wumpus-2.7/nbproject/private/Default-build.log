@@ -1,0 +1,7 @@
+c++ -c Action.cc
+c++ -c Agent.cc
+c++ -c Location.cc
+c++ -c Orientation.cc
+c++ -c Percept.cc
+c++ -c WumpusWorld.cc
+c++ -o wumpsim wumpsim.cc Action.o Agent.o Location.o Orientation.o Percept.o WumpusWorld.o
