@@ -1,8 +1,19 @@
+Wumpus Agent (12/01/2016)
+
+Writen by Yang Zhang (11529139)
+
+Global Assumputions:
+1. World is 4 x 4 grid
+2. Agent starts at (1, 1)
+3. Wumpus can be anywhere other than (1, 1) or (4, 4)
+4. There is between 1 to 3 pits. Pits can be anywhere other than (1, 1) 
+
+
 The agent make a move based on the cost of all adjacent tiles and pick the
 one with smallest cost to move on.
 
 To calculate the cost:
-	cost 1 per move and per turn
+	cost 1 per move or per turn
 	if gold is not fetched
 		move to vistied adjacent tile cost 5 more, this can make sure the agent doesn't dupulicate its path when
 		finding the gold.
@@ -10,7 +21,7 @@ To calculate the cost:
 		move to vistied adjacent tile cost 5 less, this can make sure the agent go back alone the safe path.
 	if the tile's danger coefficient is 0.5, the agent is not sure if safe or not
 		cost + 10
-	if the tile's danger coefficient is 1.0, the agent is sure there is a pit or alive wumpus
+	if the tile's danger coefficient is 1.0, the agent is sure there is a pit or a live wumpus
 		cost + 100
 		
 To track the safe places:
