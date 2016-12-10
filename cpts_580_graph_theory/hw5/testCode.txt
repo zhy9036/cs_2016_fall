@@ -1,0 +1,54 @@
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[][] g1 = {{0,1,1,0,0},
+					  {1,0,1,1,0},
+					  {1,1,0,1,0},
+					  {0,1,1,0,1},
+					  {0,0,0,1,0}};
+		
+		int[][] g913 = {{0,1,0,1,0,1},
+				  		{1,0,1,1,0,1},
+				  		{0,1,0,1,1,0},
+				  		{1,1,1,0,1,0},
+				  		{0,0,1,1,0,1},
+				  		{1,1,0,0,1,0}};
+		
+		int[][] g914 = {{0,1,0,1,1,0},
+		  				{1,0,1,0,0,1},
+		  				{0,1,0,1,1,0},
+		  				{1,0,1,0,0,0},
+		  				{1,0,1,0,0,1},
+		  				{0,1,0,0,1,0}};
+		
+		int[][] g915 = {{0,0,0,1,1,1},
+  						{0,0,1,1,1,1},
+  						{0,1,0,1,1,1},
+  						{1,1,1,0,0,0},
+  						{1,1,1,0,0,1},
+  						{1,1,1,0,1,0}};
+		
+		int[][] g916 = {{0,1,0,0,1,1,1},
+						{1,0,1,0,0,1,0},
+						{0,1,0,1,0,1,1},
+						{0,0,1,0,1,1,1},
+						{1,0,0,1,0,1,0},
+						{1,1,1,1,1,0,1},
+						{1,0,1,1,0,1,0}};
+		
+		GraphColoring gc = new GraphColoring(g913);
+		GraphColoring gc1 = new GraphColoring(g914);
+		GraphColoring gc2 = new GraphColoring(g915);
+		GraphColoring gc3 = new GraphColoring(g916);
+		gc.sequentialColoring();
+		gc1.sequentialColoring();
+		gc2.sequentialColoring();
+		gc3.sequentialColoring();
+		gc.largeDegreeFirst();
+		gc1.largeDegreeFirst();
+		gc2.largeDegreeFirst();
+		gc3.largeDegreeFirst();
+	}
+
+}

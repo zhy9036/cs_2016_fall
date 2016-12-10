@@ -1,0 +1,65 @@
+/************************
+Sequential Coloring
+***************************/
+Vertex a --->  Color 0
+Vertex b --->  Color 1
+Vertex c --->  Color 0
+Vertex d --->  Color 2
+Vertex e --->  Color 1
+Vertex f --->  Color 2
+
+Vertex a --->  Color 0
+Vertex b --->  Color 1
+Vertex c --->  Color 0
+Vertex d --->  Color 1
+Vertex e --->  Color 1
+Vertex f --->  Color 0
+
+Vertex a --->  Color 0
+Vertex b --->  Color 1
+Vertex c --->  Color 2
+Vertex d --->  Color 3
+Vertex e --->  Color 3
+Vertex f --->  Color 4
+
+Vertex a --->  Color 0
+Vertex b --->  Color 1
+Vertex c --->  Color 0
+Vertex d --->  Color 1
+Vertex e --->  Color 2
+Vertex f --->  Color 3
+Vertex g --->  Color 2
+
+
+/************************
+Largest Degree First Sequential Coloring
+***************************/
+Vertex a --->  Color 2
+Vertex b --->  Color 1
+Vertex c --->  Color 2
+Vertex d --->  Color 0
+Vertex e --->  Color 1
+Vertex f --->  Color 0
+
+Vertex a --->  Color 2
+Vertex b --->  Color 1
+Vertex c --->  Color 2
+Vertex d --->  Color 0
+Vertex e --->  Color 1
+Vertex f --->  Color 0
+
+Vertex a --->  Color 2
+Vertex b --->  Color 3
+Vertex c --->  Color 2
+Vertex d --->  Color 0
+Vertex e --->  Color 1
+Vertex f --->  Color 0
+
+Vertex a --->  Color 2
+Vertex b --->  Color 0
+Vertex c --->  Color 3
+Vertex d --->  Color 2
+Vertex e --->  Color 0
+Vertex f --->  Color 1
+Vertex g --->  Color 0
+
