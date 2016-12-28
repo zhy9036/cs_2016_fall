@@ -108,8 +108,8 @@ public class TestMain {
 		}
 		
 		HuffmanTree ht = new HuffmanTree(counts);
-		HuffmanTree ht1 = new HuffmanTree(counts);
-		HuffmanTree ht2 = new HuffmanTree(counts);
+		HuffmanTree ht1 = new HuffmanTree(counts1);
+		HuffmanTree ht2 = new HuffmanTree(counts2);
 		Map<Character, String> codes = ht.createEncodings();
 		Map<Character, String> codes1 = ht1.createEncodings();
 		Map<Character, String> codes2 = ht2.createEncodings();
@@ -120,13 +120,13 @@ public class TestMain {
 		}
 		
 		System.out.println("\nexercise 3.5.5");
-		for(char c : codes.keySet()){
-			System.out.println(c + " : " + codes.get(c));
+		for(char c : codes1.keySet()){
+			System.out.println(c + " : " + codes1.get(c));
 		}
 		
 		System.out.println("\nexercise 3.5.6");
-		for(char c : codes.keySet()){
-			System.out.println(c + " : " + codes.get(c));
+		for(char c : codes2.keySet()){
+			System.out.println(c + " : " + codes2.get(c));
 		}
 		
 
