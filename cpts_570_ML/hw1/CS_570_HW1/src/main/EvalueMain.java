@@ -49,7 +49,7 @@ public class EvalueMain {
 		}
 		*/
 		
-		
+		/*
 		System.out.print("    ");
 		for(int i = 0; i < 3; i++){
 			System.out.print("~"+(1+4*i)+" ");
@@ -64,6 +64,9 @@ public class EvalueMain {
 			}
 			System.out.println();
 		}
+		*/
+		//transferFormat("1st.txt",1);
+		separateFile("1st.txt", 1);
 		
 	}
 
@@ -215,7 +218,7 @@ public class EvalueMain {
 				}
 				dataFeature += "\n";
 				count++;
-				if(count < 4172)
+				if(count < 3695)
 					trainWriter.print(dataFeature);
 				else
 					valWriter.print(dataFeature);
