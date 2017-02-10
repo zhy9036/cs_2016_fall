@@ -97,7 +97,7 @@ public class SPerceptron {
 		for(int i = 0; i < sinput.size(); i++){
 			yHat.add(r.nextInt(26));
 			int yi = yHat.get(i);
-			bestScore += dotProduct(sinput.get(i), weight.get(yi));
+			preBestScore += dotProduct(sinput.get(i), weight.get(yi));
 		}
 		ArrayList<Integer> yBest = yHat;
 		ArrayList<Integer> yStart = new ArrayList<Integer>();
@@ -106,6 +106,7 @@ public class SPerceptron {
 				yBest = yStart;
 				preBestScore = bestScore;
 			}
+			bestScore = 0;
 			//randomly generate structured output y_start as starting point
 			for(int j = 0; j < sinput.size(); j++){
 				if(yStart.size() < 26)
@@ -127,13 +128,13 @@ public class SPerceptron {
 						score += dotProduct(sinput.get(j), weight.get(yi));
 					}
 					
-					System.out.println(bestScore + " : " + score);
+					//System.out.println(bestScore + " : " + score);
 					if(bestScore == score){ 
 						localOptima = true; 
 						//System.out.println(score);
 						continue;
 					}
-					if(score > bestScore){
+					if(score >= bestScore){
 						bestScore = score;
 						yStart = candidate;
 					}
