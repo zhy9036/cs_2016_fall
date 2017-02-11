@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -36,14 +37,14 @@ public class SPerceptron {
 			System.out.println("Run: " + i);
 			for(int j = 0; j < data.size(); j++){
 				//System.out.print("\r");
-				System.out.println("	training: " + j);
+				//System.out.println("	training: " + j);
 				ArrayList<ArrayList<Integer>> sample = data.get(j);
 				ArrayList<Integer> yTrue = sLabels.get(j);
 				ArrayList<Integer> yHat = rgsInference(sample, weight, restarts);
-				//System.out.println(yHat.size());
+
 				for(int k = 0; k < yHat.size(); k++){
 					if(yTrue.get(k) != yHat.get(k)){
-						updateWeight(sample.get(k),weight, yTrue.get(k), yHat.get(k), learningRate);
+						updateWeight(sample.get(k), weight, yTrue.get(k), yHat.get(k), learningRate);
 					}
 				}
 			}
@@ -69,7 +70,7 @@ public class SPerceptron {
 			}
 		}
 		
-		System.out.println((total-error/total));
+		System.out.println((total-error)*1.0/total);
 	}
 	private void updateWeight(ArrayList<Integer> sample, 
 			ArrayList<ArrayList<Double>> w, int yTrue, int yHat, double learningRate){
@@ -77,7 +78,7 @@ public class SPerceptron {
 		ArrayList<Double> yiHat = w.get(yHat);
 		for(int i = 0; i < sample.size(); i++){
 			yiTrue.set(i,yiTrue.get(i) + learningRate * sample.get(i));
-			yiHat.set(i,yiTrue.get(i) - learningRate * sample.get(i));
+			yiHat.set(i,yiHat.get(i) - learningRate * sample.get(i));
 		}
 		w.set(yTrue, yiTrue);
 		w.set(yHat, yiHat);
@@ -102,46 +103,45 @@ public class SPerceptron {
 		ArrayList<Integer> yBest = yHat;
 		ArrayList<Integer> yStart = new ArrayList<Integer>();
 		for (int i = 0; i < restarts; i++) {
-			if(preBestScore < bestScore){
-				yBest = yStart;
+			if(preBestScore <= bestScore){
+				Collections.copy(yBest, yStart);
 				preBestScore = bestScore;
 			}
 			bestScore = 0;
 			//randomly generate structured output y_start as starting point
 			for(int j = 0; j < sinput.size(); j++){
-				if(yStart.size() < 26)
+				if(yStart.size() < sinput.size())
 					yStart.add(r.nextInt(26));
 				else
 					yStart.set(j, r.nextInt(26));
 			}
 			
 			boolean localOptima = false;
-			while (!localOptima) {
+			//while (!localOptima) {
 				//generating all successors that differ by 1 bit
 				ArrayList<ArrayList<Integer>> sucessors = generateSuccessors(yStart);
 				double score = 0;
 				
 				//loop over all successors and compute their score, mark the best one
 				for(ArrayList<Integer> candidate : sucessors){
+					score = 0;
 					for(int j = 0; j < sinput.size(); j++){
 						int yi = candidate.get(j);
 						score += dotProduct(sinput.get(j), weight.get(yi));
 					}
 					
-					//System.out.println(bestScore + " : " + score);
-					if(bestScore == score){ 
-						localOptima = true; 
-						//System.out.println(score);
-						continue;
-					}
 					if(score >= bestScore){
 						bestScore = score;
 						yStart = candidate;
 					}
+					if(bestScore == score){ 
+						localOptima = true; 
+						//continue;
+					}
+					
 				}
-			}
+			//}
 		}
-		System.out.println(yBest.size());
 		return yBest;
 	}
 	
@@ -153,8 +153,9 @@ public class SPerceptron {
 				if(j != old){
 					yStart.set(i, j);
 					ArrayList<Integer> copy = new ArrayList<Integer>();
-					for(int y : yStart)
+					for(int y : yStart){
 						copy.add(y);
+					}
 					rst.add(copy); 
 					yStart.set(i, old);
 				}
@@ -167,6 +168,7 @@ public class SPerceptron {
 	private double dotProduct(ArrayList<Integer> xi, ArrayList<Double> wi){
 		double rst = 0;
 		for(int i = 0; i < xi.size(); i++){
+			
 			rst += xi.get(i) * wi.get(i);
 		}
 		return rst;

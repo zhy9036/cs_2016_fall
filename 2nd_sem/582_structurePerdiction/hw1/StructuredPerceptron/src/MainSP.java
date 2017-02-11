@@ -10,15 +10,16 @@ public class MainSP {
 		ArrayList<ArrayList<ArrayList<Integer>>> data = new ArrayList(); 
 		ArrayList<ArrayList<Integer>> sLabels = new ArrayList();
 		ArrayList<ArrayList<Double>> weight = new ArrayList();
-		
+		ArrayList<ArrayList<ArrayList<Integer>>> dataT = new ArrayList(); 
+		ArrayList<ArrayList<Integer>> sLabelsT = new ArrayList();
 		dataProcess("datasets/ocr_fold0_sm_train.txt", data, sLabels);
-		
+		dataProcess("datasets/ocr_fold0_sm_test.txt", dataT, sLabelsT);
 		int restarts = 20;
-		int maxIter = 2; 
+		int maxIter = 10; 
 		double learningRate = 0.01;
 		SPerceptron sp = new SPerceptron(weight, restarts, maxIter, learningRate);
 		sp.training(data, sLabels);
-		sp.test(data, sLabels);
+		sp.test(dataT, sLabelsT);
 	}
 	
 	public static void dataProcess(String fileName, 
