@@ -14,12 +14,20 @@ public class MainSP {
 		ArrayList<ArrayList<Integer>> sLabelsT = new ArrayList();
 		dataProcess("datasets/ocr_fold0_sm_train.txt", data, sLabels);
 		dataProcess("datasets/ocr_fold0_sm_test.txt", dataT, sLabelsT);
+		int featureLength = data.get(0).get(0).size(); 
+		int classNum = 26; 
 		int restarts = 20;
-		int maxIter = 10; 
+		int maxIter = 100; 
 		double learningRate = 0.01;
-		SPerceptron sp = new SPerceptron(weight, restarts, maxIter, learningRate);
+		SPerceptron sp = new SPerceptron(weight, featureLength, classNum, restarts, maxIter, learningRate);
 		sp.training(data, sLabels);
-		sp.test(dataT, sLabelsT);
+		for(int i = 0; i < maxIter; i++){
+			sp.test(data, sLabels, sp.weightList.get(i));
+		}
+		System.out.println("\n\n\n Test: \n");
+		for(int i = 0; i < maxIter; i++){
+			sp.test(dataT, sLabelsT, sp.weightList.get(i));
+		}
 	}
 	
 	public static void dataProcess(String fileName, 
@@ -37,16 +45,19 @@ public class MainSP {
 			if(!line.matches("\\s*")){
 				String[] buf = line.split("\\s+");	
 				ArrayList<Integer> feature = new ArrayList();
-				int label = buf[2].charAt(0) - 'a';
+				char charLabel = buf[2].charAt(buf[2].length()-1);
+				int label = (charLabel >= 'a' && charLabel <= 'z') ? charLabel - 'a' : charLabel - '0';
+
 				String featureString = buf[1].substring(2);
 				for(int i = 0; i < featureString.length(); i++){
 					feature.add(featureString.charAt(i) - '0');
 				}
 				sample.add(feature);
 				structuredLabel.add(label);
-				//System.out.print((char)(label+'a'));
+				//System.out.print((char)(label+'0'));
+				
 			}else{
-				//System.out.println();
+				//System.out.println();				
 				data.add(sample);
 				sLabels.add(structuredLabel);
 				sample = new ArrayList();
