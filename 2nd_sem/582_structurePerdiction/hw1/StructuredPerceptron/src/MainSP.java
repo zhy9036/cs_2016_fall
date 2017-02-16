@@ -9,7 +9,6 @@ public class MainSP {
 	public static void main (String[] args) throws IOException {
 		ArrayList<ArrayList<ArrayList<Integer>>> data = new ArrayList(); 
 		ArrayList<ArrayList<Integer>> sLabels = new ArrayList();
-		ArrayList<ArrayList<Double>> weight = new ArrayList();
 		ArrayList<ArrayList<ArrayList<Integer>>> dataT = new ArrayList(); 
 		ArrayList<ArrayList<Integer>> sLabelsT = new ArrayList();
 		dataProcess("datasets/ocr_fold0_sm_train.txt", data, sLabels);
@@ -19,7 +18,7 @@ public class MainSP {
 		int restarts = 20;
 		int maxIter = 100; 
 		double learningRate = 0.01;
-		SPerceptron sp = new SPerceptron(weight, featureLength, classNum, restarts, maxIter, learningRate);
+		SPerceptron sp = new SPerceptron(featureLength, classNum, restarts, maxIter, learningRate);
 		sp.training(data, sLabels);
 		for(int i = 0; i < maxIter; i++){
 			sp.test(data, sLabels, sp.weightList.get(i));

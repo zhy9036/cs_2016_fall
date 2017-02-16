@@ -1,21 +1,28 @@
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class SPerceptron {
 	
 	ArrayList<ArrayList<ArrayList<Integer>>> data;
 	ArrayList<ArrayList<Double>> weight;
+	Map<String, ArrayList<Double>> pairwiseWeight;
+	Map<String, ArrayList<Double>> tupleWeight;
+	Map<String, ArrayList<Double>> quadWeight;
 	ArrayList<ArrayList<ArrayList<Double>>> weightList;
 	ArrayList<ArrayList<Integer>> sLabels;
 	int restarts, maxIter, featureLength, classNum; 
 	double learningRate;
 	
-	public SPerceptron(ArrayList<ArrayList<Double>> weight, int featureLength, int classNum,
+	public SPerceptron(int featureLength, int classNum,
 					   int restarts,int maxIter, double learningRate){
 
-		this.weight = weight;
+		this.weight = new ArrayList();
+		this.pairwiseWeight = new HashMap();
+		this.tupleWeight = new HashMap();
+		this.quadWeight = new HashMap();
 		this.weightList = new ArrayList();
 		this.featureLength = featureLength;
 		this.classNum = classNum;
@@ -31,6 +38,12 @@ public class SPerceptron {
 			}
 			weight.add(dum);
 		}
+		
+		generateMap(pairwiseWeight, 2);
+		for(String key : pairwiseWeight.keySet())
+			System.out.println(key);
+		
+		System.exit(0);
 	}
 	
 	
@@ -195,4 +208,37 @@ public class SPerceptron {
 		}
 		return rst;
 	}
+	
+	private Map<String, ArrayList<Double>> generateMap(Map<String, ArrayList<Double>> map, int bitSize){
+		
+		mapHelper(map, bitSize, "");
+		return map;
+	}
+	
+	private void mapHelper(Map<String, ArrayList<Double>> map, int bitSize, String cur){
+		if(cur.length() == bitSize){
+			ArrayList<Double> dum = new ArrayList();
+			for(int j = 0; j < featureLength; j++){
+				dum.add(0.0);
+			}
+			//System.out.println(cur + " " + cur.length());
+			map.put(cur, dum);
+		}else if(cur.length() > bitSize){
+			return;
+		}else{
+			
+			for(int i = 0; i < classNum; i++){
+				if(cur.length() < 2){
+					String cache = cur;
+					cur = cur + (char)(i+'a');
+					//System.out.println(cur);
+					mapHelper(map, bitSize, cur);
+					cur = cache;
+				}
+			}
+		
+		}
+	}
+	
+	
 }
