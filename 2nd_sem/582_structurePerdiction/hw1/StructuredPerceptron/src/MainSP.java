@@ -18,7 +18,7 @@ public class MainSP {
 		int restarts = 20;
 		int maxIter = 20; 
 		double learningRate = 0.01;
-		int complexity = 4;
+		int complexity = 4 ;
 		SPerceptron sp = new SPerceptron(featureLength, classNum, restarts, maxIter, learningRate);
 		sp.feedTestData(dataT, sLabelsT);
 		sp.training(data, sLabels, complexity);
