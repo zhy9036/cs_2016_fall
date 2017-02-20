@@ -12,21 +12,25 @@ public class MainSP {
 		ArrayList<ArrayList<ArrayList<Integer>>> dataT = new ArrayList(); 
 		ArrayList<ArrayList<Integer>> sLabelsT = new ArrayList();
 		dataProcess("datasets/ocr_fold0_sm_train.txt", data, sLabels);
-		dataProcess("datasets/ocr_fold0_sm_test.txt", dataT, sLabelsT);
+		dataProcess("datasets/ocr_fold0_sm_train_small.txt", dataT, sLabelsT);
 		int featureLength = data.get(0).get(0).size(); 
 		int classNum = 26; 
 		int restarts = 20;
-		int maxIter = 100; 
+		int maxIter = 20; 
 		double learningRate = 0.01;
+		int complexity = 4;
 		SPerceptron sp = new SPerceptron(featureLength, classNum, restarts, maxIter, learningRate);
-		sp.training(data, sLabels);
-		for(int i = 0; i < maxIter; i++){
-			sp.test(data, sLabels, sp.weightList.get(i));
+		sp.feedTestData(dataT, sLabelsT);
+		sp.training(data, sLabels, complexity);
+		System.out.println("\n\n finished \n\n");
+		for(double a : sp.trainingRst){
+			System.out.println(a);
 		}
-		System.out.println("\n\n\n Test: \n");
-		for(int i = 0; i < maxIter; i++){
-			sp.test(dataT, sLabelsT, sp.weightList.get(i));
+		System.out.println("\n\n testing \n\n");
+		for(double a : sp.testingRst){
+			System.out.println(a);
 		}
+
 	}
 	
 	public static void dataProcess(String fileName, 

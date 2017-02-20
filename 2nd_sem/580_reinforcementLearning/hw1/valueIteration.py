@@ -94,7 +94,9 @@ def valueIteration():
 
 
 
-def policyIteration(values, policy, gamma):
+def policyIteration(gamma):
+    values = [0 for x in range(env.observation_space.n)]
+    policy = [0 for x in range(env.observation_space.n)]
     gamma = gamma
     theta = (1 - gamma) / gamma
     policy_stable = False
@@ -148,16 +150,17 @@ def policyIteration(values, policy, gamma):
     print 'PI*: ', policy
     print 'V*: ', values
 
+def monte_carlo_method():
+    pass
+
 
 
 valueIteration()
 Asynchronous_valueIteration()
-'''
+
 for i in range(1,10):
-    values = [0 for x in range(env.observation_space.n)]
-    policy = [0 for x in range(env.observation_space.n)] 
-    policyIteration(values, policy, i*1.0/10)
-'''
+    policyIteration(i*1.0/10)
+
 
 
 '''
