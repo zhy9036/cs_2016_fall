@@ -11,17 +11,19 @@ public class MainSP {
 		ArrayList<ArrayList<Integer>> sLabels = new ArrayList();
 		ArrayList<ArrayList<ArrayList<Integer>>> dataT = new ArrayList(); 
 		ArrayList<ArrayList<Integer>> sLabelsT = new ArrayList();
-		dataProcess("datasets/ocr_fold0_sm_train.txt", data, sLabels);
-		dataProcess("datasets/ocr_fold0_sm_train_small.txt", dataT, sLabelsT);
+		dataProcess("datasets/nettalk_stress_train.txt", data, sLabels);
+		dataProcess("datasets/nettalk_stress_test.txt", dataT, sLabelsT);
 		int featureLength = data.get(0).get(0).size(); 
-		int classNum = 26; 
+		int classNum = 5; 
 		int restarts = 20;
 		int maxIter = 20; 
 		double learningRate = 0.01;
-		int complexity = 4;
+		int complexity = 2;
 		SPerceptron sp = new SPerceptron(featureLength, classNum, restarts, maxIter, learningRate);
 		sp.feedTestData(dataT, sLabelsT);
-		sp.training(data, sLabels, complexity);
+		//sp.training(data, sLabels, complexity);
+		int[] res = new int[]{10, 25, 50, 100, 200};
+		/*
 		System.out.println("\n\n finished \n\n");
 		for(double a : sp.trainingRst){
 			System.out.println(a);
@@ -29,6 +31,15 @@ public class MainSP {
 		System.out.println("\n\n testing \n\n");
 		for(double a : sp.testingRst){
 			System.out.println(a);
+		}
+		*/
+		System.out.println("\n\n\n finished \n");
+		for(int a : res){
+			SPerceptron spSub = new SPerceptron(featureLength, classNum, a, maxIter, learningRate);
+			spSub.feedTestData(dataT, sLabelsT);
+			spSub.training(data, sLabels, complexity);
+			System.out.println(spSub.trainingRst.get(maxIter-1));
+			System.out.println(spSub.testingRst.get(maxIter-1));
 		}
 
 	}
