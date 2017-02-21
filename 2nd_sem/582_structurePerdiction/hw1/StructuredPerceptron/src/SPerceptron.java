@@ -93,8 +93,8 @@ public class SPerceptron {
 			double testing = test(dataTest, sLabelsTest, weight, complexity);
 			trainingRst.add(training);
 			testingRst.add(testing);
-			System.out.println(training);
-			System.out.println(testing);
+			//System.out.println(training);
+			//System.out.println(testing);
 			
 			this.weightList.add(copyWeight(weight));
 		}
