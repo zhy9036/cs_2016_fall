@@ -26,13 +26,17 @@ public class StructuredPerceptronBeam {
 	int restarts, maxIter, featureLength, classNum; 
 	double learningRate;
 	
-	public enum UpdateMode {
-		EarlyUnpdate, Standard, MaxViolationUpdate
+	public static enum UpdateMode {
+		EarlyUpdate, Standard, MaxViolationUpdate
+	}
+	public static enum SearchMode {
+		BestFirst, BreathFirst
 	}
 	
 	
+	
 	public StructuredPerceptronBeam(int featureLength, int classNum,
-					   int restarts,int maxIter, double learningRate){
+					   int maxIter, double learningRate){
 
 		this.weight = new ArrayList();
 		this.trainingRst = new ArrayList();
@@ -76,8 +80,11 @@ public class StructuredPerceptronBeam {
 	 */
 	
 	
-	public ArrayList<ArrayList<Double>> training(ArrayList<ArrayList<ArrayList<Integer>>> data,
-												 ArrayList<String> sLabels, int beamWidth, int complexity, UpdateMode mode){
+	public ArrayList<ArrayList<Double>> 
+		training(ArrayList<ArrayList<ArrayList<Integer>>> data,
+				 ArrayList<String> sLabels, int beamWidth, int complexity, 
+				 UpdateMode uMode, SearchMode sMode){
+		
 		System.out.println("Training ...");
 		for(int i = 0; i < maxIter; i++){
 			//System.out.println("Run: " + i);
@@ -87,9 +94,11 @@ public class StructuredPerceptronBeam {
 				ArrayList<ArrayList<Integer>> sample = data.get(j);
 				String yTrue = sLabels.get(j);
 				//ArrayList<Integer> yHat = rgsInference(sample, weight, restarts, complexity);
-				String yHat =  BestFirstBeamInference(sample, yTrue, beamWidth, complexity, mode);
+				String yHat = (sMode == SearchMode.BestFirst) ? 
+						BestFirstBeamInference(sample, yTrue, beamWidth, complexity, uMode, true)
+						: BreadthFirstBeamInference(sample, yTrue, beamWidth, complexity, uMode, true);
 
-				if(mode == UpdateMode.Standard)
+				if(uMode == UpdateMode.Standard)
 					updateFeatureWeight(sample, yTrue, yHat, complexity);
 			}
 			
@@ -107,21 +116,24 @@ public class StructuredPerceptronBeam {
 	}
 	
 	public double test(ArrayList<ArrayList<ArrayList<Integer>>> data,
-			 ArrayList<String> sLabels, ArrayList<ArrayList<Double>> w, 
-			 int complexity, int beamWidth, UpdateMode mode){
+			 ArrayList<String> sLabels, 
+			 int complexity, int beamWidth, UpdateMode uMode, SearchMode sMode){
 		int total = 0;
 		int error = 0;
-
+		//System.out.println(data.size());
 		for(int j = 0; j < data.size(); j++){
 			ArrayList<ArrayList<Integer>> sample = data.get(j);
 			String yTrue = sLabels.get(j);
-			String yHat = BestFirstBeamInference(sample, yTrue, beamWidth, complexity, mode);
+			String yHat = (sMode == SearchMode.BestFirst) ? 
+					BestFirstBeamInference(sample, yTrue, beamWidth, complexity, uMode, false)
+					: BreadthFirstBeamInference(sample, yTrue, beamWidth, complexity, uMode, false);
 			for(int k = 0; k < yHat.length(); k++){
 				total++;
 				if(yTrue.charAt(k) != yHat.charAt(k)){
 					error++;
 				}
 			}
+			//System.out.println(yHat);
 		}
 		
 		return (total-error)*1.0/total;
@@ -138,11 +150,6 @@ public class StructuredPerceptronBeam {
 	private ArrayList<ArrayList<Double>> updateWeight(ArrayList<Integer> sample, 
 			ArrayList<ArrayList<Double>> w, int yTrue, int yHat, double learningRate){
 		
-		
-		if(classNum == 26){
-			yTrue -= 'a';
-			yHat -= 'a';
-		}
 		ArrayList<Double> yiTrue = w.get(yTrue);
 		ArrayList<Double> yiHat = w.get(yHat);
 		for(int i = 0; i < sample.size(); i++){
@@ -162,7 +169,11 @@ public class StructuredPerceptronBeam {
 		
 		for(int k = 0; k < trueLabel.length(); k++){
 			if(trueLabel.charAt(k) != predictLabel.charAt(k)){
-				weight = updateWeight(sample.get(k), weight, trueLabel.charAt(k), predictLabel.charAt(k), learningRate);
+				int trueIndex = (classNum == 26) ? trueLabel.charAt(k) - 'a' 
+						: trueLabel.charAt(k) - '0';
+				int predictIndex = (classNum == 26) ? predictLabel.charAt(k) - 'a' 
+						: predictLabel.charAt(k) - '0';
+				weight = updateWeight(sample.get(k), weight, trueIndex, predictIndex, learningRate);
 			}
 		}
 		
@@ -340,7 +351,8 @@ public class StructuredPerceptronBeam {
 
 	
 	private String BestFirstBeamInference
-		(ArrayList<ArrayList<Integer>> sinput, String label, int beamWidth, int complexity, UpdateMode mode){
+		(ArrayList<ArrayList<Integer>> sinput, String label, 
+				int beamWidth, int complexity, UpdateMode mode, boolean trainMode){
 		
 		String yBest = "";
 		ArrayList<String> beam = new ArrayList();
@@ -349,12 +361,13 @@ public class StructuredPerceptronBeam {
 		int curSize = 0;
 		while(yBest.length() != sinput.size()){
 			curSize++;
-			String subLabel = label.substring(0, curSize);
+			
 			if(beam.size() == 0){
 				for(int i = 0; i < this.classNum; i++){
 					String tmp = "";
 					tmp += (classNum == 26) ? (char)(i+'a') : i;
 					double score = calulateCandidateBeamScore(tmp, sinput, complexity);
+					
 					candidateMap.put(tmp, score);
 				}
 			}else{					
@@ -362,35 +375,58 @@ public class StructuredPerceptronBeam {
 					String tmp = yBest;
 					tmp += (classNum == 26) ? (char)(j+'a') : j;
 					double score = calulateCandidateBeamScore(tmp, sinput, complexity);
+					//System.out.println(score);
 					candidateMap.put(tmp, score);
 					
 				}
 			}
 			
 			List<Entry<String, Double>> sortedEntryList = entriesSortedByValues(candidateMap);
+			//System.out.println(sortedEntryList);
 			beam.clear();
-			candidateMap.clear();
+			//candidateMap.clear();
 			boolean earlyUpdateChecker = true;
 			for(int i = 0; i < beamWidth; i++){
-				beam.add(sortedEntryList.get(i).getKey());
-				if(sortedEntryList.get(i).getKey().equals(subLabel))
-						earlyUpdateChecker = false;
-				candidateMap.put(sortedEntryList.get(i).getKey(), sortedEntryList.get(i).getValue());
+				if(sortedEntryList.size()-1 >= i){
+					beam.add(sortedEntryList.get(i).getKey());
+					
+					String hatLabel = sortedEntryList.get(i).getKey();
+					String subLabel = label.substring(0, hatLabel.length());
+					if(sortedEntryList.get(i).getKey().equals(subLabel))
+							earlyUpdateChecker = false;
+					candidateMap.put(sortedEntryList.get(i).getKey(), sortedEntryList.get(i).getValue());
+				}
 			}
-			if(mode == UpdateMode.EarlyUnpdate && earlyUpdateChecker){
-				for(String wrongLabel : beam){
-					updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
+			candidateMap.remove(beam.get(0));
+			if(trainMode){
+				if(mode == UpdateMode.EarlyUpdate && earlyUpdateChecker){
+					for(String wrongLabel : beam){
+						String subLabel = label.substring(0, wrongLabel.length());
+						//System.out.println("haha " + subLabel + " " + wrongLabel);
+						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
+					}
+					return null;
+				}
+				if(mode == UpdateMode.MaxViolationUpdate 
+						&& earlyUpdateChecker && curSize == sinput.size()){
+					for(String wrongLabel : beam){
+						String subLabel = label.substring(0, wrongLabel.length());
+						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
+					}
 					return null;
 				}
 			}
+			
 			yBest = beam.get(0);
+			//System.out.println(yBest + " " + sinput.size());
 		}
 		
 		return yBest;
 	}
 	
 	private String BreadthFirstBeamInference
-		(ArrayList<ArrayList<Integer>> sinput, String label, int beamWidth, int complexity, UpdateMode mode){
+		(ArrayList<ArrayList<Integer>> sinput, String label,
+				int beamWidth, int complexity, UpdateMode mode, boolean trainMode){
 		String yBest = "";
 		ArrayList<String> beam = new ArrayList();
 		
@@ -427,10 +463,19 @@ public class StructuredPerceptronBeam {
 						earlyUpdateChecker = false;
 				candidateMap.put(sortedEntryList.get(i).getKey(), sortedEntryList.get(i).getValue());
 			}
-			if(mode == UpdateMode.EarlyUnpdate && earlyUpdateChecker){
-				for(String wrongLabel : beam){
-					updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
-					return null;
+			if(trainMode){
+				if(mode == UpdateMode.EarlyUpdate && earlyUpdateChecker){
+					for(String wrongLabel : beam){
+						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
+						return null;
+					}
+				}
+				if(mode == UpdateMode.MaxViolationUpdate 
+						&& earlyUpdateChecker && curSize == sinput.size()){
+					for(String wrongLabel : beam){
+						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
+						return null;
+					}
 				}
 			}
 			yBest = beam.get(0);
@@ -462,7 +507,9 @@ public class StructuredPerceptronBeam {
 		ArrayList<ArrayList<Integer>> sample = new ArrayList();
 		// calculate unary score
 		for(int i = 0; i < candidate.length(); i++){
-			score += dotProduct(sinput.get(i), weight.get(candidate.charAt(i)));
+			int index = (classNum == 26) ? candidate.charAt(i)-'a' : candidate.charAt(i)-'0';
+			score += dotProduct(sinput.get(i), weight.get(index));
+			// constructed sample for calculating feature score
 			sample.add(sinput.get(i));
 		}
 		
@@ -520,7 +567,8 @@ public class StructuredPerceptronBeam {
 		}else{			
 			for(int i = 0; i < classNum; i++){
 				if(cur.length() < bitSize){
-					cur = cur + (char)(i + 'a');
+					char adder = (classNum == 26) ? 'a' : '0';
+					cur = cur + (char)(i + adder);
 					mapHelper(map, bitSize, cur);
 					cur = cur.substring(0, cur.length()-1);
 				}
