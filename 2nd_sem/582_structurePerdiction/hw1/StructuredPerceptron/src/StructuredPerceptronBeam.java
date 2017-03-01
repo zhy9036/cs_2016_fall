@@ -384,7 +384,7 @@ public class StructuredPerceptronBeam {
 			List<Entry<String, Double>> sortedEntryList = entriesSortedByValues(candidateMap);
 			//System.out.println(sortedEntryList);
 			beam.clear();
-			//candidateMap.clear();
+			candidateMap.clear();
 			boolean earlyUpdateChecker = true;
 			for(int i = 0; i < beamWidth; i++){
 				if(sortedEntryList.size()-1 >= i){

@@ -20,7 +20,7 @@ public class MainSP {
 		int classNum = 5; 
 		int restarts = 20;
 		int maxIter = 50; 
-		int beamWidth = 20;
+		int beamWidth = 10;
 		double learningRate = 0.01;
 		int complexity = 2;
 		//SPerceptron sp = new SPerceptron(featureLength, classNum, restarts, maxIter, learningRate);
