@@ -14,31 +14,40 @@ public class MainSP {
 		ArrayList<String> sLabels = new ArrayList();
 		ArrayList<ArrayList<ArrayList<Integer>>> dataT = new ArrayList(); 
 		ArrayList<String> sLabelsT = new ArrayList();
-		dataProcess("datasets/nettalk_stress_train.txt", data, sLabels);
-		//dataProcess("datasets/ocr_fold0_sm_train_small.txt", dataT, sLabelsT);
+		String net = "datasets/nettalk_stress_";
+		dataProcess("datasets/ocrTrain.txt", data, sLabels);
+		dataProcess("datasets/ocrT.txt", dataT, sLabelsT);
 		int featureLength = data.get(0).get(0).size(); 
-		int classNum = 5; 
+		int classNum = 26; 
 		int restarts = 20;
 		int maxIter = 50; 
-		int beamWidth = 10;
+		//int beamWidth = 5;
 		double learningRate = 0.01;
 		int complexity = 2;
 		//SPerceptron sp = new SPerceptron(featureLength, classNum, restarts, maxIter, learningRate);
 		//sp.feedTestData(dataT, sLabelsT);
 		//sp.training(data, sLabels, complexity);
-		StructuredPerceptronBeam spb = new StructuredPerceptronBeam(featureLength, classNum, 
-				maxIter, learningRate);
-		int[] res = new int[]{10, 25, 50, 100, 200};
-		spb.training(data, sLabels, beamWidth, complexity, 
-				StructuredPerceptronBeam.UpdateMode.EarlyUpdate, 
-				StructuredPerceptronBeam.SearchMode.BestFirst);
 		
-		double rst = spb.test(data, sLabels, complexity, beamWidth, 
-				StructuredPerceptronBeam.UpdateMode.EarlyUpdate, 
-				StructuredPerceptronBeam.SearchMode.BestFirst);
+		int[] res = new int[]{1, 5, 10, 15};
 		
-		System.out.println("finished \n");
-		System.out.println(rst);
+		for(int beamWidth : res){
+			StructuredPerceptronBeam spb = new StructuredPerceptronBeam(featureLength, classNum, 
+					maxIter, learningRate);
+			spb.training(data, sLabels, beamWidth, complexity, 
+					StructuredPerceptronBeam.UpdateMode.Standard, 
+					StructuredPerceptronBeam.SearchMode.BreathFirst);
+			
+			double rst = spb.test(data, sLabels, complexity, beamWidth, 
+					StructuredPerceptronBeam.UpdateMode.EarlyUpdate, 
+					StructuredPerceptronBeam.SearchMode.BreathFirst);
+			double rst1 = spb.test(dataT, sLabelsT, complexity, beamWidth, 
+					StructuredPerceptronBeam.UpdateMode.EarlyUpdate, 
+					StructuredPerceptronBeam.SearchMode.BreathFirst);
+			
+			
+			System.out.println(rst);
+			System.out.println(rst1);
+		}
 		/*
 		for(double a : sp.trainingRst){
 			System.out.println(a);

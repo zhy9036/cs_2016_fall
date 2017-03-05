@@ -80,12 +80,11 @@ public class StructuredPerceptronBeam {
 	 */
 	
 	
-	public ArrayList<ArrayList<Double>> 
-		training(ArrayList<ArrayList<ArrayList<Integer>>> data,
+	public ArrayList<ArrayList<Double>> training(ArrayList<ArrayList<ArrayList<Integer>>> data,
 				 ArrayList<String> sLabels, int beamWidth, int complexity, 
 				 UpdateMode uMode, SearchMode sMode){
 		
-		System.out.println("Training ...");
+		//System.out.println("Training ...");
 		for(int i = 0; i < maxIter; i++){
 			//System.out.println("Run: " + i);
 			for(int j = 0; j < data.size(); j++){
@@ -97,7 +96,7 @@ public class StructuredPerceptronBeam {
 				String yHat = (sMode == SearchMode.BestFirst) ? 
 						BestFirstBeamInference(sample, yTrue, beamWidth, complexity, uMode, true)
 						: BreadthFirstBeamInference(sample, yTrue, beamWidth, complexity, uMode, true);
-
+				
 				if(uMode == UpdateMode.Standard)
 					updateFeatureWeight(sample, yTrue, yHat, complexity);
 			}
@@ -111,7 +110,7 @@ public class StructuredPerceptronBeam {
 			
 			this.weightList.add(copyWeight(weight));
 		}
-		System.out.println("Training finished!");
+		//System.out.println("Training finished!");
 		return weight;
 	}
 	
@@ -350,12 +349,16 @@ public class StructuredPerceptronBeam {
 	}
 
 	
+	/** 
+	 * Beam Inference and Utilities 
+	 * */
+	
 	private String BestFirstBeamInference
 		(ArrayList<ArrayList<Integer>> sinput, String label, 
 				int beamWidth, int complexity, UpdateMode mode, boolean trainMode){
 		
 		String yBest = "";
-		ArrayList<String> beam = new ArrayList();
+		Map<String, Double> beam = new HashMap();
 		
 		Map<String, Double> candidateMap = new HashMap();
 		int curSize = 0;
@@ -365,20 +368,22 @@ public class StructuredPerceptronBeam {
 			if(beam.size() == 0){
 				for(int i = 0; i < this.classNum; i++){
 					String tmp = "";
-					tmp += (classNum == 26) ? (char)(i+'a') : i;
+					tmp = (classNum == 26) ? tmp + ((char)(i+'a')) : tmp + i;
 					double score = calulateCandidateBeamScore(tmp, sinput, complexity);
 					
 					candidateMap.put(tmp, score);
 				}
-			}else{					
+			}else{
+				
 				for(int j = 0; j < this.classNum; j++){
 					String tmp = yBest;
-					tmp += (classNum == 26) ? (char)(j+'a') : j;
+					tmp = (classNum == 26) ? tmp + ((char)(j+'a')) : tmp + j;
 					double score = calulateCandidateBeamScore(tmp, sinput, complexity);
 					//System.out.println(score);
 					candidateMap.put(tmp, score);
-					
+										
 				}
+				candidateMap.remove(yBest);
 			}
 			
 			List<Entry<String, Double>> sortedEntryList = entriesSortedByValues(candidateMap);
@@ -388,7 +393,7 @@ public class StructuredPerceptronBeam {
 			boolean earlyUpdateChecker = true;
 			for(int i = 0; i < beamWidth; i++){
 				if(sortedEntryList.size()-1 >= i){
-					beam.add(sortedEntryList.get(i).getKey());
+					beam.put(sortedEntryList.get(i).getKey(), sortedEntryList.get(i).getValue());
 					
 					String hatLabel = sortedEntryList.get(i).getKey();
 					String subLabel = label.substring(0, hatLabel.length());
@@ -397,10 +402,12 @@ public class StructuredPerceptronBeam {
 					candidateMap.put(sortedEntryList.get(i).getKey(), sortedEntryList.get(i).getValue());
 				}
 			}
-			candidateMap.remove(beam.get(0));
+			//candidateMap.remove(beam.get(0));
+			//System.out.println(candidateMap.get(beam.get(0)));
+			
 			if(trainMode){
 				if(mode == UpdateMode.EarlyUpdate && earlyUpdateChecker){
-					for(String wrongLabel : beam){
+					for(String wrongLabel : beam.keySet()){
 						String subLabel = label.substring(0, wrongLabel.length());
 						//System.out.println("haha " + subLabel + " " + wrongLabel);
 						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
@@ -409,7 +416,7 @@ public class StructuredPerceptronBeam {
 				}
 				if(mode == UpdateMode.MaxViolationUpdate 
 						&& earlyUpdateChecker && curSize == sinput.size()){
-					for(String wrongLabel : beam){
+					for(String wrongLabel : beam.keySet()){
 						String subLabel = label.substring(0, wrongLabel.length());
 						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
 					}
@@ -417,7 +424,7 @@ public class StructuredPerceptronBeam {
 				}
 			}
 			
-			yBest = beam.get(0);
+			yBest = sortedEntryList.get(0).getKey();
 			//System.out.println(yBest + " " + sinput.size());
 		}
 		
@@ -428,7 +435,7 @@ public class StructuredPerceptronBeam {
 		(ArrayList<ArrayList<Integer>> sinput, String label,
 				int beamWidth, int complexity, UpdateMode mode, boolean trainMode){
 		String yBest = "";
-		ArrayList<String> beam = new ArrayList();
+		Map<String, Double> beam = new HashMap();
 		
 		Map<String, Double> candidateMap = new HashMap();
 		int curSize = 0;
@@ -438,15 +445,17 @@ public class StructuredPerceptronBeam {
 			if(beam.size() == 0){
 				for(int i = 0; i < this.classNum; i++){
 					String tmp = "";
-					tmp += (classNum == 26) ? (char)(i+'a') : i;
+					tmp = (classNum == 26) ? tmp + ((char)(i+'a')) : tmp + i;
+					
 					double score = calulateCandidateBeamScore(tmp, sinput, complexity);
 					candidateMap.put(tmp, score);
 				}
 			}else{
-				for(int i = 0; i < beam.size(); i++){					
-					for(int j = 0; j < this.classNum; j++){
-						String tmp = beam.get(i);
-						tmp += (classNum == 26) ? (char)(j+'a') : j;
+				for(String k : beam.keySet()){						
+					candidateMap.remove(k);
+					for(int j = 0; j < this.classNum; j++){	
+						String tmp = k;
+						tmp = (classNum == 26) ? tmp + ((char)(j+'a')) : tmp + j;
 						double score = calulateCandidateBeamScore(tmp, sinput, complexity);
 						candidateMap.put(tmp, score);
 					}
@@ -458,27 +467,29 @@ public class StructuredPerceptronBeam {
 			candidateMap.clear();
 			boolean earlyUpdateChecker = true;
 			for(int i = 0; i < beamWidth; i++){
-				beam.add(sortedEntryList.get(i).getKey());
-				if(sortedEntryList.get(i).getKey().equals(subLabel))
-						earlyUpdateChecker = false;
-				candidateMap.put(sortedEntryList.get(i).getKey(), sortedEntryList.get(i).getValue());
+				if(sortedEntryList.size()-1 >= i){
+					beam.put(sortedEntryList.get(i).getKey(), sortedEntryList.get(i).getValue());
+					if(sortedEntryList.get(i).getKey().equals(subLabel))
+							earlyUpdateChecker = false;
+				//candidateMap.put(sortedEntryList.get(i).getKey(), sortedEntryList.get(i).getValue());
+				}
 			}
 			if(trainMode){
 				if(mode == UpdateMode.EarlyUpdate && earlyUpdateChecker){
-					for(String wrongLabel : beam){
+					for(String wrongLabel : beam.keySet()){
 						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
 						return null;
 					}
 				}
 				if(mode == UpdateMode.MaxViolationUpdate 
 						&& earlyUpdateChecker && curSize == sinput.size()){
-					for(String wrongLabel : beam){
+					for(String wrongLabel : beam.keySet()){
 						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
 						return null;
 					}
 				}
 			}
-			yBest = beam.get(0);
+			yBest = sortedEntryList.get(0).getKey();
 		}
 		
 		return yBest;
