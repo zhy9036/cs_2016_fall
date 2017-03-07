@@ -34,7 +34,7 @@ public class MainSP {
 			StructuredPerceptronBeam spb = new StructuredPerceptronBeam(featureLength, classNum, 
 					maxIter, learningRate);
 			spb.training(data, sLabels, beamWidth, complexity, 
-					StructuredPerceptronBeam.UpdateMode.Standard, 
+					StructuredPerceptronBeam.UpdateMode.MaxViolationUpdate, 
 					StructuredPerceptronBeam.SearchMode.BreathFirst);
 			
 			double rst = spb.test(data, sLabels, complexity, beamWidth, 

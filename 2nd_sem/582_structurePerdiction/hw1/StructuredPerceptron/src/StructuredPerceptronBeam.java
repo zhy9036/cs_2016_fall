@@ -441,7 +441,7 @@ public class StructuredPerceptronBeam {
 		int curSize = 0;
 		while(yBest.length() != sinput.size()){
 			curSize++;
-			String subLabel = label.substring(0, curSize);
+			//String subLabel = label.substring(0, curSize);
 			if(beam.size() == 0){
 				for(int i = 0; i < this.classNum; i++){
 					String tmp = "";
@@ -469,6 +469,8 @@ public class StructuredPerceptronBeam {
 			for(int i = 0; i < beamWidth; i++){
 				if(sortedEntryList.size()-1 >= i){
 					beam.put(sortedEntryList.get(i).getKey(), sortedEntryList.get(i).getValue());
+					String hatLabel = sortedEntryList.get(i).getKey();
+					String subLabel = label.substring(0, hatLabel.length());
 					if(sortedEntryList.get(i).getKey().equals(subLabel))
 							earlyUpdateChecker = false;
 				//candidateMap.put(sortedEntryList.get(i).getKey(), sortedEntryList.get(i).getValue());
@@ -477,6 +479,7 @@ public class StructuredPerceptronBeam {
 			if(trainMode){
 				if(mode == UpdateMode.EarlyUpdate && earlyUpdateChecker){
 					for(String wrongLabel : beam.keySet()){
+						String subLabel = label.substring(0, wrongLabel.length());
 						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
 						return null;
 					}
@@ -484,7 +487,13 @@ public class StructuredPerceptronBeam {
 				if(mode == UpdateMode.MaxViolationUpdate 
 						&& earlyUpdateChecker && curSize == sinput.size()){
 					for(String wrongLabel : beam.keySet()){
-						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
+						ArrayList<ArrayList<Integer>> sample = new ArrayList();
+						// calculate unary score
+						for(int i = 0; i < wrongLabel.length(); i++){
+							sample.add(sinput.get(i));
+						}
+						String subLabel = label.substring(0, wrongLabel.length());
+						updateFeatureWeight(sample, subLabel, wrongLabel, complexity);
 						return null;
 					}
 				}
