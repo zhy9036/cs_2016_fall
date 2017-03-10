@@ -96,9 +96,9 @@ public class StructuredPerceptronBeam {
 				String yHat = (sMode == SearchMode.BestFirst) ? 
 						BestFirstBeamInference(sample, yTrue, beamWidth, complexity, uMode, true)
 						: BreadthFirstBeamInference(sample, yTrue, beamWidth, complexity, uMode, true);
-				
-				if(uMode == UpdateMode.Standard)
-					updateFeatureWeight(sample, yTrue, yHat, complexity);
+				//System.out.println(yHat);
+				yTrue = yTrue.substring(0, yHat.length());
+				updateFeatureWeight(sample, yTrue, yHat, complexity);
 			}
 			
 			//double training = test(data, sLabels, weight, complexity);
@@ -404,27 +404,43 @@ public class StructuredPerceptronBeam {
 			}
 			//candidateMap.remove(beam.get(0));
 			//System.out.println(candidateMap.get(beam.get(0)));
-			
+			yBest = sortedEntryList.get(0).getKey();
 			if(trainMode){
 				if(mode == UpdateMode.EarlyUpdate && earlyUpdateChecker){
+					/*
 					for(String wrongLabel : beam.keySet()){
 						String subLabel = label.substring(0, wrongLabel.length());
-						//System.out.println("haha " + subLabel + " " + wrongLabel);
 						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
+						return null;
 					}
-					return null;
+					*/
+					return yBest;
 				}
-				if(mode == UpdateMode.MaxViolationUpdate 
-						&& earlyUpdateChecker && curSize == sinput.size()){
+				if(mode == UpdateMode.MaxViolationUpdate && earlyUpdateChecker){
+					double dif = 0;
+					String worstLabel = "";
 					for(String wrongLabel : beam.keySet()){
+						ArrayList<ArrayList<Integer>> sample = new ArrayList();
+						// calculate unary score
+						//for(int i = 0; i < wrongLabel.length(); i++){
+							//sample.add(sinput.get(i));
+						//}
 						String subLabel = label.substring(0, wrongLabel.length());
-						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
+						//updateFeatureWeight(sample, subLabel, wrongLabel, complexity);
+						//return null;
+						double trueScore = calulateCandidateBeamScore(subLabel, sinput, complexity);
+						double wrongScore = calulateCandidateBeamScore(wrongLabel, sinput, complexity);
+						double difCur = Math.abs(wrongScore-trueScore);
+						if(difCur > dif){
+							dif = difCur;
+							worstLabel = wrongLabel;
+						}
 					}
-					return null;
+					return worstLabel;
 				}
 			}
 			
-			yBest = sortedEntryList.get(0).getKey();
+			
 			//System.out.println(yBest + " " + sinput.size());
 		}
 		
@@ -476,29 +492,46 @@ public class StructuredPerceptronBeam {
 				//candidateMap.put(sortedEntryList.get(i).getKey(), sortedEntryList.get(i).getValue());
 				}
 			}
+			yBest = sortedEntryList.get(0).getKey();
 			if(trainMode){
 				if(mode == UpdateMode.EarlyUpdate && earlyUpdateChecker){
+					/*
 					for(String wrongLabel : beam.keySet()){
 						String subLabel = label.substring(0, wrongLabel.length());
 						updateFeatureWeight(sinput, subLabel, wrongLabel, complexity);
 						return null;
 					}
+					*/
+					return yBest;
 				}
-				if(mode == UpdateMode.MaxViolationUpdate 
-						&& earlyUpdateChecker && curSize == sinput.size()){
+				if(mode == UpdateMode.MaxViolationUpdate && earlyUpdateChecker){
+					double dif = 0;
+					String worstLabel = "";
 					for(String wrongLabel : beam.keySet()){
 						ArrayList<ArrayList<Integer>> sample = new ArrayList();
 						// calculate unary score
-						for(int i = 0; i < wrongLabel.length(); i++){
-							sample.add(sinput.get(i));
-						}
+						//for(int i = 0; i < wrongLabel.length(); i++){
+							//sample.add(sinput.get(i));
+						//}
 						String subLabel = label.substring(0, wrongLabel.length());
-						updateFeatureWeight(sample, subLabel, wrongLabel, complexity);
-						return null;
+						//updateFeatureWeight(sample, subLabel, wrongLabel, complexity);
+						//return null;
+						double trueScore = calulateCandidateBeamScore(subLabel, sinput, complexity);
+						double wrongScore = calulateCandidateBeamScore(wrongLabel, sinput, complexity);
+						double difCur = Math.abs(wrongScore-trueScore);
+						//System.out.println("difCur = " + difCur);
+						if(worstLabel.length() == 0)
+							worstLabel = wrongLabel;
+						if(difCur > dif){
+							dif = difCur;
+							worstLabel = wrongLabel;
+							//System.out.println("get here");
+						}
 					}
+					return worstLabel;
 				}
 			}
-			yBest = sortedEntryList.get(0).getKey();
+			
 		}
 		
 		return yBest;
