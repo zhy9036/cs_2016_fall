@@ -1,0 +1,14 @@
+Yang Zhang
+CSE 414 HW8 Q2B
+
+cluster size: 5
+
+# of mapreduce jobs: 4
+
+run time: 23 mins
+
+# reduce tasks per job: 
+						job1 33 -> 50 
+						job2 1  -> 50 
+						job3 1  -> 1 
+						job4 1  -> 50 																		

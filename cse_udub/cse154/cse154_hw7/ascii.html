@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- 
+YANG ZHANG
+CSE 154 AA
+HW7
+This is the main html file. 
+-->
+<html>
+	<head>
+		<title>ASCIImation</title>
+		<link href="ascii.css" type="text/css" rel="stylesheet" />
+		<script src="https://webster.cs.washington.edu/js/asciimation/animations.js" type="text/javascript"></script>
+		<script src="https://webster.cs.washington.edu/js/asciimation/gallery.js" type="text/javascript"></script>				
+		<script src="ascii.js" type="text/javascript"></script>
+		<script src="myanimation.js" type="text/javascript"></script>
+
+
+	</head>
+
+	<body>
+		<h1>ASCII Animation Viewer</h1>
+		<div id="box"><textarea id="myt" rows="20" cols="80"></textarea></div>
+			<div class="indiv">
+				<fieldset>
+					<legend>Play Controls:</legend>
+					<div class="ctrl">
+						<button id="start">Start</button>
+						<button id="stop">Stop</button>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Animation:</legend>
+					<div class="ctrl">
+						<select id="sel_an">
+							<option value="blank" selected="selected">Blank</option>
+							<option value="exercise">Exercise</option>
+							<option value="juggler">Juggler</option>
+							<option value="bike">Bike</option>
+							<option value="dive">Dive</option>
+							<option value="custom">Custom</option>
+						</select>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Size:</legend>
+					<div class="ctrl">
+						<select id="size">
+							<option value="7pt" >Tiny</option>
+							<option value="10pt" >Small</option>
+							<option value="12pt" selected="selected">Medium</option>
+							<option value="16pt" >Large</option>
+							<option value="24pt" >Extra Large</option>
+							<option value="32pt" >XXL</option>
+						</select>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Speed:</legend>
+					<div class="ctrl">
+						<label><input type="radio" name="haha" value="50"/> Turbo </label> 
+						<label><input type="radio" name="haha" value="250" checked/> Normal </label>
+						<label><input type="radio" name="haha" value="1500"/> Slo-Mo </label>
+					</div>
+				</fieldset>
+			</div>
+			<div id="w3c">
+				<a href="https://webster.cs.washington.edu/validate-html.php"><img src="https://webster.cs.washington.edu/images/w3c-html.png" alt="Valid HTML5" /></a> <br />
+				<a href="https://webster.cs.washington.edu/validate-css.php"><img src="https://webster.cs.washington.edu/images/w3c-css.png" alt="Valid CSS" /></a> <br />
+				<a href="https://webster.cs.washington.edu/jslint/?referer"><img src="https://webster.cs.washington.edu/images/w3c-js.png" alt="Valid JS" /></a>
+			</div>
+
+	</body>
+</html>

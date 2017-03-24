@@ -1,0 +1,136 @@
+// TODO: Remove each 'todo' comment once I implement each part!
+
+// TODO: class comment header
+
+public class TreeMap<K extends Comparable<K>, V> extends AbstractTreeMap<K, V> {
+	
+	public TreeMap() {
+		super.clear();
+	}
+		
+	// TODO: comment header
+	public String toString() {
+		// TODO: implement this method
+		String temp = toString(super.root, "");
+		if(temp.length()>0){
+			return "{"+temp.substring(0, temp.length()-2)+"}";
+		}else{
+			return "{}";
+		}
+	}
+	
+	//in-order traversal
+	private String toString(TreeNode node, String toPrint){
+		if(node!=null){
+			toPrint = toString(node.left, toPrint);
+			toPrint += node.key+"="+node.value + ", ";
+			toPrint = toString(node.right, toPrint);
+		}
+		return toPrint;
+	}
+	
+	// TODO: comment header
+	protected TreeNode put(TreeNode node, K key, V value) {
+		// TODO: implement this method
+		if(key == null){
+			throw new NullPointerException();
+		}
+		node = super.put(node, key, value);
+		node = rotate(node);
+		return node;
+	}
+	
+	private int getKidHei(TreeNode node){
+		if(node != null){
+			return node.height;
+		}else{
+			return 0;
+		}		
+	}
+	
+	// TODO: comment header
+	protected TreeNode remove(TreeNode node, K key) {
+		// TODO: implement this method
+		node = super.remove(node, key);
+		node = rotate(node);
+		return node;
+	}
+	
+	private TreeNode leftRotate(TreeNode oldParent){
+		TreeNode orphan = oldParent.right.left;
+		TreeNode newParent = oldParent.right;
+		
+		newParent.left = oldParent;
+		oldParent.right = orphan;
+		
+		fixHeight(oldParent);
+		fixHeight(newParent);
+		
+		return newParent;
+	}
+	
+	private TreeNode rightRotate(TreeNode oldParent){
+		TreeNode orphan = oldParent.left.right;
+		TreeNode newParent = oldParent.left;
+		
+		newParent.right = oldParent;
+		oldParent.left = orphan;
+		
+		fixHeight(oldParent);
+		fixHeight(newParent);
+		
+		return newParent;
+	}
+
+	private TreeNode rotate(TreeNode parent){
+		if(parent != null){
+			int leftHei = getKidHei(parent.left);
+			int rightHei = getKidHei(parent.right);
+			
+			// right sub tree bigger
+			if(leftHei -  rightHei >= 2){
+				TreeNode leftChild = parent.left;
+				int leftChildLH = getKidHei(leftChild.left);
+				int leftChildRH = getKidHei(leftChild.right);
+				
+				if(leftChildLH>=leftChildRH){  // Left Left case && case 5 LR2
+					parent = rightRotate(parent);
+				
+				}else{   // Left Right case
+					
+					parent.left = leftRotate(parent.left);
+					parent = rightRotate(parent);
+				}
+			
+			// left sub tree bigger
+			}else if(rightHei - leftHei >=2){  
+				TreeNode rightChild = parent.right;
+				int rightChildLH = getKidHei(rightChild.left);
+				int rightChildRH = getKidHei(rightChild.right);
+				
+				if(rightChildRH>= rightChildLH){ // right right case && case 5 RL2
+					parent = leftRotate(parent);
+				}else{
+					// Right Left case
+					parent.right = rightRotate(parent.right);
+					parent = leftRotate(parent);
+				}
+			}
+			return parent;
+		}
+			return null;
+	}
+	private void fixHeight(TreeNode node){
+		if(node != null){
+			int left = 0;
+			if(node.left != null){
+				left = node.left.height;
+			}
+			int right = 0;
+			if (node.right != null){
+				right = node.right.height;
+			}
+			node.height = Math.max(left, right)+1;
+		}
+	}
+}

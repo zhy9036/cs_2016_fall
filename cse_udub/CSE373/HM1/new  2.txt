@@ -1,0 +1,21 @@
+public void stutter(Stack<Integer> a){
+    Queue<Integer> temp = new LinkedList<Integer>();
+    int size = a.size();
+    if(!a.isEmpty()){
+        for(int i =0; i<size; i++){
+            //int toadd = a.pop();
+            temp.add(a.pop());
+        }
+        for(int i=0; i<size; i++){
+            a.push(temp.peek());
+            a.push(temp.remove());
+        }
+        for(int i=0; i<size*2; i++){
+            temp.add(a.pop());
+        }
+        for(int i=0; i<size*2; i++){
+            a.push(temp.remove());
+        }
+        
+    }
+}

@@ -1,0 +1,32 @@
+#lang racket
+
+;; MUPL tests - add tests for your code
+
+(require "hw5.rkt")
+(require rackunit)
+
+(define tests
+  (test-suite
+   "Sample tests for Assignment 5"
+   
+   ;; simple test case
+   (check-equal?
+    (eval-exp (add (int 1) (int 2)))
+    (int 3)
+    "int addition"
+    )
+   
+   ;; test case that uses problems 1, 2, and 4
+   (check-equal?
+    (mupllist->racketlist
+     (eval-exp (call (call mupl-mapAddN (int 7))
+                     (racketlist->mupllist 
+                      (list (int 3) (int 4) (int 9))))))
+    (list (int 10) (int 11) (int 16))
+    "mupl-mapAddN - problems 1, 2, 4"
+    )
+   ))
+
+(require rackunit/text-ui)
+;; runs the test
+(run-tests tests)

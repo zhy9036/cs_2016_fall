@@ -1,0 +1,188 @@
+Script started on Wed 08 Jan 2014 09:19:12 PM PST
+]0;zhy9036@klaatu:~/Desktop[?1034h[zhy9036@klaatu Desktop]$ echo ""H"e"l"l"o" "w"o"r"l"d"
+Hello world
+]0;zhy9036@klaatu:~/Desktop[zhy9036@klaatu Desktop]$ passwd
+Changing password for user zhy9036.
+Changing password for zhy9036.
+(current) UNIX password: 
+New password: 
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+]0;zhy9036@klaatu:~/Desktop[zhy9036@klaatu Desktop]$ date
+Wed Jan  8 21:21:51 PST 2014
+]0;zhy9036@klaatu:~/Desktop[zhy9036@klaatu Desktop]$ pwd
+/homes/zhy9036/Desktop
+]0;zhy9036@klaatu:~/Desktop[zhy9036@klaatu Desktop]$ cd
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ ls -a
+text.txt       ..             .kshrc  .bash_logout  Desktop
+.bash_profile  .bash_history  .emacs  .bashrc       .
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ mkdir temp
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ mv temp fils[Kes
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ cd F[KF[Kfiles/
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ date > now
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ cp now before
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ ls -f[KlR ![K| grep ^-
+[01;31m[K-[m[Krw-r--r-- 1 zhy9036 ugrad_uw 29 Jan  8 21:31 before
+[01;31m[K-[m[Krw-r--r-- 1 zhy9036 ugrad_uw 29 Jan  8 21:29 now
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ touch[K[K[K[K[Ktouch temp
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ mv temp test
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ cd ..
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ rm if[K[K-rfd -rfi -rfr -rf[C[C[C[C files/
+rmdir: invalid option -- 'r'
+Try 'rmdir --help' for more information.
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ rmdir -rf files/[1P[1P[1P
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ ls
+[0m[38;5;27mDesktop[0m  text.txt
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ echo It's se[K[K[K[K[K[K[K[K ""I"t"s"[1P"'"s" "a" "s"e"c"r"e"t"[C > secretfile
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ chmod 444 secretfile
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ ls -l
+total 8
+drwxr-xr-x 2 zhy9036 ugrad_uw 4096 Jan  8 21:19 [0m[38;5;27mDesktop[0m
+-r--r--r-- 1 zhy9036 ugrad_uw   14 Jan  8 22:11 secretfile
+-rw-r--r-- 1 zhy9036 ugrad_uw    0 Jan  6 20:10 text.txt
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ cat >> sc[Kecretfile
+bash: secretfile: Permission denied
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ suo[Kdo cat >> secretfile
+bash: secretfile: Permission denied
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ cat ??[K[K>> secretfile << EOF
+> append[K[K[K[K[K[Knew text appended
+> EOF
+bash: secretfile: Permission denied
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ chmod 222 secretfile
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ ls -l
+total 8
+drwxr-xr-x 2 zhy9036 ugrad_uw 4096 Jan  8 21:19 [0m[38;5;27mDesktop[0m
+--w--w--w- 1 zhy9036 ugrad_uw   14 Jan  8 22:11 secretfile
+-rw-r--r-- 1 zhy9036 ugrad_uw    0 Jan  6 20:10 text.txt
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ cat secretfile
+cat: secretfile: Permission denied
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ uname -r
+3.9.9-0cse.0
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ ps aus[Kx | less
+[?1049h[?1h=
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  51184  5312 ?        Ss    2013   0:03 /usr/lib/system d/systemd --system --deserialize 17
+root         2  0.0  0.0      0     0 ?        S     2013   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S     2013   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<    2013   0:00 [kworker/0:0H]
+root         7  0.0  0.0      0     0 ?        S<    2013   0:00 [kworker/u:0H]
+root         8  0.0  0.0      0     0 ?        S     2013   0:00 [migration/0]
+root         9  0.0  0.0      0     0 ?        S     2013   0:00 [rcu_bh]
+root        10  0.0  0.0      0     0 ?        S     2013   0:01 [rcu_sched]
+root        11  0.0  0.0      0     0 ?        S     2013   0:00 [migration/1]
+root        12  0.0  0.0      0     0 ?        S     2013   0:01 [ksoftirqd/1]
+root        14  0.0  0.0      0     0 ?        S<    2013   0:00 [kworker/1:0H]
+root        15  0.0  0.0      0     0 ?        S<    2013   0:00 [khelper]
+root        16  0.0  0.0      0     0 ?        S     2013   0:00 [kdevtmpfs]
+root        17  0.0  0.0      0     0 ?        S<    2013   0:00 [netns]
+root        18  0.0  0.0      0     0 ?        S     2013   0:00 [bdi-default]
+root        19  0.0  0.0      0     0 ?        S<    2013   0:00 [kblockd]
+root        20  0.0  0.0      0     0 ?        S     2013   0:00 [khubd]
+root        22  0.0  0.0      0     0 ?        S<    2013   0:00 [rpciod]
+root        23  0.0  0.0      0     0 ?        S     2013   0:00 [kswapd0]
+root        24  0.0  0.0      0     0 ?        SN    2013   0:00 [ksmd]
+root        25  0.0  0.0      0     0 ?        S     2013   0:00 [fsnotify_mark]
+:[K
+[K[?1l>[?1049l]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ ls[K[Kls /etc/passwd | grep ^zhy9036
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ ls /etc/passwd | grep ^zhy9036[C[C[C[1@-[1@l[1@ 
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ cd /
+]0;zhy9036@klaatu:/[zhy9036@klaatu /]$ ls
+[0m[38;5;51mbin[0m   [38;5;27metc[0m    [38;5;27mins[0m         [38;5;51mlib64[0m       [38;5;27mmedia[0m  [38;5;27mnet[0m  [38;5;27mproc[0m      [38;5;27mrun[0m   [38;5;27msys[0m  [38;5;27musr[0m
+[38;5;27mboot[0m  [38;5;27mhome[0m   IWS-CLIENT  [38;5;27mlost+found[0m  [38;5;27mmisc[0m   [38;5;27mopt[0m  [38;5;27mprojects[0m  [38;5;51msbin[0m  [48;5;10;38;5;16mtmp[0m  [38;5;27mvar[0m
+[38;5;27mdev[0m   [38;5;27mhomes[0m  [38;5;51mlib[0m         [38;5;27mmailspool[0m   [38;5;27mmnt[0m    [38;5;27morg[0m  [38;5;27mroot[0m      [38;5;27msrv[0m   [38;5;51mu0[0m
+]0;zhy9036@klaatu:/[zhy9036@klaatu /]$ cd etc/pa[K[K
+]0;zhy9036@klaatu:/etc[zhy9036@klaatu etc]$ ls
+[0m[38;5;27ma2ps[0m                     hosts              [38;5;27mpolkit-1[0m
+a2ps.cfg                 hosts.allow        [38;5;27mpopt.d[0m
+a2ps-site.cfg            hosts.allow_f19    [38;5;27mppp[0m
+[38;5;27macpi[0m                     hosts.deny         prelink.cache
+adjtime                  hosts.deny_f19     prelink.conf
+aliases                  html2psrc          [38;5;27mprelink.conf.d[0m
+[38;5;27malternatives[0m             idmapd.conf        printcap
+ant.conf                 [38;5;27mImageMagick[0m        profile
+[38;5;27mant.d[0m                    [38;5;51minit.d[0m             [38;5;27mprofile.d[0m
+asound.conf              inittab            protocols
+at.deny                  inputrc            [38;5;27mpulse[0m
+[38;5;27mat-spi2[0m                  [38;5;27miproute2[0m           [38;5;51mrc0.d[0m
+autofs_ldap_auth.conf    issue              [38;5;51mrc1.d[0m
+auto.master              issue.net          [38;5;51mrc2.d[0m
+[38;5;27mauto.master.d[0m            [38;5;27mjava[0m               [38;5;51mrc3.d[0m
+auto.misc                [38;5;27mjvm[0m                [38;5;51mrc4.d[0m
+[38;5;34mauto.net[0m                 [38;5;27mjvm-commmon[0m        [38;5;51mrc5.d[0m
+[38;5;34mauto.smb[0m                 jwhois.conf        [38;5;51mrc6.d[0m
+[38;5;27mavahi[0m                    [38;5;27mkernel[0m             [38;5;27mrc.d[0m
+[38;5;27mbash_completion.d[0m        [38;5;27mkrb5[0m               [38;5;51mredhat-release[0m
+bashrc                   krb5.conf          request-key.conf
+[38;5;27mbinfmt.d[0m                 krb5.keytab        [38;5;27mrequest-key.d[0m
+bogofilter.cf            kshrc              resolv.conf
+[38;5;27mchkconfig.d[0m              lcovrc             [38;5;51mrmt[0m
+[38;5;27mcron.d[0m                   ld.so.cache        rpc
+[38;5;27mcron.daily[0m               ld.so.conf         [38;5;27mrpm[0m
+cron.deny                [38;5;27mld.so.conf.d[0m       rsyncd.conf
+[38;5;27mcron.hourly[0m              libaudit.conf      rsyslog.conf
+[38;5;27mcron.monthly[0m             [38;5;27mlibnl[0m              [38;5;27mrsyslog.d[0m
+crontab                  [38;5;27mlibpaper.d[0m         rwtab
+[38;5;27mcron.weekly[0m              [38;5;27mlibreport[0m          [38;5;27mrwtab.d[0m
+crypttab                 libuser.conf       [38;5;27msamba[0m
+csh.cshrc                locale.conf        [38;5;27msasl2[0m
+csh.login                [38;5;51mlocaltime[0m          screenrc
+[38;5;27mcups[0m                     login.defs         securetty
+[38;5;27mdbus-1[0m                   logrotate.conf     [38;5;27msecurity[0m
+[38;5;27mdefault[0m                  [38;5;27mlogrotate.d[0m        [38;5;27mselinux[0m
+[38;5;27mdepmod.d[0m                 ltrace.conf        services
+[38;5;27mdhcp[0m                     [38;5;27mlvm[0m                sestatus.conf
+DIR_COLORS               machine-id         [38;5;27msgml[0m
+DIR_COLORS.256color      magic              shadow
+DIR_COLORS.lightbgcolor  [38;5;27mmail[0m               shadow-
+dracut.conf              mailcap            shells
+[38;5;27mdracut.conf.d[0m            mail.rc            shells_f19
+drirc                    man_db.conf        [38;5;27mskel[0m
+dumpdates                [38;5;27mmaven[0m              [38;5;27msmartmontools[0m
+e2fsck.conf              [38;5;27mmercurial[0m          smi.conf
+[38;5;51meclipse.ini[0m              mime.types         [38;5;27msmrsh[0m
+elinks.conf              mke2fs.conf        [38;5;27mssh[0m
+enscript.cfg             [38;5;27mmodprobe.d[0m         [38;5;27mssl[0m
+environment              [38;5;27mmodules-load.d[0m     statetab
+[38;5;34mexpired[0m                  motd               [38;5;27mstatetab.d[0m
+[38;5;34mexpiredpw[0m                motd_f11           [38;5;27mstunnel[0m
+[38;5;27mexports.d[0m                [38;5;51mmtab[0m               [38;5;27msubversion[0m
+exports_f19              mtools.conf        sudoers
+[38;5;51mfavicon.png[0m              my.cnf             sudoers.BAK
+[38;5;27mfedora[0m                   [38;5;27mmy.cnf.d[0m           [38;5;27msudoers.d[0m
+fedora-release           netconfig          sudoers_sav
+filesystems              [38;5;27mNetworkManager[0m     [38;5;27msysconfig[0m
+[38;5;27mfonts[0m                    networks           sysctl.conf
+fstab                    [38;5;27mnews[0m               [38;5;27msysctl.d[0m
+ftpusers                 nfsmount.conf      [38;5;27msystemd[0m
+fuse.conf                [38;5;27mnmh[0m                [38;5;51msystem-release[0m
+[38;5;27mgconf[0m                    nsswitch.conf      system-release-cpe
+[38;5;27mgcrypt[0m                   nsswitch.conf.bak  [38;5;27mterminfo[0m
+gdbinit                  nsswitch.conf_f19  [38;5;27mtmpfiles.d[0m
+[38;5;27mgdbinit.d[0m                [38;5;27mntp[0m                trusted-key.key
+GeoIP.conf               ntp.conf           [38;5;27mudev[0m
+GeoIP.conf.default       ntp.conf_f19       [38;5;27munbound[0m
+[38;5;27mghostscript[0m              [38;5;27mopendkim[0m           updatedb.conf
+[38;5;27mgnupg[0m                    opendkim.conf      vconsole.conf
+GREP_COLORS              [38;5;27mopenldap[0m           vimrc
+[38;5;27mgroff[0m                    [38;5;27mopt[0m                virc
+group                    os-release         wgetrc
+group-                   [38;5;27mpam.d[0m              [38;5;27mX11[0m
+group_f19                papersize          [38;5;27mxdg[0m
+[38;5;51mgrub2.cfg[0m                passwd             xinetd.conf
+[38;5;27mgrub.d[0m                   passwd-            [38;5;27mxinetd.d[0m
+gshadow-                 passwd_f19         [38;5;27mxml[0m
+[38;5;27mgss[0m                      [38;5;27mpcmcia[0m             [38;5;27myum[0m
+gssapi_mech.conf         pine.conf          yum.conf
+[38;5;27mgtk-3.0[0m                  [38;5;27mpkcs11[0m             yum.conf_f19
+[38;5;27mhighlight[0m                [38;5;27mpki[0m                [38;5;27myum.repos.d[0m
+host.conf                [38;5;27mplymouth[0m
+hostname                 [38;5;27mpm[0m
+]0;zhy9036@klaatu:/etc[zhy9036@klaatu etc]$ cd passwd
+bash: cd: passwd: Not a directory
+]0;zhy9036@klaatu:/etc[zhy9036@klaatu etc]$ gre[K[K[Kgrep zhy9036 passwd
+[01;31m[Kzhy9036[m[K:x:26465:6152::/homes/[01;31m[Kzhy9036[m[K:/bin/bash
+]0;zhy9036@klaatu:/etc[zhy9036@klaatu etc]$ exit
+exit
+
+Script done on Wed 08 Jan 2014 10:48:56 PM PST

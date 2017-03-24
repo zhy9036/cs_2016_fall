@@ -1,0 +1,59 @@
+Script started on Thu 06 Feb 2014 08:59:44 PM PST
+]0;zhy9036@klaatu:~/Desktop/hw4[?1034h[zhy9036@klaatu hw4]$ gdb gasp
+[?1034hGNU gdb (GDB) Fedora 7.6.1-46.fc19
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /homes/zhy9036/Desktop/hw4/gasp...done.
+(gdb) b main
+Breakpoint 1 at 0x400868: file gasp.c, line 19.
+(gdb) b 63
+Breakpoint 2 at 0x400aa9: file gasp.c, line 63.
+(gdb) run h new
+Starting program: /homes/zhy9036/Desktop/hw4/gasp h new
+
+Breakpoint 1, main (argc=3, argv=0x7fffffffe448) at gasp.c:19
+19		int iFlag=0;
+Missing separate debuginfos, use: debuginfo-install glibc-2.17-20.fc19.x86_64
+(gdb) print argv[]1]
+$1 = 0x7fffffffe6a5 "h"
+(gdb) c
+Continuing.
+
+Breakpoint 2, scanFile (fname=0x7fffffffe6a7 "new", 
+    pattern=0x7fffffffe2e0 "h", iFlag=0x7fffffffe34c, nFlag=0x7fffffffe348)
+    at gasp.c:63
+63		if(file){
+(gdb) bt
+#0  scanFile (fname=0x7fffffffe6a7 "new", pattern=0x7fffffffe2e0 "h", 
+    iFlag=0x7fffffffe34c, nFlag=0x7fffffffe348) at gasp.c:63
+#1  0x00000000004009ed in main (argc=3, argv=0x7fffffffe448) at gasp.c:44
+(gdb) list
+58	}
+59	
+60	//method to scan file and do gasp
+61	void scanFile(char* fname, char* pattern, int* iFlag, int* nFlag){
+62		FILE *file = fopen(fname,"r");
+63		if(file){
+64			char lineBuffer[LINE_MAX];
+65			int lineNum=0;
+66			while(fgets(lineBuffer,LINE_MAX,file)!=NULL){
+67				lineNum++;
+(gdb) print fname
+$2 = 0x7fffffffe6a7 "new"
+(gdb) print file
+$3 = (FILE *) 0x602010
+(gdb) c
+Continuing.
+new:hhh
+[Inferior 1 (process 30028) exited normally]
+(gdb) quit
+]0;zhy9036@klaatu:~/Desktop/hw4[zhy9036@klaatu hw4]$ exit
+exit
+
+Script done on Thu 06 Feb 2014 09:01:52 PM PST

@@ -1,0 +1,55 @@
+h2, h1{
+	
+	color: #A4A400;
+	font-family: "Lucida Sans Unicode", Helvetica, Aria, sans-serif;
+	text-decoration: underline;
+	font-weight: bold;
+	
+}
+
+h2{
+	
+	text-align: left;
+	font-size: 18pt;
+	font-weight: normal;	
+}
+
+h1{
+	font-size: 22pt;
+	text-align:center;	
+}
+
+body{
+	background-image: url("https://webster.cs.washington.edu/images/silverware.jpg");
+	background-attachment:fixed;
+	color: #404040 ;
+	font-size: 11pt;
+	font-family: Georgia, Garamond, sans-serif;	
+}
+
+a{
+	color: #a4a400;
+	
+}
+
+.comment{
+	background-color: #FFFFA8;
+	font-style:  italic;
+		
+}
+
+.abr{
+	text-decoration: underline;
+	/*border-bottom: 1px dotted black;*/
+}
+span{
+	background-color: #f0f0f0;
+	letter-spacing: 0.25em;
+}
+.icon{
+	list-style-image: url("https://webster.cs.washington.edu/images/pie-icon.gif");
+}
+
+.mt{
+	margin-top: -20px;
+}

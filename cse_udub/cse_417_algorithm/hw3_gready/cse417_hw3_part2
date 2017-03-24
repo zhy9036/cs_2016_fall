@@ -1,0 +1,32 @@
+YANG ZHANG 1030416 zhy9036@uw.edu
+CSE 417 HW3 
+Part 2, Problem 3 & 4
+
+Problem 3:
+(a) The depth is the max number of overlaping intervel. Therefore, the sentence from Algorithm 		on book "Exclude the label of Ii from consideration for Ij" can only excuted up to depth times
+So, the runtime of this algorithm is O(d*n)
+
+(b) If every intervel is overlaped to each other, the runtime will be constant O(n^2), and there
+is infinite number of instance for this worst situation. 
+
+(c)clever alternation:
+   Sort invtervel by increasing start time in List Interv[]
+   label Interv[0] on resource
+   F = Interv[0].finishTime
+   Insert resource in priority queue PQ with key = F
+   For i = 1 to n:
+		Temp <- PQ.getMin()
+		if Interv[i].startTime >= Temp.lastTime \\not overlap   
+			label Interv[i] on the resource of Temp
+			Temp.lastTime = Interv[i].finishTime
+			PQ.increasekey(Temp) to Temp.lastTime
+		else
+			label Interv[i] to new_resource
+			new_resource.lastTime = Interv[i].finishTime
+			Insert new_resource into PQ with key new_resource.lastTime
+	Endfor 
+
+	The time complicity of this algorithm is O(nlog(d)), the for loop would excute n
+	times, and at most, d resources will be added to PQ, therefore the overall complicity is n*log(d)
+
+

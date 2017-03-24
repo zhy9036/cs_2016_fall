@@ -1,0 +1,45 @@
+YANG, ZHANG
+CSE 417 HW 1
+Problem 5&6
+
+Chapter 2, Problem 3
+	The order of growth:
+	f2(sqrt(2n)), f3(n+10), f6((n^2)*log(n)), f1(n^2.5), f4(10^n), f5(100^n)
+	
+	because the limit of f2/f3 when n tends to infinity is 0, therefore f2 is O(f3)
+	so does the rest of ordered function. 
+
+	extra: f1(n^2.5) is theta(f6((n^2)*log(n)) )
+	
+Chapter 2, Problem 5
+	a.  False
+	    Assume there is a real number c such: 0 <= f(n) <= c*g(n)
+	    since log (base 2) is order-preserving:
+			log(f(n)) <= log(c*g(n)) = log(c) + log(g(n))
+			
+		if log(f(n)) is O(log(c*g(n))), then there must be a real number c1 such
+			log(f(n)) <= d*log(g(n)) -->  log(c) + log(g(n)) <= d*log(g(n))
+			which is equivalent to log(c)/log(g(n)) + 1 <= d
+		however since log(c) is constant and log(g(n)) is increasing function, the
+		limit of log(c)/log(g(n)) is infinity
+		
+		therefore this is no such a real number d that meets the condition. 
+		
+	b. False
+	    Assume there is a real number c such: 0 <= f(n) <= c*g(n)
+	    since 2^n is order-preserving:
+			2^(f(n)) <= 2^(c*g(n))
+			
+		if 2^(f(n)) is O(2^(c*g(n))), then there must be a real number c1 such
+			2^(f(n)) <= d*2^(g(n)) -->  2^(c*g(n)) <= d*2^(g(n))
+			which is equivalent to 2^(c*g(n)-g(n)) <= d
+		however since c*g(n)-g(n) is increasing function, the
+		limit of 2^(c*g(n)-g(n)) is infinity
+		
+		therefore this is no such a real number d that meets the condition. 
+	
+	c. True
+	   Assume there is a real number c such: 0 <= f(n) <= c*g(n)
+	   since square function is order-preserving:
+			f(n)^2 <= (c*g(n))^2 = c^2 * g(n)^2
+		therefore f(n)^2 is O(g(n)^2)

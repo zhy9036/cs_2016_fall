@@ -15,10 +15,11 @@ public class MainSP {
 		ArrayList<ArrayList<ArrayList<Integer>>> dataT = new ArrayList(); 
 		ArrayList<String> sLabelsT = new ArrayList();
 		String net = "datasets/nettalk_stress_";
-		dataProcess("datasets/ocrTrain.txt", data, sLabels);
-		dataProcess("datasets/ocrT.txt", dataT, sLabelsT);
+		String ocr = "datasets/ocrTrain.txt";
+		dataProcess(net+"train", data, sLabels);
+		dataProcess(net+"test", dataT, sLabelsT);
 		int featureLength = data.get(0).get(0).size(); 
-		int classNum = 26; 
+		int classNum = 5; 
 		int restarts = 20;
 		int maxIter = 50; 
 		//int beamWidth = 5;
@@ -28,21 +29,21 @@ public class MainSP {
 		//sp.feedTestData(dataT, sLabelsT);
 		//sp.training(data, sLabels, complexity);
 		
-		int[] res = new int[]{1, 5, 10, 15};
+		int[] res = new int[]{1, 5, 10, 15, 25, 50, 100};
 		
 		for(int beamWidth : res){
 			StructuredPerceptronBeam spb = new StructuredPerceptronBeam(featureLength, classNum, 
 					maxIter, learningRate);
 			spb.training(data, sLabels, beamWidth, complexity, 
 					StructuredPerceptronBeam.UpdateMode.MaxViolationUpdate, 
-					StructuredPerceptronBeam.SearchMode.BreathFirst);
+					StructuredPerceptronBeam.SearchMode.BestFirst);
 			
 			double rst = spb.test(data, sLabels, complexity, beamWidth, 
 					StructuredPerceptronBeam.UpdateMode.EarlyUpdate, 
-					StructuredPerceptronBeam.SearchMode.BreathFirst);
+					StructuredPerceptronBeam.SearchMode.BestFirst);
 			double rst1 = spb.test(dataT, sLabelsT, complexity, beamWidth, 
 					StructuredPerceptronBeam.UpdateMode.EarlyUpdate, 
-					StructuredPerceptronBeam.SearchMode.BreathFirst);
+					StructuredPerceptronBeam.SearchMode.BestFirst);
 			
 			
 			System.out.println(rst);

@@ -1,0 +1,31 @@
+#!/bin/sh
+#YANG ZHANG
+#CSE 374 HW2
+#PROBLEM 4
+#Tue Jan 21 14:46:28 PST 2014
+
+if [ $# -lt 2 ]
+	then
+	echo "Error: less than two arguments" >&2
+	exit 1
+else
+	SINGLE=0
+	TOTAL=0
+	echo $(date) >>$1
+	FIRST=$1
+	shift
+	for file in "$@"
+	do 
+		if [ -e "$file" ]
+			then
+			SINGLE=$(wc -l < $file)
+			TOTAL=$(($TOTAL+$SINGLE))
+			echo $SINGLE" $file" >>"$FIRST"
+		fi
+	done
+	echo ${TOTAL}" total" >>"$FIRST"
+fi
+
+
+
+

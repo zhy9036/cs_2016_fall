@@ -1,0 +1,5 @@
+#YANG ZHANG
+#CSE 374 HW2
+#PROBLEM 2
+#Tue Jan 21 14:46:28 PST 2014
+alias private="chmod -R go-rwx" 

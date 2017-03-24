@@ -1,0 +1,288 @@
+public static int binaryZeros(int n){
+   int count = 0;
+   if(n==0){
+      return 1;
+   }
+   while(n != 0){
+      if(n%2==0){
+         count++;
+         n/=2;
+      }else{
+         n/=2;
+      }
+   }
+   return count;
+}
+
+#########################################*******************************
+
+Given any integer 0 < n ¡Ü 10000 not divisible by 2 or 5, some multiple of n is a number which in decimal notation is a sequence of 1s. Write a method named ones that accepts an integer n as a parameter and returns how many digits are in the smallest such multiple of n. For example, the call of ones(3) returns 3 because the smallest multiple of 3 that consists entirely of 1s is 111, which is 3 digits long. Similarly, the call of ones(7) returns 6 because the smallest such multiple of 7 is 111111. You may assume that the integer n passed is not divisible by 2 or 5 and is in the proper specified range. 
+
+answer:
+	public static int ones(int n){
+    		BigInteger number = BigInteger.valueOf(1);
+            int count = 1;
+    		while(!number.remainder(BigInteger.valueOf(n)).equals(BigInteger.valueOf(0))){
+                number = number.multiply(BigInteger.valueOf(10)).add(BigInteger.valueOf(1));
+       			count++;
+            }
+    		return count;
+	}
+
+
+
+
+#########################################*******************************
+/////
+public?static?void?reverseAndAdd(int?n){
+????int?count=0;
+????if(n<10){
+????????System.out.println(count?+?"?"+?n);
+????}else{
+        /*
+????????String?w=""+n;
+????????String?y="";
+        String[] a = w.split("");
+        int temp=a.length-1;
+        for(int i=0; i<a.length; i++){
+            y+=a[temp];
+            temp--;
+        }
+        int re = Integer.parseInt(y);
+        */
+        long s = n;
+        BigInteger re= helper(s);
+        BigInteger a1=BigInteger.valueOf(s);
+       // BigInteger a2=BigInteger.valueOf(re);
+        while(!a1.equals(a2)){
+            s = re.add(s);
+            re = helper(s);
+            count++;
+        }
+        System.out.println(count+ " "+ re.toString);
+            
+????}
+}
+public static BigInteger helper(BigInteger s){
+    ?String?w=""+s;
+????????String?y="";
+        String[] a = w.split("");
+        int temp=a.length-1;
+        for(int i=0; i<a.length; i++){
+            y+=a[temp];
+            temp--;
+        }
+        BigInteger re = BigInteger.valueOf(Integer.parseInt(y));
+    return re;
+}
+
+VERSION2 (NOT WORKING)
+
+public?static?void?reverseAndAdd(int?n){
+????int?count=0;
+????if(n<10){
+????????System.out.println(count?+?"?"+?n);
+????}else{
+        /*
+????????String?w=""+n;
+????????String?y="";
+        String[] a = w.split("");
+        int temp=a.length-1;
+        for(int i=0; i<a.length; i++){
+            y+=a[temp];
+            temp--;
+        }
+        int re = Integer.parseInt(y);
+        */
+        long s = n;
+        BigInteger a1=BigInteger.valueOf(s);
+        BigInteger re= helper(a1);
+       
+       // BigInteger a2=BigInteger.valueOf(re);
+        while(!a1.equals(re)){
+            a1 = re.add(re);
+            re = helper(a1);
+            count++;
+        }
+        System.out.println(count+ " "+ re.toString());
+            
+????}
+}
+public static BigInteger helper(BigInteger s){
+    ?String?w=""+s;
+????????String?y="";
+        String[] a = w.split("");
+        int temp=a.length-1;
+        for(int i=0; i<a.length; i++){
+            y+=a[temp];
+            temp--;
+        }
+        BigInteger re = BigInteger.valueOf(Integer.parseInt(y));
+    return re;
+}
+
+#########################################*******************************
+
+P3 Write a method removeDuplicates that takes as a parameter a sorted ArrayList of Strings and that eliminates any duplicates from the list. For example, suppose that a variable called list contains the following values: {"be", "be", "is", "not", "or", "question", "that", "the", "to", "to"} After calling removeDuplicates(list); the list should store the following values: {"be", "is", "not", "or", "question", "that", "the", "to"}
+
+ANSWER:
+public static void removeDuplicates(ArrayList<String> list){
+    Set<String> temp = new TreeSet<String>(list);
+    list.clear();
+    for(String t : temp){
+        list.add(t);
+    }
+}
+
+#########################################*******************************
+
+P4 Write a method reverseHalf that reverses the order of half of the elements of a Queue of integers. Your method should reverse the order of all the elements in odd-numbered positions (position 1, 3, 5, etc.) assuming that the first value in the queue has position 0. For example, if the queue originally stores this sequence of numbers when the method is called:
+
+index: 0  1  2  3  4  5   6   7
+front [1, 8, 7, 2, 9, 18, 12, 0] back
+- it should store the following values after the method finishes executing:
+
+index: 0  1  2  3   4  5  6   7
+front [1, 0, 7, 18, 9, 2, 12, 8] back
+Notice that numbers in even positions (positions 0, 2, 4, 6) have not moved. That sub-sequence of numbers is still: (1, 7, 9, 12). But notice that the numbers in odd positions (positions 1, 3, 5, 7) are now in reverse order relative to the original. In other words, the original sub-sequence: (8, 2, 18, 0) - has become: (0, 18, 2, 8). You may use a single stack as auxiliary storage.
+
+ANSWER:
+public static void reverseHalf(Queue<Integer> q){
+    Stack<Integer> temp = new Stack<Integer>();
+    int sei = q.size();
+    for(int i=0; i<sei; i++){
+        if(i%2==0){
+            q.add(q.remove());
+        }else{
+            temp.push(q.remove());
+        }
+    }
+    while(!temp.isEmpty()){
+        q.add(q.remove());
+        q.add(temp.pop());
+    }
+    if(sei%2!=0){
+        q.add(q.remove());
+    }
+        
+}
+
+#########################################*******************************
+P5 Write a method numInCommon that takes two Lists of integers as parameters and returns the number of unique integers that occur in both lists. Use one or more Sets as storage to help you solve this problem.
+
+For example, if one list contains the values [3, 7, 3, -1, 2, 3, 7, 2, 15, 15] and the other list contains the values [-5, 15, 2, -1, 7, 15, 36], your method should return 4 (because the elements -1, 2, 7, and 15 occur in both lists).
+
+ANSWER:
+public static int numInCommon(List<Integer> a1, List<Integer> a2){
+    int count = 0;
+    Set<Integer> min = new HashSet<Integer>();
+    Set<Integer> max = new HashSet<Integer>();
+    if(a1.size()>=a2.size()){
+        min = new HashSet<Integer>(a2);
+        max = new HashSet<Integer>(a1);
+    }else{
+        min = new HashSet<Integer>(a2);
+        max = new HashSet<Integer>(a1);    
+    }
+    for(int i : min){
+        if(max.contains(i)){
+            count++;
+        }
+    }
+    return count;
+}
+
+#########################################*******************************
+public static int wordCount(String a){
+    String[] b=a.split(" ");
+    int count = 0;
+    for(String i : b){
+        if(!i.contains(" ") && !i.equals("")){
+            count++;
+        }
+    }
+    return count;
+}
+
+
+#########################################*******************************
+public static int minGap(int[] a){
+    if(a.length <= 1){
+        return 0;
+    }else{
+        int min = a[1]-a[0];
+        for(int i =2; i<a.length; i++){
+            int temp = a[i] - a[i-1];
+            min = Math.min(temp, min);
+        }
+        return min;
+    }
+}
+
+
+#########################################*******************************
+8.
+public static Map counts(List<Integer> a, Set<Integer> b){
+    Map<Integer, Integer> count = new TreeMap<Integer, Integer>();
+    for(int st : b){
+        int c = 0;
+        for(int li :a){
+            if(li == st){
+                c++;
+            }
+        }
+        count.put(st, c);
+    }
+    return count;
+}
+
+#########################################*******************************
+9.
+public static int maxOccurrences(List<Integer> a){
+    if(a.isEmpty()){
+        return 0;
+    }
+    Map<Integer, Integer> smap = new HashMap<Integer, Integer>();
+    for(int shu : a){
+        if(!smap.containsKey(shu)){
+            smap.put(shu, 1);
+        }else{
+            smap.put(shu, smap.get(shu)+1);
+        }
+    }
+    int max =0;
+    for(int m : smap.keySet()){
+        int temp = smap.get(m);
+        if(temp>=max){
+            max = temp;
+        }
+    }
+    return max;
+}
+
+public double xmasMoney(String a, Table<String, String, Double> b){
+    if(!b.containsRow(a)&&!b.containsColumn(a)){
+        return 0.0;
+    }
+    double add = 0.0;
+    double sub = 0.0;
+    for(String c: b.column(a).keySet()){
+        add+=b.column(a).get(c);
+    }
+    for(String c: b.row(a).keySet()){
+        sub+=b.row(a).get(c);
+    }
+    return add-sub;
+}
+
+******************************
+public?Multimap?byStartingLetter(String[]?a){
+????Multimap<String,?String>?b?=?TreeMultimap.create();
+????if(a.length?!=?0){
+????????for(int?i?=?0;?i<a.length;?i++){
+????????????b.put(a[i].substring(0,1).toUpperCase(),?a[i]);
+????????}
+????}
+?????return?b;
+}
+

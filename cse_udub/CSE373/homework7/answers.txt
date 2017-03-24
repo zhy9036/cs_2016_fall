@@ -1,0 +1,14 @@
+1030416
+bubble sort
+merge sort 
+quick sort 
+bogo sort
+insertion sort 
+shell sort 
+stooge sort 
+selection sort 
+heap sort   
+bucket sort 
+
+
+

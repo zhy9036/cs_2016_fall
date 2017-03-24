@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Jan 27 23:20:48 2013
+Quartus II Version : 7.2 Build 151 09/26/2007 SJ Full Version
+Revision Name : sram
+Top-level Entity Name : sram
+Family : Cyclone II
+Total logic elements : 93
+    Total combinational functions : 84
+    Dedicated logic registers : 93
+Total registers : 93
+Total pins : 59
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

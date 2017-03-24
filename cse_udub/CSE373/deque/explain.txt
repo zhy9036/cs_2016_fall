@@ -1,0 +1,111 @@
+ Sorting Algorithm 1
+      N         order            time(ms)
+  -----------------------------------------
+     8000       Random             205
+     16000      Random             689 
+	 32000      Random             2743
+	 64000      Random             10939
+     1000       Ascending          50
+     2000       Ascending          102
+     4000       Ascending          153
+     8000       Ascending          198
+     1000       Descending         102
+     2000       Descending         398
+     4000       Descending         1443
+     8000       Descending         5017
+	 
+	 bigO(N^2)
+	 
+ Sorting Algorithm 2
+      N         order            time(ms)
+  -----------------------------------------
+     64000      Random             15 
+	 128000     Random             33
+	 256000     Random             73
+	 512000     Random             160
+    
+	 
+	 bigO(N^1.25)
+
+ Sorting Algorithm 3
+      N         order            time(ms)
+  -----------------------------------------
+     64000      Random             16 
+	 128000     Random             24
+	 256000     Random             50
+	 512000     Random             104
+     
+	 bigO(N*log(N))
+	 
+Sorting Algorithm 4
+      N         order            time(ms)
+  -----------------------------------------
+     10         Random             174
+	 100        Random             unknown(runtime is too long)
+     
+	 bigO(!N)
+	 bogo sort
+
+ Sorting Algorithm 5
+      N         order            time(ms)
+  -----------------------------------------
+     16000      Random             171
+	 32000      Random             641
+	 64000      Random             2587
+	 
+	 bigO(N^2) but much faster than Algorithm 1
+	 
+Sorting Algorithm 6
+      N         order            time(ms)
+  -----------------------------------------
+     64000      Random             16 
+	 128000     Random             39
+	 256000     Random             80
+	 512000     Random             194
+     
+	 bigO(N^1.25) slightly faster than Algorithm 2
+	 
+Sorting Algorithm 7
+      N         order            time(ms)
+  -----------------------------------------
+     200        Random             9 
+	 400        Random             60
+	 800        Random             543
+	 1000       Random             540
+	 2000       Random             6013
+	 4000       Random			   42283
+
+	 bigO(?????)
+	 
+Sorting Algorithm 8
+      N         order            time(ms)
+  -----------------------------------------
+     64000      Random             6616 
+	 32000      Random             1661
+	 16000      Random             416
+	 8000       Random             109
+     
+	 bigO(N^2) faster than Algorithm 1 slower than Algorithm 5
+	 
+ Sorting Algorithm 9
+      N         order            time(ms)
+  -----------------------------------------
+     64000      Random             17
+	 128000     Random             35
+	 256000     Random             74
+	 512000     Random             153
+     
+	 bigO(N*log(N))
+	 
+ Sorting Algorithm 10
+      N         order            time(ms)
+  -----------------------------------------
+	 1000000    Random             39
+	 2000000    Random             80
+	 4000000    Random             173
+	 8000000    Random             379 887
+	 8000000    Ascending          208
+	 8000000    Descending         207
+	 
+     
+	 bigO(N*log(N))

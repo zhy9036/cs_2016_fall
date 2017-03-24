@@ -1,0 +1,58 @@
+
+<!-- saved from url=(0056)http://dl.dropboxusercontent.com/u/342881/spellcheck.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+	
+		 <title>EnergySavvy Spellcheck Coding Problem</title>
+	   <style type="text/css"></style><style type="text/css"></style></head>
+	   <body>
+	   <h2>EnergySavvy Spellcheck Coding Problem</h2>
+			<p>Write a program that reads a large list of English words (e.g. 
+			<a href="http://dl.dropbox.com/u/342881/english.dict">this file</a>) or /usr/share/dict/words
+			on a unix system into memory, and then reads
+			words from stdin, and prints either the best spelling suggestion (based on the rules below), or 
+			"NO SUGGESTION" if no suggestion can be found. The program should print
+			 "&gt;" as a prompt before reading each word, and should loop until 
+			killed.</p>
+
+      <p>This is what an interactive session with your code should look like:</p>
+
+<pre>&gt; sandwich
+sandwich
+&gt; sheeeeep
+sheep
+&gt; peepple
+people
+&gt; sheeple
+NO SUGGESTION
+&gt;
+</pre>
+
+<p>Your code should correct the following three classes of spelling mistakes:</p>
+
+<ul>
+<li>Case (upper/lower) errors:  "inSIDE" =&gt; "inside"</li>
+<li>Repeated letters:  "jjoobbb" =&gt; "job"</li>
+<li>Incorrect vowels:  "weke" =&gt; "wake"</li>
+</ul>
+
+<p>Any combination of the above types of error in a single word should 
+be corrected (e.g. "CUNsperrICY" =&gt; "conspiracy" or "ffoaoaoaoaoaoaaoaoaoaoaoadd" =&gt; "food").</p>
+
+<p>If the word is in the dictionary, your program should respond with that word.</p>
+
+<p>If there are many possible corrections of an input word, your program
+can choose one in any way you like. It just has to be a word from the
+dictionary that is a spelling correction of the input by the above rules.</p>
+
+<p>Extra credit:  Write a second program that *generates* words with 
+spelling mistakes of the above form, starting with correctly spelled 
+English words. Pipe its output into the first program and verify that 
+there are no occurrences of "NO SUGGESTION" in the output.</p>
+
+<p>This problem should take two to four hours. If you're spending much more
+than that, it's fine to stop and send us what you have along with an outline
+of what's left.</p>
+
+<p>Please don't put your solution in a publicly accessible location (ie. public GitHub repo).</p>
+
+</body></html>

@@ -1,0 +1,10 @@
+#lang racket
+;;; CSE 413 HW2
+;;; Yang Zhang
+
+ ;; p1 length
+  ; ver 1 
+  (define len1 (lambda (a) 
+                 (if (null? a)
+                     0
+                     (+ 1 (len1 (cdr a))))))

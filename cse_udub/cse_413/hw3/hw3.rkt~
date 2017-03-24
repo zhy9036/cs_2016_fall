@@ -1,0 +1,11 @@
+#lang racket
+;;; CSE413 HW3 DIFFERENTIATION
+
+;;; fragments func
+ ;; diff sum
+   (define diff-sum (lambda(x e)
+                      (null)))
+   (define diff-product (lambda(x e)
+                      (null)))
+   (define diff-expt (lambda(x e)
+                      (null)))

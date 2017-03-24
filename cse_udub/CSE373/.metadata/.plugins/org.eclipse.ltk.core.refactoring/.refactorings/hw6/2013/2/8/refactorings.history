@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;HvzPlayer.java&apos; to &apos;HvZPlayer.java&apos;&#x0D;&#x0A;- Original project: &apos;hw6&apos;&#x0D;&#x0A;- Original element: &apos;HvzPlayer.java&apos;&#x0D;&#x0A;- Renamed element: &apos;HvZPlayer.java&apos;" description="Rename compilation unit &apos;HvzPlayer.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{HvzPlayer.java" name="HvZPlayer.java" references="false" stamp="1361600471041" version="1.0"/>
+</session>

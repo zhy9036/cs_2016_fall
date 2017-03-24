@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sun Jan 27 23:20:56 2013
+Quartus II Version : 7.2 Build 151 09/26/2007 SJ Full Version
+Revision Name : sram
+Top-level Entity Name : sram
+Family : Cyclone II
+Device : EP2C20F484C7
+Timing Models : Final
+Total logic elements : 134 / 18,752 ( < 1 % )
+    Total combinational functions : 84 / 18,752 ( < 1 % )
+    Dedicated logic registers : 93 / 18,752 ( < 1 % )
+Total registers : 93
+Total pins : 59 / 315 ( 19 % )
+Total virtual pins : 0
+Total memory bits : 0 / 239,616 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 52 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

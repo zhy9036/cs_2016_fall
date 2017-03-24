@@ -431,6 +431,9 @@ public class StructuredPerceptronBeam {
 						double trueScore = calulateCandidateBeamScore(subLabel, sinput, complexity);
 						double wrongScore = calulateCandidateBeamScore(wrongLabel, sinput, complexity);
 						double difCur = Math.abs(wrongScore-trueScore);
+						//System.out.println("get in " + wrongLabel + " " + subLabel);
+						if(worstLabel.length() == 0)
+							worstLabel = wrongLabel;
 						if(difCur > dif){
 							dif = difCur;
 							worstLabel = wrongLabel;

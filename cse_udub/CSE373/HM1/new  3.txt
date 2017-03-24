@@ -1,0 +1,11 @@
+public int compareTo(MapLocation a){
+    if(!this.row.equals(a.row)){
+        return this.row.compareTo(a.row);
+    }else if(this.column != a.column){
+        return this.column - a.column;
+    }else if(!this.name.equals(a.name)){
+        return this.name.compareTo(a.name);
+    }else{
+        return 0;
+    }
+}

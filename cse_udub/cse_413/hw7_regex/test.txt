@@ -1,0 +1,64 @@
+Script started on Fri Dec  5 01:39:28 2014
+[?1034hbash-3.2$ ruby calc.rb 
+type stop to terminate the session
+1+1
+a = (3+2)*4
+b = a + 4
+b
+stop
+1.0+1.0
+>2.0
+
+>variable a assigned with value 20.0
+
+>variable b assigned with value 24.0
+b
+>24.0
+bash-3.2$ ruby calc.rb 
+type stop to terminate the session
+-3
+-(-2-2)
+stop
+-3.0
+>-3.0
+-(-2.0-2.0)
+>4.0
+bash-3.2$ ruby calc.rb 
+type stop to terminate the session
+sqrt(-(-2-2))
+a=3**5
+list
+unset a
+list
+stop
+sqrt(-(-2.0-2.0))
+>2.0
+
+>variable a assigned with value 243.0
+
+>VARIABLE LIST:
+
+>PI:3.141592653589793
+
+>a:243.0
+
+
+UNSET variable: a
+
+>VARIABLE LIST:
+
+>PI:3.141592653589793
+
+bash-3.2$ ruby calc.rb 
+type stop to terminate the session
+b = (3+4)/7 * 2 -1 +5 **2
+b
+stop
+
+>variable b assigned with value 26.0
+b
+>26.0
+bash-3.2$ exit
+exit
+
+Script done on Fri Dec  5 01:43:21 2014

@@ -1,0 +1,32 @@
+#!/bin/sh
+# Combine 2 or more 
+
+
+if [ $# -lt 2 ] # "$#" is the number of arguments
+then 
+	echo "Error: less than two arguments" >&2
+	exit
+else
+	if [ -e "$1"]   # -e is FILE TEST OPERATOR for file exists
+	then
+		echo "Error: first file exists" >&2
+		exit
+	else
+		echo >> $1 
+		shift
+	fi
+	temp
+	for arg in "$@"
+	do
+		if [ -d arg]
+		then
+			echo "Error: @arg is a dirctory" >> $1
+		elif [ ! -e arg ]
+			echo "Error: @arg doesn't exist" >> $1
+		else
+			cat $arg >> $temp
+		fi
+	done
+fi
+cat $temp		
+		

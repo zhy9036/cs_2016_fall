@@ -1,0 +1,156 @@
+CSE 373 Winter 2013
+Homework 7: Sort Detective, Part A
+Yang Zhang
+This assignment is about dectect different sorting algorithms.
+ 
+Algorithm 1
+      N         order            time(ms)
+  -----------------------------------------
+     8000       Random             205
+     16000      Random             689 
+     32000      Random             2743
+     64000      Random             10939
+     1000       Ascending          50
+     2000       Ascending          102
+     4000       Ascending          153
+     8000       Ascending          198
+     1000       Descending         102
+     2000       Descending         398
+     4000       Descending         1443
+     8000       Descending         5017
+	 
+	 Big-Oh:  O(N^2)
+	 Conclustion: This is bubble sort, because the run time is goes up by O(N^2), 
+	 and this algorithm sorts ascending array much comsuming the same amount of time
+	 conpared to descending array or random array, because it takes n^2 time to check
+	 every elements in the array even if the array is already sorted. 
+	 Finally, compared to other O(N^2) algorithms, this one is the slowest. 
+	 
+Algorithm 2
+      N         order            time(ms)
+  -----------------------------------------
+     64000      Random             15 
+	 128000     Random             33
+	 256000     Random             73
+	 512000     Random             160
+	 512000     Ascending          98
+	 512000     Descending         100
+    
+	 
+Big-Oh:  O(N*log(N))
+Conclustion: This is merge sort, becausethe run time is goes up by O(N*logN).And because the run time for ascending array and descending array are roughly the same. 
+	 
+
+ Sorting Algorithm 3
+      N         order            time(ms)
+  -----------------------------------------
+     64000      Random             16 
+	 128000     Random             24
+	 256000     Random             50
+	 512000     Random             104
+	 512000     Ascending   StackOverflowError
+	 512000     Descending  StackOverflowError
+     
+	 bigO(N*log(N))
+	 
+Conclustion: This is quick sort, because the run time is goes up by O(N*logN). And because there will be a stackoverflow error when sorting ascending or descending arrays. This is because the pivot is chosen from the first element, that caused unbalanced partitions. 
+	 
+
+
+
+Sorting Algorithm 4
+      N         order            time(ms)
+  -----------------------------------------
+     10         Random             174
+	 100        Random             unknown(runtime is too long)
+     
+bigO(!N)
+Conclustion: This is bogo sort, because the run time is super slow even if the size of the array is small. This is because the bogo sort doesn't actully sort the array, instead,it just shuffle the array until it is sorted. 
+
+ 
+
+
+
+
+Sorting Algorithm 5
+      N         order            time(ms)
+  -----------------------------------------
+     16000      Random             171
+     32000      Random             641
+     64000      Random             2587
+     512000     Ascending          12
+	 
+ Big-Oh:  O(N^2)
+ Conclustion: This is insertion sort, because the run time is goes up by O(N^2), and this algorithm sorts ascending array much faster than descending array, because when the array is already sorted, there is no need to shift among the elements. Finally, compared to other O(N^2) algorithms, this one is the fastest.
+	 
+ Algorithm 6
+      N         order            time(ms)
+  -----------------------------------------
+     64000      Random             16 
+     128000     Random             39
+     256000     Random             80
+     512000     Random             194
+     512000     Ascending          38
+     
+ Big-Oh:  O(N^1.25)
+ Conclustion: This is shell sort, because the run time is goes up by O(N^1.25), and this algorithm sorts ascending array much faster than random array, because when the array is already sorted, there is no need to swap between elements.
+	 
+
+
+
+Algorithm 7
+      N         order            time(ms)
+  -----------------------------------------
+     200        Random             9 
+     400        Random             60
+     800        Random             543
+     1000       Random             540
+     2000       Random             6013
+     4000       Random	           42283
+
+Big-Oh: O(N^2.71)
+Conclustion: This is stooge sort, because the run time is goes up by O(N^2.71),and its overall perfermance is very poor.
+
+	 
+
+
+Sorting Algorithm 8
+      N         order            time(ms)
+  -----------------------------------------
+     64000      Random             6616 
+     32000      Random             1661
+     16000      Random             416
+     8000       Random             109
+     
+  Big-Oh:  O(N^2)
+Conclustion: This is selection sort, because the run time is goes up by O(N^2), and this algorithm sorts ascending array almost comsuming the same amount of time as descending array and random array, because selection sort have to exam every elements in this array to ensure that the selected one is the min value, even if the min value is picked up at first. Finally, compared to other O(N^2) algorithms, this one is slower than insertion sort but faster than bubble sort.
+	 
+ 
+
+Sorting Algorithm 9
+      N         order            time(ms)
+  -----------------------------------------
+     64000      Random             17
+     128000     Random             35
+     256000     Random             74
+     512000     Random             153
+     512000     Ascending          120
+     512000     Descending         91
+     
+Big-Oh:  O(N*log(N))
+Conclustion: This is heap sort, because the run time is goes up by O(N*logN). And it sorts descending array a little bit faster than ascending array, because the heap sort hear is in-place type, which means it doesn't need to bubble down elements to turn the currey min heap into max heap when sorting descending arrays. 
+	 
+	 
+ Sorting Algorithm 10
+      N         order            time(ms)
+  -----------------------------------------
+	 1000000    Random             39
+	 2000000    Random             80
+	 4000000    Random             173
+	 8000000    Random             379
+	 64000000   Random	       3419
+	 12800000   Random             7150
+	 
+     
+Big-Oh: O(N + M)
+Conclustion: This is bucket sort, because its run time is faster than any of O(N*logN) algorithms in this exericse, and when the size of array is getting bigger and bigger, the run time is increased by ronghtly N. 

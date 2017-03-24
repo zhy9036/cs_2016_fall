@@ -1,0 +1,135 @@
+/*
+CSE 154 AA
+HW3
+YANG ZHANG 1030416
+This is the css style file for movie.php
+*/
+
+
+body{
+	background-image: url("https://webster.cs.washington.edu/images/moviebg.png");
+	background-attachment:fixed;
+	font-size: 8pt;
+	font-family: Verdana, Tahoma, sans-serif;
+	padding:0px;
+	margin:0px;
+}
+
+.topbar{
+	/*top:0;*/
+	background-image: url("https://webster.cs.washington.edu/images/rancidbannerbg.png");
+	height:50px;
+	/*position:fixed;*/
+	width:100%;
+	float:right;
+}
+.mainbar{
+	width: 795px;
+	margin: auto;
+}
+
+h1{
+	padding-top:21px;
+	font-family: Tahoma,Verdana,sans-serif;
+	font-size:24pt;
+	clear: both;
+	text-align:center;
+	text-shadow: 3px 3px #999999;
+}
+
+.percent{
+	background-image: url("https://webster.cs.washington.edu/images/rottenlargebg.png");
+	overflow: hidden;	
+	width: 800px;
+	height: 83px;
+}
+
+.percent>span{
+	font-size: 48pt;	
+	color: red;
+	font-weight: bold;
+	vertical-align: bottom;
+}
+
+.person>span{
+	font-style: italic;	
+}
+#whole{
+	border: 4px solid gray;
+	border-radius: 20px;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;	
+	overflow: hidden;
+}
+
+#col_l{
+	float: right;
+	background-color:#A2B964;
+	width:250px;
+}
+
+#info{
+	padding-left:10pt;
+	padding-right:10pt;
+	font-size: 8pt;
+	font-family: Arial,sans-serif;
+}
+#info>dl>dd>ul{
+	list-style-type: none;
+	padding:0;
+}
+
+.reviewbox{
+	margin-bottom:20pt;
+}
+
+#info>dl>dt{
+	margin-top:10pt;
+	font-weight: bold;	
+}
+.wholeleft{
+	width:550px;
+	float:right;
+	overflow: hidden;
+}
+
+.left{
+	float: left;
+	width: 47%;
+	margin-left:2%;
+	overflow:hidden;	
+}
+
+.review{	
+	background-color: #E8DC9B;
+	font-weight: bold;
+	font-size: 8pt;
+	border: 2px solid gray;
+	border-radius: 10px;
+	padding: 8px;
+	overflow:hidden;
+}
+.review>img{
+	float: left;
+	margin-right:5px;
+}
+.person{
+	overflow: hidden;	
+}
+.person>img{
+	float: left;
+	margin-right:5px;	
+}
+
+#page{
+	clear:both;	
+	background-color:#A2B964;
+	text-align:center;
+	padding:5px;
+}
+
+#checker{
+	float:right;
+	clear:both;
+}

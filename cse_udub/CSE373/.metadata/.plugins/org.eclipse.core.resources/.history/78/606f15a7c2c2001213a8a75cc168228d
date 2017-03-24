@@ -1,0 +1,13 @@
+import java.util.*;
+public class Launcher {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Queens toplay = new Queens(8);
+		toplay.solve();
+	}
+
+}

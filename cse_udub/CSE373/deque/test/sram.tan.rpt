@@ -1,0 +1,602 @@
+Classic Timing Analyzer report for sram
+Sun Jan 27 23:21:00 2013
+Quartus II Version 7.2 Build 151 09/26/2007 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'clk'
+  6. tsu
+  7. tco
+  8. th
+  9. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                        ;
++------------------------------+-------+---------------+----------------------------------+--------------------------+------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                     ; To                                 ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+--------------------------+------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 6.957 ns                         ; key[2]                   ; state_reg.state_read1              ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 12.345 ns                        ; sram_ctrl:device0|oe_reg ; sram_oe_n                          ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -3.945 ns                        ; sram_dq[4]               ; sram_ctrl:device0|data_read_reg[4] ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 134.63 MHz ( period = 7.428 ns ) ; count_reg[0]             ; state_reg.state_read1              ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                          ;                                    ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+--------------------------+------------------------------------+------------+----------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                      ;
++----------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                         ; Setting            ; From ; To ; Entity Name ;
++----------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                    ; EP2C20F484C7       ;      ;    ;             ;
+; Timing Models                                                  ; Final              ;      ;    ;             ;
+; Default hold multicycle                                        ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                      ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                         ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                 ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                               ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                          ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                        ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                               ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                           ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                  ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                              ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                              ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node          ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                          ; 10                 ;      ;    ;             ;
+; Number of paths to report                                      ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                   ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                         ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                     ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                   ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis ; Off                ;      ;    ;             ;
++----------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                                ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------+-----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                          ; To                    ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------+-----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 134.63 MHz ( period = 7.428 ns )                    ; count_reg[0]                  ; state_reg.state_read1 ; clk        ; clk      ; None                        ; None                      ; 7.208 ns                ;
+; N/A                                     ; 136.15 MHz ( period = 7.345 ns )                    ; count_reg[2]                  ; state_reg.state_read1 ; clk        ; clk      ; None                        ; None                      ; 7.124 ns                ;
+; N/A                                     ; 136.56 MHz ( period = 7.323 ns )                    ; count_reg[3]                  ; state_reg.state_read1 ; clk        ; clk      ; None                        ; None                      ; 7.102 ns                ;
+; N/A                                     ; 137.51 MHz ( period = 7.272 ns )                    ; count_reg[7]                  ; state_reg.state_read1 ; clk        ; clk      ; None                        ; None                      ; 7.051 ns                ;
+; N/A                                     ; 138.03 MHz ( period = 7.245 ns )                    ; count_reg[4]                  ; state_reg.state_read1 ; clk        ; clk      ; None                        ; None                      ; 7.024 ns                ;
+; N/A                                     ; 138.05 MHz ( period = 7.244 ns )                    ; count_reg[1]                  ; state_reg.state_read1 ; clk        ; clk      ; None                        ; None                      ; 7.024 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 139.57 MHz ( period = 7.165 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.908 ns                ;
+; N/A                                     ; 140.69 MHz ( period = 7.108 ns )                    ; count_reg[5]                  ; state_reg.state_read1 ; clk        ; clk      ; None                        ; None                      ; 6.887 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.850 ns                ;
+; N/A                                     ; 141.08 MHz ( period = 7.088 ns )                    ; count_reg[6]                  ; state_reg.state_read1 ; clk        ; clk      ; None                        ; None                      ; 6.867 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.64 MHz ( period = 7.060 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.803 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 141.86 MHz ( period = 7.049 ns )                    ; mod_m_count:device1|count[10] ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.793 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 142.07 MHz ( period = 7.039 ns )                    ; mod_m_count:device1|count[11] ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.783 ns                ;
+; N/A                                     ; 143.97 MHz ( period = 6.946 ns )                    ; count_reg[8]                  ; state_reg.state_read1 ; clk        ; clk      ; None                        ; None                      ; 6.725 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.01 MHz ( period = 6.944 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.688 ns                ;
+; N/A                                     ; 144.68 MHz ( period = 6.912 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[0]          ; clk        ; clk      ; None                        ; None                      ; 6.654 ns                ;
+; N/A                                     ; 144.68 MHz ( period = 6.912 ns )                    ; mod_m_count:device1|count[9]  ; count_reg[1]          ; clk        ; clk      ; None                        ; None                      ; 6.654 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 144.84 MHz ( period = 6.904 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.648 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.35 MHz ( period = 6.880 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.623 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.79 MHz ( period = 6.859 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.603 ns                ;
+; N/A                                     ; 145.90 MHz ( period = 6.854 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[0]          ; clk        ; clk      ; None                        ; None                      ; 6.596 ns                ;
+; N/A                                     ; 145.90 MHz ( period = 6.854 ns )                    ; mod_m_count:device1|count[8]  ; count_reg[1]          ; clk        ; clk      ; None                        ; None                      ; 6.596 ns                ;
+; N/A                                     ; 146.84 MHz ( period = 6.810 ns )                    ; count_reg[14]                 ; state_reg.state_read1 ; clk        ; clk      ; None                        ; None                      ; 6.589 ns                ;
+; N/A                                     ; 146.91 MHz ( period = 6.807 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[0]          ; clk        ; clk      ; None                        ; None                      ; 6.549 ns                ;
+; N/A                                     ; 146.91 MHz ( period = 6.807 ns )                    ; mod_m_count:device1|count[6]  ; count_reg[1]          ; clk        ; clk      ; None                        ; None                      ; 6.549 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.12 MHz ( period = 6.797 ns )                    ; mod_m_count:device1|count[14] ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.540 ns                ;
+; N/A                                     ; 147.15 MHz ( period = 6.796 ns )                    ; mod_m_count:device1|count[10] ; count_reg[0]          ; clk        ; clk      ; None                        ; None                      ; 6.539 ns                ;
+; N/A                                     ; 147.15 MHz ( period = 6.796 ns )                    ; mod_m_count:device1|count[10] ; count_reg[1]          ; clk        ; clk      ; None                        ; None                      ; 6.539 ns                ;
+; N/A                                     ; 147.36 MHz ( period = 6.786 ns )                    ; mod_m_count:device1|count[11] ; count_reg[0]          ; clk        ; clk      ; None                        ; None                      ; 6.529 ns                ;
+; N/A                                     ; 147.36 MHz ( period = 6.786 ns )                    ; mod_m_count:device1|count[11] ; count_reg[1]          ; clk        ; clk      ; None                        ; None                      ; 6.529 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 148.74 MHz ( period = 6.723 ns )                    ; mod_m_count:device1|count[5]  ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.30 MHz ( period = 6.698 ns )                    ; mod_m_count:device1|count[3]  ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.442 ns                ;
+; N/A                                     ; 149.45 MHz ( period = 6.691 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[0]          ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.45 MHz ( period = 6.691 ns )                    ; mod_m_count:device1|count[7]  ; count_reg[1]          ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 149.48 MHz ( period = 6.690 ns )                    ; mod_m_count:device1|count[13] ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.434 ns                ;
+; N/A                                     ; 150.35 MHz ( period = 6.651 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[0]          ; clk        ; clk      ; None                        ; None                      ; 6.394 ns                ;
+; N/A                                     ; 150.35 MHz ( period = 6.651 ns )                    ; mod_m_count:device1|count[0]  ; count_reg[1]          ; clk        ; clk      ; None                        ; None                      ; 6.394 ns                ;
+; N/A                                     ; 150.90 MHz ( period = 6.627 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[0]          ; clk        ; clk      ; None                        ; None                      ; 6.369 ns                ;
+; N/A                                     ; 150.90 MHz ( period = 6.627 ns )                    ; mod_m_count:device1|count[4]  ; count_reg[1]          ; clk        ; clk      ; None                        ; None                      ; 6.369 ns                ;
+; N/A                                     ; 151.15 MHz ( period = 6.616 ns )                    ; count_reg[13]                 ; state_reg.state_read1 ; clk        ; clk      ; None                        ; None                      ; 6.395 ns                ;
+; N/A                                     ; 151.38 MHz ( period = 6.606 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[0]          ; clk        ; clk      ; None                        ; None                      ; 6.349 ns                ;
+; N/A                                     ; 151.38 MHz ( period = 6.606 ns )                    ; mod_m_count:device1|count[2]  ; count_reg[1]          ; clk        ; clk      ; None                        ; None                      ; 6.349 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[3]          ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[2]          ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[13]         ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[14]         ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[7]          ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[5]          ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[8]          ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[15]         ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.56 MHz ( period = 6.555 ns )                    ; mod_m_count:device1|count[15] ; count_reg[6]          ; clk        ; clk      ; None                        ; None                      ; 6.298 ns                ;
+; N/A                                     ; 152.67 MHz ( period = 6.550 ns )                    ; mod_m_count:device1|count[1]  ; count_reg[16]         ; clk        ; clk      ; None                        ; None                      ; 6.294 ns                ;
+; N/A                                     ; 152.67 MHz ( period = 6.550 ns )                    ; mod_m_count:device1|count[1]  ; count_reg[17]         ; clk        ; clk      ; None                        ; None                      ; 6.294 ns                ;
+; N/A                                     ; 152.67 MHz ( period = 6.550 ns )                    ; mod_m_count:device1|count[1]  ; count_reg[4]          ; clk        ; clk      ; None                        ; None                      ; 6.294 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                               ;                       ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------+-----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; tsu                                                                                              ;
++-------+--------------+------------+-------------+-------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From        ; To                                  ; To Clock ;
++-------+--------------+------------+-------------+-------------------------------------+----------+
+; N/A   ; None         ; 6.957 ns   ; key[2]      ; state_reg.state_read1               ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[3]                        ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[2]                        ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[13]                       ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[14]                       ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[7]                        ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[5]                        ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[8]                        ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[15]                       ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[16]                       ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[17]                       ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[4]                        ; clk      ;
+; N/A   ; None         ; 6.953 ns   ; key[1]      ; count_reg[6]                        ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; key[1]      ; count_reg[0]                        ; clk      ;
+; N/A   ; None         ; 6.700 ns   ; key[1]      ; count_reg[1]                        ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[3]                        ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[2]                        ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[13]                       ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[14]                       ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[7]                        ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[5]                        ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[8]                        ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[15]                       ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[16]                       ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[17]                       ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[4]                        ; clk      ;
+; N/A   ; None         ; 6.174 ns   ; key[2]      ; count_reg[6]                        ; clk      ;
+; N/A   ; None         ; 6.117 ns   ; key[1]      ; count_reg[9]                        ; clk      ;
+; N/A   ; None         ; 6.117 ns   ; key[1]      ; count_reg[12]                       ; clk      ;
+; N/A   ; None         ; 6.117 ns   ; key[1]      ; count_reg[11]                       ; clk      ;
+; N/A   ; None         ; 6.117 ns   ; key[1]      ; count_reg[10]                       ; clk      ;
+; N/A   ; None         ; 5.921 ns   ; key[2]      ; count_reg[0]                        ; clk      ;
+; N/A   ; None         ; 5.921 ns   ; key[2]      ; count_reg[1]                        ; clk      ;
+; N/A   ; None         ; 5.338 ns   ; key[2]      ; count_reg[9]                        ; clk      ;
+; N/A   ; None         ; 5.338 ns   ; key[2]      ; count_reg[12]                       ; clk      ;
+; N/A   ; None         ; 5.338 ns   ; key[2]      ; count_reg[11]                       ; clk      ;
+; N/A   ; None         ; 5.338 ns   ; key[2]      ; count_reg[10]                       ; clk      ;
+; N/A   ; None         ; 5.136 ns   ; key[2]      ; state_reg.state_idle                ; clk      ;
+; N/A   ; None         ; 5.076 ns   ; key[1]      ; state_reg.state_read1               ; clk      ;
+; N/A   ; None         ; 4.833 ns   ; key[1]      ; state_reg.state_idle                ; clk      ;
+; N/A   ; None         ; 4.638 ns   ; sram_dq[13] ; sram_ctrl:device0|data_read_reg[13] ; clk      ;
+; N/A   ; None         ; 4.595 ns   ; sram_dq[10] ; sram_ctrl:device0|data_read_reg[10] ; clk      ;
+; N/A   ; None         ; 4.561 ns   ; sram_dq[7]  ; sram_ctrl:device0|data_read_reg[7]  ; clk      ;
+; N/A   ; None         ; 4.529 ns   ; sram_dq[3]  ; sram_ctrl:device0|data_read_reg[3]  ; clk      ;
+; N/A   ; None         ; 4.523 ns   ; sram_dq[6]  ; sram_ctrl:device0|data_read_reg[6]  ; clk      ;
+; N/A   ; None         ; 4.498 ns   ; sram_dq[11] ; sram_ctrl:device0|data_read_reg[11] ; clk      ;
+; N/A   ; None         ; 4.488 ns   ; sram_dq[12] ; sram_ctrl:device0|data_read_reg[12] ; clk      ;
+; N/A   ; None         ; 4.478 ns   ; sram_dq[2]  ; sram_ctrl:device0|data_read_reg[2]  ; clk      ;
+; N/A   ; None         ; 4.469 ns   ; sram_dq[1]  ; sram_ctrl:device0|data_read_reg[1]  ; clk      ;
+; N/A   ; None         ; 4.412 ns   ; sram_dq[9]  ; sram_ctrl:device0|data_read_reg[9]  ; clk      ;
+; N/A   ; None         ; 4.353 ns   ; sram_dq[15] ; sram_ctrl:device0|data_read_reg[15] ; clk      ;
+; N/A   ; None         ; 4.342 ns   ; sram_dq[14] ; sram_ctrl:device0|data_read_reg[14] ; clk      ;
+; N/A   ; None         ; 4.329 ns   ; sram_dq[0]  ; sram_ctrl:device0|data_read_reg[0]  ; clk      ;
+; N/A   ; None         ; 4.315 ns   ; key[2]      ; state_reg.state_write1              ; clk      ;
+; N/A   ; None         ; 4.288 ns   ; sram_dq[8]  ; sram_ctrl:device0|data_read_reg[8]  ; clk      ;
+; N/A   ; None         ; 4.207 ns   ; sram_dq[5]  ; sram_ctrl:device0|data_read_reg[5]  ; clk      ;
+; N/A   ; None         ; 4.193 ns   ; sram_dq[4]  ; sram_ctrl:device0|data_read_reg[4]  ; clk      ;
++-------+--------------+------------+-------------+-------------------------------------+----------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; tco                                                                                                   ;
++-------+--------------+------------+--------------------------------------+---------------+------------+
+; Slack ; Required tco ; Actual tco ; From                                 ; To            ; From Clock ;
++-------+--------------+------------+--------------------------------------+---------------+------------+
+; N/A   ; None         ; 12.345 ns  ; sram_ctrl:device0|oe_reg             ; sram_oe_n     ; clk        ;
+; N/A   ; None         ; 10.416 ns  ; sram_ctrl:device0|we_reg             ; sram_we_n     ; clk        ;
+; N/A   ; None         ; 10.152 ns  ; sram_ctrl:device0|tri_reg            ; sram_dq[5]    ; clk        ;
+; N/A   ; None         ; 10.112 ns  ; sram_ctrl:device0|tri_reg            ; sram_dq[1]    ; clk        ;
+; N/A   ; None         ; 10.111 ns  ; sram_ctrl:device0|tri_reg            ; sram_dq[4]    ; clk        ;
+; N/A   ; None         ; 10.102 ns  ; sram_ctrl:device0|tri_reg            ; sram_dq[0]    ; clk        ;
+; N/A   ; None         ; 9.851 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[3]    ; clk        ;
+; N/A   ; None         ; 9.841 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[2]    ; clk        ;
+; N/A   ; None         ; 9.827 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[14]   ; clk        ;
+; N/A   ; None         ; 9.827 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[13]   ; clk        ;
+; N/A   ; None         ; 9.826 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[12]   ; clk        ;
+; N/A   ; None         ; 9.821 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[9]    ; clk        ;
+; N/A   ; None         ; 9.821 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[8]    ; clk        ;
+; N/A   ; None         ; 9.817 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[10]   ; clk        ;
+; N/A   ; None         ; 9.812 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[15]   ; clk        ;
+; N/A   ; None         ; 9.806 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[11]   ; clk        ;
+; N/A   ; None         ; 9.801 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[7]    ; clk        ;
+; N/A   ; None         ; 9.784 ns   ; sram_ctrl:device0|tri_reg            ; sram_dq[6]    ; clk        ;
+; N/A   ; None         ; 9.201 ns   ; sram_ctrl:device0|data_read_reg[8]   ; ledr[0]       ; clk        ;
+; N/A   ; None         ; 8.925 ns   ; sram_ctrl:device0|data_read_reg[3]   ; ledg[3]       ; clk        ;
+; N/A   ; None         ; 8.855 ns   ; sram_ctrl:device0|data_read_reg[11]  ; ledr[3]       ; clk        ;
+; N/A   ; None         ; 8.855 ns   ; sram_ctrl:device0|data_read_reg[10]  ; ledr[2]       ; clk        ;
+; N/A   ; None         ; 8.833 ns   ; sram_ctrl:device0|data_read_reg[1]   ; ledg[1]       ; clk        ;
+; N/A   ; None         ; 8.819 ns   ; sram_ctrl:device0|data_read_reg[5]   ; ledg[5]       ; clk        ;
+; N/A   ; None         ; 8.623 ns   ; sram_ctrl:device0|data_read_reg[12]  ; ledr[4]       ; clk        ;
+; N/A   ; None         ; 8.550 ns   ; sram_ctrl:device0|data_read_reg[14]  ; ledr[6]       ; clk        ;
+; N/A   ; None         ; 8.529 ns   ; sram_ctrl:device0|data_read_reg[7]   ; ledg[7]       ; clk        ;
+; N/A   ; None         ; 8.365 ns   ; sram_ctrl:device0|addr_reg[0]        ; sram_addr[0]  ; clk        ;
+; N/A   ; None         ; 8.353 ns   ; sram_ctrl:device0|addr_reg[17]       ; sram_addr[17] ; clk        ;
+; N/A   ; None         ; 8.345 ns   ; sram_ctrl:device0|addr_reg[1]        ; sram_addr[1]  ; clk        ;
+; N/A   ; None         ; 8.274 ns   ; sram_ctrl:device0|data_read_reg[2]   ; ledg[2]       ; clk        ;
+; N/A   ; None         ; 8.235 ns   ; sram_ctrl:device0|addr_reg[16]       ; sram_addr[16] ; clk        ;
+; N/A   ; None         ; 8.233 ns   ; sram_ctrl:device0|addr_reg[3]        ; sram_addr[3]  ; clk        ;
+; N/A   ; None         ; 8.232 ns   ; sram_ctrl:device0|addr_reg[2]        ; sram_addr[2]  ; clk        ;
+; N/A   ; None         ; 8.203 ns   ; sram_ctrl:device0|data_read_reg[13]  ; ledr[5]       ; clk        ;
+; N/A   ; None         ; 8.122 ns   ; sram_ctrl:device0|addr_reg[15]       ; sram_addr[15] ; clk        ;
+; N/A   ; None         ; 8.071 ns   ; sram_ctrl:device0|data_write_reg[15] ; sram_dq[15]   ; clk        ;
+; N/A   ; None         ; 8.066 ns   ; sram_ctrl:device0|addr_reg[4]        ; sram_addr[4]  ; clk        ;
+; N/A   ; None         ; 8.044 ns   ; sram_ctrl:device0|data_read_reg[15]  ; ledr[7]       ; clk        ;
+; N/A   ; None         ; 8.037 ns   ; sram_ctrl:device0|data_read_reg[4]   ; ledg[4]       ; clk        ;
+; N/A   ; None         ; 8.011 ns   ; sram_ctrl:device0|data_read_reg[0]   ; ledg[0]       ; clk        ;
+; N/A   ; None         ; 7.783 ns   ; sram_ctrl:device0|data_write_reg[0]  ; sram_dq[0]    ; clk        ;
+; N/A   ; None         ; 7.768 ns   ; sram_ctrl:device0|data_write_reg[1]  ; sram_dq[1]    ; clk        ;
+; N/A   ; None         ; 7.754 ns   ; sram_ctrl:device0|data_read_reg[9]   ; ledr[1]       ; clk        ;
+; N/A   ; None         ; 7.707 ns   ; sram_ctrl:device0|data_write_reg[13] ; sram_dq[13]   ; clk        ;
+; N/A   ; None         ; 7.705 ns   ; sram_ctrl:device0|data_write_reg[14] ; sram_dq[14]   ; clk        ;
+; N/A   ; None         ; 7.705 ns   ; sram_ctrl:device0|data_write_reg[10] ; sram_dq[10]   ; clk        ;
+; N/A   ; None         ; 7.623 ns   ; sram_ctrl:device0|data_write_reg[3]  ; sram_dq[3]    ; clk        ;
+; N/A   ; None         ; 7.565 ns   ; sram_ctrl:device0|addr_reg[7]        ; sram_addr[7]  ; clk        ;
+; N/A   ; None         ; 7.545 ns   ; sram_ctrl:device0|data_write_reg[2]  ; sram_dq[2]    ; clk        ;
+; N/A   ; None         ; 7.501 ns   ; sram_ctrl:device0|addr_reg[6]        ; sram_addr[6]  ; clk        ;
+; N/A   ; None         ; 7.488 ns   ; sram_ctrl:device0|addr_reg[14]       ; sram_addr[14] ; clk        ;
+; N/A   ; None         ; 7.456 ns   ; sram_ctrl:device0|data_write_reg[12] ; sram_dq[12]   ; clk        ;
+; N/A   ; None         ; 7.454 ns   ; sram_ctrl:device0|addr_reg[13]       ; sram_addr[13] ; clk        ;
+; N/A   ; None         ; 7.452 ns   ; sram_ctrl:device0|data_write_reg[8]  ; sram_dq[8]    ; clk        ;
+; N/A   ; None         ; 7.447 ns   ; sram_ctrl:device0|data_write_reg[11] ; sram_dq[11]   ; clk        ;
+; N/A   ; None         ; 7.444 ns   ; sram_ctrl:device0|data_write_reg[9]  ; sram_dq[9]    ; clk        ;
+; N/A   ; None         ; 7.387 ns   ; sram_ctrl:device0|data_read_reg[6]   ; ledg[6]       ; clk        ;
+; N/A   ; None         ; 7.246 ns   ; sram_ctrl:device0|data_write_reg[5]  ; sram_dq[5]    ; clk        ;
+; N/A   ; None         ; 7.244 ns   ; sram_ctrl:device0|data_write_reg[4]  ; sram_dq[4]    ; clk        ;
+; N/A   ; None         ; 7.208 ns   ; sram_ctrl:device0|addr_reg[5]        ; sram_addr[5]  ; clk        ;
+; N/A   ; None         ; 7.178 ns   ; sram_ctrl:device0|addr_reg[12]       ; sram_addr[12] ; clk        ;
+; N/A   ; None         ; 7.176 ns   ; sram_ctrl:device0|data_write_reg[7]  ; sram_dq[7]    ; clk        ;
+; N/A   ; None         ; 6.933 ns   ; sram_ctrl:device0|data_write_reg[6]  ; sram_dq[6]    ; clk        ;
+; N/A   ; None         ; 6.867 ns   ; sram_ctrl:device0|addr_reg[11]       ; sram_addr[11] ; clk        ;
+; N/A   ; None         ; 6.865 ns   ; sram_ctrl:device0|addr_reg[9]        ; sram_addr[9]  ; clk        ;
+; N/A   ; None         ; 6.857 ns   ; sram_ctrl:device0|addr_reg[8]        ; sram_addr[8]  ; clk        ;
+; N/A   ; None         ; 6.846 ns   ; sram_ctrl:device0|addr_reg[10]       ; sram_addr[10] ; clk        ;
++-------+--------------+------------+--------------------------------------+---------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; th                                                                                                     ;
++---------------+-------------+-----------+-------------+-------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From        ; To                                  ; To Clock ;
++---------------+-------------+-----------+-------------+-------------------------------------+----------+
+; N/A           ; None        ; -3.945 ns ; sram_dq[4]  ; sram_ctrl:device0|data_read_reg[4]  ; clk      ;
+; N/A           ; None        ; -3.959 ns ; sram_dq[5]  ; sram_ctrl:device0|data_read_reg[5]  ; clk      ;
+; N/A           ; None        ; -4.040 ns ; sram_dq[8]  ; sram_ctrl:device0|data_read_reg[8]  ; clk      ;
+; N/A           ; None        ; -4.067 ns ; key[2]      ; state_reg.state_write1              ; clk      ;
+; N/A           ; None        ; -4.081 ns ; sram_dq[0]  ; sram_ctrl:device0|data_read_reg[0]  ; clk      ;
+; N/A           ; None        ; -4.094 ns ; sram_dq[14] ; sram_ctrl:device0|data_read_reg[14] ; clk      ;
+; N/A           ; None        ; -4.105 ns ; sram_dq[15] ; sram_ctrl:device0|data_read_reg[15] ; clk      ;
+; N/A           ; None        ; -4.164 ns ; sram_dq[9]  ; sram_ctrl:device0|data_read_reg[9]  ; clk      ;
+; N/A           ; None        ; -4.221 ns ; sram_dq[1]  ; sram_ctrl:device0|data_read_reg[1]  ; clk      ;
+; N/A           ; None        ; -4.230 ns ; sram_dq[2]  ; sram_ctrl:device0|data_read_reg[2]  ; clk      ;
+; N/A           ; None        ; -4.240 ns ; sram_dq[12] ; sram_ctrl:device0|data_read_reg[12] ; clk      ;
+; N/A           ; None        ; -4.250 ns ; sram_dq[11] ; sram_ctrl:device0|data_read_reg[11] ; clk      ;
+; N/A           ; None        ; -4.275 ns ; sram_dq[6]  ; sram_ctrl:device0|data_read_reg[6]  ; clk      ;
+; N/A           ; None        ; -4.281 ns ; sram_dq[3]  ; sram_ctrl:device0|data_read_reg[3]  ; clk      ;
+; N/A           ; None        ; -4.313 ns ; sram_dq[7]  ; sram_ctrl:device0|data_read_reg[7]  ; clk      ;
+; N/A           ; None        ; -4.347 ns ; sram_dq[10] ; sram_ctrl:device0|data_read_reg[10] ; clk      ;
+; N/A           ; None        ; -4.390 ns ; sram_dq[13] ; sram_ctrl:device0|data_read_reg[13] ; clk      ;
+; N/A           ; None        ; -4.585 ns ; key[1]      ; state_reg.state_idle                ; clk      ;
+; N/A           ; None        ; -4.828 ns ; key[1]      ; state_reg.state_read1               ; clk      ;
+; N/A           ; None        ; -4.888 ns ; key[2]      ; state_reg.state_idle                ; clk      ;
+; N/A           ; None        ; -5.090 ns ; key[2]      ; count_reg[9]                        ; clk      ;
+; N/A           ; None        ; -5.090 ns ; key[2]      ; count_reg[12]                       ; clk      ;
+; N/A           ; None        ; -5.090 ns ; key[2]      ; count_reg[11]                       ; clk      ;
+; N/A           ; None        ; -5.090 ns ; key[2]      ; count_reg[10]                       ; clk      ;
+; N/A           ; None        ; -5.673 ns ; key[2]      ; count_reg[0]                        ; clk      ;
+; N/A           ; None        ; -5.673 ns ; key[2]      ; count_reg[1]                        ; clk      ;
+; N/A           ; None        ; -5.869 ns ; key[1]      ; count_reg[9]                        ; clk      ;
+; N/A           ; None        ; -5.869 ns ; key[1]      ; count_reg[12]                       ; clk      ;
+; N/A           ; None        ; -5.869 ns ; key[1]      ; count_reg[11]                       ; clk      ;
+; N/A           ; None        ; -5.869 ns ; key[1]      ; count_reg[10]                       ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[3]                        ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[2]                        ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[13]                       ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[14]                       ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[7]                        ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[5]                        ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[8]                        ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[15]                       ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[16]                       ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[17]                       ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[4]                        ; clk      ;
+; N/A           ; None        ; -5.926 ns ; key[2]      ; count_reg[6]                        ; clk      ;
+; N/A           ; None        ; -6.452 ns ; key[1]      ; count_reg[0]                        ; clk      ;
+; N/A           ; None        ; -6.452 ns ; key[1]      ; count_reg[1]                        ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[3]                        ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[2]                        ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[13]                       ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[14]                       ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[7]                        ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[5]                        ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[8]                        ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[15]                       ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[16]                       ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[17]                       ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[4]                        ; clk      ;
+; N/A           ; None        ; -6.705 ns ; key[1]      ; count_reg[6]                        ; clk      ;
+; N/A           ; None        ; -6.709 ns ; key[2]      ; state_reg.state_read1               ; clk      ;
++---------------+-------------+-----------+-------------+-------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 7.2 Build 151 09/26/2007 SJ Full Version
+    Info: Processing started: Sun Jan 27 23:21:00 2013
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off sram -c sram --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Info: Clock "clk" has Internal fmax of 134.63 MHz between source register "count_reg[0]" and destination register "state_reg.state_read1" (period= 7.428 ns)
+    Info: + Longest register to register delay is 7.208 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X29_Y6_N3; Fanout = 4; REG Node = 'count_reg[0]'
+        Info: 2: + IC(0.366 ns) + CELL(0.596 ns) = 0.962 ns; Loc. = LCCOMB_X29_Y6_N14; Fanout = 2; COMB Node = 'Add0~343'
+        Info: 3: + IC(0.000 ns) + CELL(0.080 ns) = 1.042 ns; Loc. = LCCOMB_X29_Y6_N16; Fanout = 2; COMB Node = 'Add0~345'
+        Info: 4: + IC(0.000 ns) + CELL(0.080 ns) = 1.122 ns; Loc. = LCCOMB_X29_Y6_N18; Fanout = 2; COMB Node = 'Add0~347'
+        Info: 5: + IC(0.000 ns) + CELL(0.080 ns) = 1.202 ns; Loc. = LCCOMB_X29_Y6_N20; Fanout = 2; COMB Node = 'Add0~349'
+        Info: 6: + IC(0.000 ns) + CELL(0.080 ns) = 1.282 ns; Loc. = LCCOMB_X29_Y6_N22; Fanout = 2; COMB Node = 'Add0~351'
+        Info: 7: + IC(0.000 ns) + CELL(0.080 ns) = 1.362 ns; Loc. = LCCOMB_X29_Y6_N24; Fanout = 2; COMB Node = 'Add0~353'
+        Info: 8: + IC(0.000 ns) + CELL(0.080 ns) = 1.442 ns; Loc. = LCCOMB_X29_Y6_N26; Fanout = 2; COMB Node = 'Add0~355'
+        Info: 9: + IC(0.000 ns) + CELL(0.080 ns) = 1.522 ns; Loc. = LCCOMB_X29_Y6_N28; Fanout = 2; COMB Node = 'Add0~357'
+        Info: 10: + IC(0.000 ns) + CELL(0.161 ns) = 1.683 ns; Loc. = LCCOMB_X29_Y6_N30; Fanout = 2; COMB Node = 'Add0~359'
+        Info: 11: + IC(0.000 ns) + CELL(0.080 ns) = 1.763 ns; Loc. = LCCOMB_X29_Y5_N0; Fanout = 2; COMB Node = 'Add0~361'
+        Info: 12: + IC(0.000 ns) + CELL(0.080 ns) = 1.843 ns; Loc. = LCCOMB_X29_Y5_N2; Fanout = 2; COMB Node = 'Add0~363'
+        Info: 13: + IC(0.000 ns) + CELL(0.080 ns) = 1.923 ns; Loc. = LCCOMB_X29_Y5_N4; Fanout = 2; COMB Node = 'Add0~365'
+        Info: 14: + IC(0.000 ns) + CELL(0.080 ns) = 2.003 ns; Loc. = LCCOMB_X29_Y5_N6; Fanout = 2; COMB Node = 'Add0~367'
+        Info: 15: + IC(0.000 ns) + CELL(0.458 ns) = 2.461 ns; Loc. = LCCOMB_X29_Y5_N8; Fanout = 2; COMB Node = 'Add0~368'
+        Info: 16: + IC(0.871 ns) + CELL(0.521 ns) = 3.853 ns; Loc. = LCCOMB_X29_Y6_N8; Fanout = 1; COMB Node = 'Equal0~197'
+        Info: 17: + IC(0.302 ns) + CELL(0.521 ns) = 4.676 ns; Loc. = LCCOMB_X29_Y6_N4; Fanout = 3; COMB Node = 'Equal0~199'
+        Info: 18: + IC(2.258 ns) + CELL(0.178 ns) = 7.112 ns; Loc. = LCCOMB_X45_Y23_N30; Fanout = 1; COMB Node = 'Selector1~136'
+        Info: 19: + IC(0.000 ns) + CELL(0.096 ns) = 7.208 ns; Loc. = LCFF_X45_Y23_N31; Fanout = 6; REG Node = 'state_reg.state_read1'
+        Info: Total cell delay = 3.411 ns ( 47.32 % )
+        Info: Total interconnect delay = 3.797 ns ( 52.68 % )
+    Info: - Smallest clock skew is 0.019 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 2.863 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 1; CLK Node = 'clk'
+            Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G2; Fanout = 93; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(0.997 ns) + CELL(0.602 ns) = 2.863 ns; Loc. = LCFF_X45_Y23_N31; Fanout = 6; REG Node = 'state_reg.state_read1'
+            Info: Total cell delay = 1.628 ns ( 56.86 % )
+            Info: Total interconnect delay = 1.235 ns ( 43.14 % )
+        Info: - Longest clock path from clock "clk" to source register is 2.844 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 1; CLK Node = 'clk'
+            Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G2; Fanout = 93; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(0.978 ns) + CELL(0.602 ns) = 2.844 ns; Loc. = LCFF_X29_Y6_N3; Fanout = 4; REG Node = 'count_reg[0]'
+            Info: Total cell delay = 1.628 ns ( 57.24 % )
+            Info: Total interconnect delay = 1.216 ns ( 42.76 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Micro setup delay of destination is -0.038 ns
+Info: tsu for register "state_reg.state_read1" (data pin = "key[2]", clock pin = "clk") is 6.957 ns
+    Info: + Longest pin to register delay is 9.858 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.874 ns) = 0.874 ns; Loc. = PIN_T22; Fanout = 3; PIN Node = 'key[2]'
+        Info: 2: + IC(5.736 ns) + CELL(0.322 ns) = 6.932 ns; Loc. = LCCOMB_X30_Y6_N8; Fanout = 2; COMB Node = 'Selector1~135'
+        Info: 3: + IC(2.508 ns) + CELL(0.322 ns) = 9.762 ns; Loc. = LCCOMB_X45_Y23_N30; Fanout = 1; COMB Node = 'Selector1~136'
+        Info: 4: + IC(0.000 ns) + CELL(0.096 ns) = 9.858 ns; Loc. = LCFF_X45_Y23_N31; Fanout = 6; REG Node = 'state_reg.state_read1'
+        Info: Total cell delay = 1.614 ns ( 16.37 % )
+        Info: Total interconnect delay = 8.244 ns ( 83.63 % )
+    Info: + Micro setup delay of destination is -0.038 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 2.863 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G2; Fanout = 93; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(0.997 ns) + CELL(0.602 ns) = 2.863 ns; Loc. = LCFF_X45_Y23_N31; Fanout = 6; REG Node = 'state_reg.state_read1'
+        Info: Total cell delay = 1.628 ns ( 56.86 % )
+        Info: Total interconnect delay = 1.235 ns ( 43.14 % )
+Info: tco from clock "clk" to destination pin "sram_oe_n" through register "sram_ctrl:device0|oe_reg" is 12.345 ns
+    Info: + Longest clock path from clock "clk" to source register is 2.863 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G2; Fanout = 93; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(0.997 ns) + CELL(0.602 ns) = 2.863 ns; Loc. = LCFF_X45_Y23_N25; Fanout = 18; REG Node = 'sram_ctrl:device0|oe_reg'
+        Info: Total cell delay = 1.628 ns ( 56.86 % )
+        Info: Total interconnect delay = 1.235 ns ( 43.14 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Longest register to pin delay is 9.205 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X45_Y23_N25; Fanout = 18; REG Node = 'sram_ctrl:device0|oe_reg'
+        Info: 2: + IC(6.219 ns) + CELL(2.986 ns) = 9.205 ns; Loc. = PIN_T8; Fanout = 0; PIN Node = 'sram_oe_n'
+        Info: Total cell delay = 2.986 ns ( 32.44 % )
+        Info: Total interconnect delay = 6.219 ns ( 67.56 % )
+Info: th for register "sram_ctrl:device0|data_read_reg[4]" (data pin = "sram_dq[4]", clock pin = "clk") is -3.945 ns
+    Info: + Longest clock path from clock "clk" to destination register is 2.860 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.238 ns) + CELL(0.000 ns) = 1.264 ns; Loc. = CLKCTRL_G2; Fanout = 93; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(0.994 ns) + CELL(0.602 ns) = 2.860 ns; Loc. = LCFF_X23_Y3_N23; Fanout = 1; REG Node = 'sram_ctrl:device0|data_read_reg[4]'
+        Info: Total cell delay = 1.628 ns ( 56.92 % )
+        Info: Total interconnect delay = 1.232 ns ( 43.08 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+    Info: - Shortest pin to register delay is 7.091 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PIN_AA8; Fanout = 1; PIN Node = 'sram_dq[4]'
+        Info: 2: + IC(0.000 ns) + CELL(0.863 ns) = 0.863 ns; Loc. = IOC_X15_Y0_N1; Fanout = 1; COMB Node = 'sram_dq[4]~11'
+        Info: 3: + IC(5.815 ns) + CELL(0.413 ns) = 7.091 ns; Loc. = LCFF_X23_Y3_N23; Fanout = 1; REG Node = 'sram_ctrl:device0|data_read_reg[4]'
+        Info: Total cell delay = 1.276 ns ( 17.99 % )
+        Info: Total interconnect delay = 5.815 ns ( 82.01 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Allocated 179 megabytes of memory during processing
+    Info: Processing ended: Sun Jan 27 23:21:00 2013
+    Info: Elapsed time: 00:00:00
+
+

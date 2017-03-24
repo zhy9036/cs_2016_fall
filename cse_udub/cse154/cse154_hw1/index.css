@@ -1,0 +1,50 @@
+body{
+	background-image: url("http://evasimkesyan.edublogs.org/files/2010/09/cooking-pancake.jpg");
+	background-repeat:repeat;
+	background-position: 35% -400%;
+	background-attachment:fixed;
+	
+}
+
+h1,h2{
+ text-align: center;
+ font-family: "Verdana", sans-serif;
+ font-weight: bold;
+ color:white;
+ 
+}
+
+h2{
+	text-align:left;
+}
+
+li{
+	font-weight:900;
+	color:black;
+}
+
+span{
+	border: .15em solid #999999;
+	border-radius: 28px;
+	padding: 0.25em;
+	background-color: #999999 ;
+}
+
+a, a:visited {
+	text-decoration:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+#css{
+	position:fixed;
+    bottom:20px;
+    left:95px;
+}
+#html{
+    position:fixed;
+    bottom:20px;
+    left:5px;
+}

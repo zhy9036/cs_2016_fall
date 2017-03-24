@@ -1,0 +1,13 @@
+#YANG ZHANG
+#CSE 374 HW2
+#PROBLEM 1
+#Tue Jan 21 14:46:28 PST 2014
+
+1. echo fleem 
+2. echo fleem >> somefile && cat somefile
+3. echo >> fleem && ls fleem
+4. echo fleem > target.txt && grep fleem target.txt
+5. there are three steps: 
+	<1> Create an alias called fleem: $ alias fleem = "cd ."
+	<2> Run "fleem" $ fleem 
+	<3> Run "!!"	$ !!

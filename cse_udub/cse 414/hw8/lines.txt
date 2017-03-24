@@ -1,0 +1,26 @@
+ssh -o "ServerAliveInterval 10" -i </path/to/saved/keypair/file.pem> hadoop@<master.public-dns-name.amazonaws.com>
+
+ssh -L 9100:localhost:9100 -L 9101:localhost:9101  -i ~/Desktop/file.pem hadoop@<master DNS>
+
+
+
+no1
+
+ssh -o "ServerAliveInterval 10" -i file.pem hadoop@ec2-54-214-222-195.us-west-2.compute.amazonaws.com
+
+
+no2
+
+ssh -L 9100:localhost:9100 -L 9101:localhost:9101  -i ~/Desktop/file.pem hadoop@ec2-54-214-222-195.us-west-2.compute.amazonaws.com
+
+
+
+
+hadoop fs -getmerge  /user/hadoop/example-results example-results
+
+scp -o "ServerAliveInterval 10" -i file.pem -r hadoop@ec2-54-214-222-195.us-west-2.compute.amazonaws.com:example-results .
+
+
+SET mapred.task.timeout 180000
+
+

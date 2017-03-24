@@ -1,0 +1,29 @@
+"""
+***
+*   YANG ZHANG 1030416
+*   CSE 415 HW 2 A STAR
+***
+
+"""
+
+
+Result for simple dataset:
+
+Point            Cumulative Cost
+(0, 0)           0
+(4, 0)           4.0
+(9, 6)           11.8102496759
+
+
+
+
+Result for difficult dataset:
+
+Point            Cumulative Cost
+(0, 0)           0
+(5, 0)           5.0
+(8, 2)           8.60555127546
+(10, 5)          12.2111025509
+(25, 25)         37.2111025509
+(25, 33)         45.2111025509
+(25, 35)         47.2111025509

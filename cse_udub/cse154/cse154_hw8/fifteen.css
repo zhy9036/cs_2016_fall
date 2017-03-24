@@ -1,0 +1,39 @@
+/*
+YANG ZHANG
+CSE 154 AA
+HW8
+This is the css file for hw8
+*/
+
+/*position: absolute;*/
+
+.tile{
+	border: 5px black solid;
+	font-size: 40pt;
+	width: 90px;
+	height: 90px;
+	float: left;
+	position: absolute;
+}
+
+.blank{
+	width: 100px;
+	height: 100px;
+	float: left;	
+
+}
+body,#shufflebutton{
+	font-family: cursive;
+	font-size: 14pt;
+	text-align: center;
+
+}
+
+.cover:hover{
+	border: 5px red solid;
+}
+#puzzlearea{
+	width: 400px;
+	height: 400px;
+	margin: auto;
+}

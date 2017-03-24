@@ -1,0 +1,21 @@
+1. The wc utility displays the number of lines, words, and bytes contained
+   in each input file,
+   -l option shows The number of lines in each input file is written to the sta	  ndard output.
+
+2. Output Result: 137  180 6687 /etc/passwd
+
+3. I use 'kill pid' to stop a process 
+
+4. $HOME stores: /homes/zhy9036
+
+5. $SHELL can show user the terminal type, $HOSTNAME can show user the host imformation 
+
+6. find
+
+7. which can only locate executable file in user's path, while find can locate any kind of  files in anywhere 
+
+8. echo $something > $sowefile will save $something to $somefile, if $somefile already exists, then overwrite it. 
+
+9. file will be overwrited
+
+10. echo $sth >> $sw will do text appending, file will be updated not overwrited. 

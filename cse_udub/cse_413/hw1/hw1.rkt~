@@ -1,0 +1,13 @@
+#lang racket
+(define fact (lambda (n) 
+               (if (< n 2)
+                   1
+                   (* n (fact (- n 1))))))
+(define comb (lambda (n k)
+               (/ (fact n) (* (fact k) (fact (- n k))))))
+
+(define zip (lambda (a b)
+              (cond ((null? a) (cons ('() (zip b a))))
+                    
+                    ((and (null? a) (null? b)) 'nothing)
+                    (else (cons ((car a) (zip b a)))))))

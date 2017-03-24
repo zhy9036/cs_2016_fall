@@ -1,0 +1,36 @@
+
+
+java -cp saxon9he.jar net.sf.saxon.Query q1.xq > a1.xml
+xmllint --format a2.xml
+
+
+<html>
+	<head>
+		<title>Rivers</title>
+	</head>
+
+	<body>
+		<h1>HALA</h1>
+		<ul>
+			{
+			for $y in doc("mondial.xml")/mondial/river/@id
+			let $x := doc("mondial.xml")/mondial/river[@id = $y]/name/text() 
+			let $z := doc("mondial.xml")/mondial/river[@id = $y]/@country
+			where string-length($z) >8
+			return	
+			<li> 
+				<div>River name: {$x}</div>
+				<ol>
+					{
+					for $cname in doc("mondial.xml")/mondial/country[contains($z, @car_code)]/name/text()
+					return
+					<li>Country name: {$cname}</li>
+					}
+				</ol>
+			</li>
+			}
+		</ul>
+	</body>
+</html>
+
+(:let $z := tokenize(doc("mondial.xml")/mondial/river[@id = $y]/@country, '\s'):)

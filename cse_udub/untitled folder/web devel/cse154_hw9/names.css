@@ -1,0 +1,43 @@
+/*
+YANG ZHANG
+CSE 154 HW9
+This the css file for hw9
+*/
+body,button,head,li,select{
+	font-family: Georgia, serif;
+	font-size: 12pt;
+}
+
+td{
+	vertical-align: bottom;
+}
+
+q{
+	font-style: italic;
+}
+
+.show{
+	display: block;
+}
+
+.hide{
+	display: none;
+}
+
+.bar{
+	background-color: #ffbbbb;
+	width: 50px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#graph,td{
+	height: 250px;
+}
+
+#errors>p>span{
+	color: white;
+	background-color: black;
+	border-radius: 5px;
+	border: 3px solid #f0f0f0;
+}

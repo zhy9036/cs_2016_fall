@@ -1,0 +1,150 @@
+// TODO: Remove each 'todo' comment once I implement each part!
+
+// TODO: comment header for my program
+
+import java.util.*;
+
+public class MatchMaker {
+	private boolean checkStable;
+	private Set<Person> men;
+	private Set<Person> women;
+	
+	// TODO: comment header
+	public MatchMaker() {
+		// TODO: implement the constructor
+		men = new HashSet<Person>();
+		women = new HashSet<Person>();
+		checkStable = false; 
+	}
+	
+	// TODO: comment header
+	public void addPerson(String name, String gender, String[] partners){
+		if(gender.equals("F")){
+			women.add(new Person(name, partners));
+		}else{
+			men.add(new Person(name, partners));
+		}
+	}
+	
+	// TODO: comment header
+	public int getRank(String name, String partner) {
+		// TODO: implement this method
+		for(Person man : men){
+			if(man.getName().equals(name)){
+				return man.rank(partner);
+			}
+		}
+		for(Person woman: women){
+			if(woman.getName().equals(name)){
+				return woman.rank(partner);
+			}
+		}
+		return -1;
+	}
+	
+	// TODO: comment header
+	public boolean isStable() {
+		// TODO: implement this method
+		if(!checkStable){
+			for(Person one : men){
+				if(one.single()){
+					return false;
+				}
+			}
+			checkStable = true;
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
+	// TODO: comment header
+	public void nextRound() {
+		
+		/*
+		for each man M in MEN:
+    if M is single and still has at least one woman left to pursue:
+        let W = remove M's most-preferred woman remaining.
+        if W is single:
+            (M, W) become engaged.
+        else, W must be currently engaged to some other man M2.
+            if W prefers M over M2:
+                (M, W) become engaged.
+                M2 becomes single.
+		
+				 */
+		for(Person m : men){
+			if(m.single() && m.notEmpty()){
+				String w = m.getFav();
+				//*****************************
+				System.out.println(w);
+				
+				Person wW = new Person();
+				for(Person temp : women){
+					if(w.equals(temp.getName())){
+						wW = temp;
+					}
+				}
+				if(wW.single()){
+					m.getEng(wW);
+					wW.getEng(m);
+				}else{
+					String cur = wW.getCurp();
+					if(wW.rank(m.getName()) < wW.rank(cur)){
+						for(Person curM : men){
+							if(curM.getName().equals(cur)){
+								curM.getDump();
+							}
+						}
+						m.getEng(wW);
+						wW.getEng(m);						
+					}
+				}
+			}
+		}
+		/*
+		for(String man : men.keySet()){
+			if(single(man)&& !men.get(man).isEmpty()){
+				String templeW = men.get(man).get(0);
+				if(single(templeW)){
+					pairs.put(templeW, man);
+					pairs.put(man, templeW);
+				}else{
+					String curM = pairs.get(templeW);
+					if(women.get(templeW).indexOf(man) < women.get(templeW).indexOf(curM)){
+						pairs.put(templeW, man);
+						// get dumped
+						pairs.remove(curM);
+						men.get(curM).remove(0);
+					}
+				}
+			}	
+		}
+		*/
+	}
+	
+	
+	
+	// TODO: comment header
+	public void printMatches() {
+		// TODO: implement this method
+		
+		for(Person m: men){
+			if(m.single()){
+				System.out.println(m.getName() + ": single");
+			}else{
+				System.out.println(m.getName() +": engaged to " + m.getCurp());
+			}
+		}
+		for(Person w: women){
+			if(w.single()){
+				System.out.println(w.getName() + ": single");
+			}else{
+				System.out.println(w.getName() +": engaged to " + w.getCurp());
+			}
+		}
+		
+		
+	}
+	
+}

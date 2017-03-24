@@ -1,0 +1,13 @@
+Script started on Mon Jan  6 18:45:07 2014
+[?1034hbash-3.2$ whoami
+zhangyang
+bash-3.2$ echo $SHELL
+/bin/bash
+bash-3.2$ pwd
+/Users/zhangyang/Desktop
+bash-3.2$ uname -a
+Darwin Zhangs-MacBook-Air.local 13.0.0 Darwin Kernel Version 13.0.0: Thu Sep 19 22:22:27 PDT 2013; root:xnu-2422.1.72~6/RELEASE_X86_64 x86_64
+bash-3.2$ exit
+exit
+
+Script done on Mon Jan  6 18:45:34 2014

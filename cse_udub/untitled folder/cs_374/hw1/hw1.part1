@@ -1,0 +1,91 @@
+Script started on Sun 12 Jan 2014 01:49:07 PM PST
+]0;zhy9036@klaatu:~/Desktop[?1034h[zhy9036@klaatu Desktop]$ echo he[K[KHello world
+Hello world
+]0;zhy9036@klaatu:~/Desktop[zhy9036@klaatu Desktop]$ pss[K[Kasswe[Kd
+Changing password for user zhy9036.
+Changing password for zhy9036.
+(current) UNIX password: 
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+]0;zhy9036@klaatu:~/Desktop[zhy9036@klaatu Desktop]$ date
+Sun Jan 12 13:51:33 PST 2014
+]0;zhy9036@klaatu:~/Desktop[zhy9036@klaatu Desktop]$ echo $HOME
+/homes/zhy9036
+]0;zhy9036@klaatu:~/Desktop[zhy9036@klaatu Desktop]$ cd
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ mkdir [K[K[K[K[K[Kls -alR | grep ^-
+[01;31m[K-[m[Krw-------  1 zhy9036 ugrad_uw 1255 Jan  9 13:05 .bash_history
+[01;31m[K-[m[Krw-r--r--  1 zhy9036 ugrad_uw   18 Mar 11  2013 .bash_logout
+[01;31m[K-[m[Krw-r--r--  1 zhy9036 ugrad_uw  193 Mar 11  2013 .bash_profile
+[01;31m[K-[m[Krw-r--r--  1 zhy9036 ugrad_uw  124 Mar 11  2013 .bashrc
+[01;31m[K-[m[Krw-r--r--  1 zhy9036 ugrad_uw  334 Aug 14 06:51 .emacs
+[01;31m[K-[m[Krw-r--r--  1 zhy9036 ugrad_uw   18 Jan  9 13:03 fff.txt
+[01;31m[K-[m[Krw-r--r--  1 zhy9036 ugrad_uw  172 Mar  7  2013 .kshrc
+[01;31m[K-[m[K-w--w--w-  1 zhy9036 ugrad_uw   14 Jan  8 22:11 secretfile
+[01;31m[K-[m[Krw-r--r--  1 zhy9036 ugrad_uw    0 Jan  6 20:10 text.txt
+[01;31m[K-[m[Krw-------  1 zhy9036 ugrad_uw  686 Jan  9 13:03 .viminfo
+[01;31m[K-[m[Krw-r--r-- 1 zhy9036 ugrad_uw    0 Jan 12 13:49 hw1.part1
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ mkdir temp
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ mv temp files
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ cd files/
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ date > now
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ cp now ./before
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ cp now ./before[5Pdate > now[1Pcd files/mv temp files[3Pkdir templs -alR | grep ^-
+[01;31m[K-[m[Krw-r--r-- 1 zhy9036 ugrad_uw   29 Jan 12 14:01 before
+[01;31m[K-[m[Krw-r--r-- 1 zhy9036 ugrad_uw   29 Jan 12 14:01 now
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ touch temp
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ mv temp test
+]0;zhy9036@klaatu:~/files[zhy9036@klaatu files]$ cd ..
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ r [Km -rf files/
+
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ echo "It's" a secret! > secretfile[1@\[1@!
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ chmod 444 secretfile 
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ ls -l secretfile 
+-r--r--r-- 1 zhy9036 ugrad_uw 16 Jan 12 14:23 secretfile
+[13@cat "more text" >>[C[C[C[C[C[C[C[C[C[C[C[C
+bash: secretfile: Permission denied
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ cat "more text" >> secretfile 
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[13Pls -l[C[C[C[C[C[C[C[C[C[C[C[C[13@cat "more text" >>[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[9Phmod 444[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1@2[1@2[1@2
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ ls -l secretfile 
+--w--w--w- 1 zhy9036 ugrad_uw 16 Jan 12 14:23 secretfile
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ cat secretfile 
+cat: secretfile: Permission denied
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ uname -r
+3.9.9-0cse.0
+[K[?1l>[?1049l]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ ps aux | less
+[?1049h[?1h=
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1  51184  5316 ?        Ss    2013   0:04 /usr/lib/system d/systemd --system --deserialize 17
+root         2  0.0  0.0      0     0 ?        S     2013   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S     2013   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<    2013   0:00 [kworker/0:0H]
+root         7  0.0  0.0      0     0 ?        S<    2013   0:00 [kworker/u:0H]
+root         8  0.0  0.0      0     0 ?        S     2013   0:00 [migration/0]
+root         9  0.0  0.0      0     0 ?        S     2013   0:00 [rcu_bh]
+root        10  0.0  0.0      0     0 ?        S     2013   0:01 [rcu_sched]
+root        11  0.0  0.0      0     0 ?        S     2013   0:00 [migration/1]
+root        12  0.0  0.0      0     0 ?        S     2013   0:02 [ksoftirqd/1]
+root        14  0.0  0.0      0     0 ?        S<    2013   0:00 [kworker/1:0H]
+root        15  0.0  0.0      0     0 ?        S<    2013   0:00 [khelper]
+root        16  0.0  0.0      0     0 ?        S     2013   0:00 [kdevtmpfs]
+root        17  0.0  0.0      0     0 ?        S<    2013   0:00 [netns]
+root        18  0.0  0.0      0     0 ?        S     2013   0:00 [bdi-default]
+root        19  0.0  0.0      0     0 ?        S<    2013   0:00 [kblockd]
+root        20  0.0  0.0      0     0 ?        S     2013   0:00 [khubd]
+root        22  0.0  0.0      0     0 ?        S<    2013   0:00 [rpciod]
+root        23  0.0  0.0      0     0 ?        S     2013   0:00 [kswapd0]
+root        24  0.0  0.0      0     0 ?        SN    2013   0:00 [ksmd]
+root        25  0.0  0.0      0     0 ?        S     2013   0:00 [fsnotify_mark]
+:[K
+[K [KESCESC[K^?^?
+[K:[K
+[K:[K
+[K:[K
+[K:[K
+[K[?1l>[?1049l]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ ls /etc/passed | grep ^zhy9036[C[C[C[C[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@g[C[C[C[C[C[C[C[C[C[C[C[C etc/[K[K[K[K/etc/passed[K[Kwd
+[01;31m[Kzhy9036[m[K:x:26465:6152::/homes/zhy9036:/bin/bash
+]0;zhy9036@klaatu:~[zhy9036@klaatu ~]$ exit
+exit
+
+Script done on Sun 12 Jan 2014 02:34:23 PM PST

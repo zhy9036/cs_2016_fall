@@ -1,0 +1,63 @@
+/*
+cse 414 hw1
+Yang Zhang 1030416
+*/
+
+//Problem 1
+
+a> create table R(A,B);
+b> insert into R values(2,4);
+   insert into R values(1,1);
+   insert into R values(3,1);
+c> select * from R;
+d> insert into R values('5','2'); no error, because sqlite will convert string to int.
+e> select A from R;
+f> select A, B from R where A <= B;
+
+//Problem 2
+
+CREATE TABLE MyRestaurants(Name varchar(20),Typeoffood varchar(20), Distance int, Date varchar(20), ifLike int);
+
+//Problem 3
+
+INSERT INTO "MyRestaurants" VALUES('Chopstick','Chinese',10,'2013-03-31',1);
+INSERT INTO "MyRestaurants" VALUES('Chinafirst','Chinese',12,'2013-03-31',0);
+INSERT INTO "MyRestaurants" VALUES('bestburger','Fastfood',15,'2013-02-31',NULL);
+INSERT INTO "MyRestaurants" VALUES('photai','pho',10,'2013-04-04',1);
+INSERT INTO "MyRestaurants" VALUES('tofu','kr',10,'2012-04-04',0);
+
+//Problem 4
+
+select * from myrestaurants;
+
+//Problem 5
+
+a> .separator ","
+    select*from MyRestaurants;
+
+b> .separator "|"
+    select*from MyRestaurants;
+
+c> .mode column
+   .width 15 15 15 15 15
+    select*from myrestaurants; 
+
+d> .header on  // for print header
+   .header off // for print without header
+
+//Problem 6
+
+    method 1 (replace):
+    select name, replace ( replace(iflike ,'1', 'I like it'), '0', 'I hate it' ) as
+    'review 'from myrestaurants where iflike = 0 or iflike = 1;
+
+    method 2 (case):
+    select name,iflike || ' means ' || case
+    when iflike = 1 then 'I like it'
+    when iflike = 0 then 'I hate it'
+    end as 'my opinion' from myrestaurants;
+
+//Problem 7
+    
+    select name from myrestaurants where iflike = 1 AND date <= date('now','-3 month');
+
