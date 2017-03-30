@@ -1,0 +1,460 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.bayes.NaiveBayesMultinomialText -P 0 -M 3.0 -norm 1.0 -lnorm 2.0 -stopwords-handler weka.core.stopwords.Null -tokenizer "weka.core.tokenizers.WordTokenizer -delimiters \" \\r\\n\\t.,;:\\\'\\\"()?!\"" -stemmer weka.core.stemmers.NullStemmer
+Relation:     image_data
+Instances:    7262
+Attributes:   4
+              189
+              0
+              25
+              glb80
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Dictionary size: 389
+
+The independent frequency of a class
+--------------------------------------
+glb80	900.0
+glb70	904.0
+glb86	916.0
+glb88	916.0
+glb87	916.0
+glb72	901.0
+glb85	916.0
+glb78	901.0
+
+The frequency of a word given the class
+-----------------------------------------
+      glb80	      glb70	      glb86	      glb88	      glb87	      glb72	      glb85	      glb78	
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	911
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	914
+      146.0	      125.0	      684.0	      901.0	      444.0	      239.0	      881.0	      276.0	0
+<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	1
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	1104
+<laplace=1>	        8.0	        4.0	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        3.0	4
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	        3.0	        4.0	<laplace=1>	        3.0	5
+        4.0	        5.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        3.0	6
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	1222
+<laplace=1>	       11.0	        4.0	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	        4.0	7
+        3.0	        8.0	        3.0	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        6.0	8
+        3.0	        6.0	        4.0	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	        7.0	9
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	806
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	2458
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	1127
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	700
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	825
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	707
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	831
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	954
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	713
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	715
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	719
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	720
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	721
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	600
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	602
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	603
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	968
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	609
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	1164
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	970
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	610
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	853
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	614
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	615
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	736
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	617
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	1172
+        5.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	501
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	864
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	1166
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	504
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	507
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	508
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	1058
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	874
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	996
+        3.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	516
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	637
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	518
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	520
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	643
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	522
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	524
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	766
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	889
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	768
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	528
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	409
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	1084
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	530
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	772
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	410
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	413
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	656
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	777
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	415
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	417
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	781
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	661
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	782
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	662
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	421
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	542
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	664
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	301
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	        3.0	<laplace=1>	<laplace=1>	302
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	303
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	424
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	787
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	425
+        5.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	305
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	426
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	306
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	427
+        5.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	428
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	549
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	308
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	309
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	791
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	310
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	        3.0	<laplace=1>	<laplace=1>	433
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	797
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	434
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	314
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	315
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	558
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	319
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	682
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	321
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        3.0	564
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	201
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	322
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	202
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	444
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	567
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	326
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	689
+        3.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	207
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	449
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	208
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	450
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	693
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	210
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	331
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	211
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	332
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	695
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	212
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	333
+        3.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	455
+        3.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	213
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	334
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	214
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	456
+        5.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	215
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	458
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	216
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	338
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	219
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	581
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	340
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	582
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	583
+        3.0	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	220
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        4.0	100
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	221
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	584
+        4.0	<laplace=1>	        6.0	<laplace=1>	        4.0	        3.0	<laplace=1>	<laplace=1>	101
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	222
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	585
+<laplace=1>	        3.0	        3.0	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	102
+        3.0	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	103
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	224
+        3.0	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	104
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	225
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	346
+<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	105
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	348
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	106
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        3.0	469
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	107
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        3.0	228
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	108
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	229
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	109
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	471
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	592
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	473
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	110
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	232
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	112
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	113
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	355
+<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	235
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	        3.0	<laplace=1>	<laplace=1>	356
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	115
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	236
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	357
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	599
+<laplace=1>	        4.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	116
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	237
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	117
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	239
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	118
+        6.0	        8.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        6.0	10
+<laplace=1>	        7.0	        3.0	<laplace=1>	        6.0	        3.0	<laplace=1>	        4.0	11
+        4.0	        9.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	12
+        4.0	        9.0	        3.0	<laplace=1>	        5.0	        3.0	<laplace=1>	        4.0	13
+<laplace=1>	        8.0	        5.0	<laplace=1>	        3.0	        7.0	<laplace=1>	<laplace=1>	14
+        3.0	        6.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        5.0	15
+<laplace=1>	        6.0	<laplace=1>	<laplace=1>	        7.0	        3.0	<laplace=1>	        3.0	16
+        3.0	        5.0	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	17
+<laplace=1>	        8.0	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	18
+<laplace=1>	        6.0	        3.0	<laplace=1>	        4.0	        6.0	<laplace=1>	        3.0	19
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	240
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	362
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	241
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	120
+        3.0	        3.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	121
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	242
+        5.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        3.0	243
+<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	122
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	244
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	365
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	487
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	124
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	246
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	125
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	126
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	368
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	248
+<laplace=1>	        3.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	128
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	249
+        3.0	        9.0	        4.0	<laplace=1>	        4.0	        4.0	<laplace=1>	        3.0	20
+<laplace=1>	        6.0	        4.0	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	        3.0	21
+        3.0	       10.0	        4.0	<laplace=1>	        6.0	        3.0	<laplace=1>	<laplace=1>	22
+<laplace=1>	        6.0	<laplace=1>	<laplace=1>	        3.0	        3.0	<laplace=1>	        6.0	23
+<laplace=1>	        9.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	24
+<laplace=1>	        7.0	<laplace=1>	<laplace=1>	        6.0	        3.0	<laplace=1>	        3.0	25
+        3.0	        6.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	26
+<laplace=1>	        5.0	<laplace=1>	<laplace=1>	        4.0	        3.0	<laplace=1>	<laplace=1>	27
+<laplace=1>	        6.0	<laplace=1>	<laplace=1>	        7.0	<laplace=1>	<laplace=1>	<laplace=1>	28
+<laplace=1>	        8.0	        4.0	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	        3.0	29
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	250
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	130
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	493
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	372
+        4.0	        3.0	        3.0	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	131
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	494
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	373
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	252
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        3.0	253
+<laplace=1>	        6.0	<laplace=1>	<laplace=1>	        3.0	        5.0	<laplace=1>	        3.0	132
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	496
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	133
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	497
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	134
+<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	256
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	135
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	377
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	378
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        4.0	136
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	379
+        5.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	137
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	258
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	138
+        3.0	        8.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	139
+<laplace=1>	        4.0	        3.0	<laplace=1>	        3.0	        5.0	<laplace=1>	<laplace=1>	30
+<laplace=1>	        7.0	<laplace=1>	<laplace=1>	        5.0	        4.0	<laplace=1>	<laplace=1>	31
+        3.0	        6.0	<laplace=1>	<laplace=1>	        5.0	        4.0	<laplace=1>	        3.0	32
+<laplace=1>	        7.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        4.0	33
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	        3.0	        7.0	<laplace=1>	<laplace=1>	34
+        3.0	        7.0	<laplace=1>	<laplace=1>	        6.0	        3.0	<laplace=1>	<laplace=1>	35
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	        3.0	36
+<laplace=1>	        3.0	        3.0	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	37
+        3.0	        6.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	38
+        3.0	        4.0	<laplace=1>	<laplace=1>	        5.0	        3.0	<laplace=1>	<laplace=1>	39
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	        3.0	261
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	140
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	141
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	384
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	263
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	142
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	        3.0	        3.0	<laplace=1>	        5.0	143
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	264
+<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	        3.0	144
+        4.0	        3.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	266
+        3.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	145
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	146
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        6.0	147
+<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	389
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	269
+        3.0	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	149
+        4.0	        9.0	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	        3.0	40
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	        4.0	<laplace=1>	<laplace=1>	41
+<laplace=1>	       11.0	        3.0	<laplace=1>	        7.0	        3.0	<laplace=1>	        3.0	42
+        5.0	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	        3.0	43
+<laplace=1>	        8.0	<laplace=1>	<laplace=1>	        3.0	        4.0	<laplace=1>	        3.0	44
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	        4.0	<laplace=1>	<laplace=1>	45
+<laplace=1>	        7.0	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	46
+        3.0	        6.0	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	47
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	48
+<laplace=1>	        8.0	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	49
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	271
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	        3.0	151
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        3.0	272
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	152
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	394
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	274
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	153
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	154
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	396
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	        3.0	<laplace=1>	<laplace=1>	275
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	155
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	397
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	156
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	157
+<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	278
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	158
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	        3.0	<laplace=1>	<laplace=1>	279
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	        3.0	159
+<laplace=1>	        7.0	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	50
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	        3.0	51
+<laplace=1>	        6.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	52
+<laplace=1>	        6.0	<laplace=1>	<laplace=1>	        4.0	        4.0	<laplace=1>	<laplace=1>	53
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	54
+<laplace=1>	        7.0	        3.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	55
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	56
+<laplace=1>	        5.0	<laplace=1>	<laplace=1>	        6.0	<laplace=1>	<laplace=1>	        3.0	57
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	58
+<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	59
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	280
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	281
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	282
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	162
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	163
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	284
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	285
+        4.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	164
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	286
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	165
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        3.0	166
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	167
+        3.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	168
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	169
+        3.0	        5.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	60
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	        4.0	        3.0	<laplace=1>	<laplace=1>	61
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	62
+        3.0	<laplace=1>	        3.0	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	        3.0	63
+<laplace=1>	        5.0	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	64
+<laplace=1>	        3.0	        4.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	65
+        3.0	        5.0	<laplace=1>	<laplace=1>	        5.0	        4.0	<laplace=1>	<laplace=1>	66
+<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        5.0	        3.0	<laplace=1>	<laplace=1>	67
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        3.0	        4.0	<laplace=1>	<laplace=1>	68
+        4.0	        4.0	        3.0	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	69
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	290
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	        3.0	170
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	291
+        5.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	171
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	293
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	172
+<laplace=1>	        3.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	173
+        3.0	        3.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	175
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	177
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	298
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	178
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	179
+<laplace=1>	        6.0	<laplace=1>	<laplace=1>	        7.0	<laplace=1>	<laplace=1>	        4.0	70
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	71
+<laplace=1>	        8.0	<laplace=1>	<laplace=1>	        3.0	        3.0	<laplace=1>	<laplace=1>	72
+<laplace=1>	        8.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	73
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	74
+        3.0	<laplace=1>	        4.0	<laplace=1>	        6.0	<laplace=1>	<laplace=1>	<laplace=1>	75
+        4.0	        5.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	76
+<laplace=1>	        4.0	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	77
+<laplace=1>	        6.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	78
+        3.0	        3.0	        3.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	79
+<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	180
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	181
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	183
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	184
+        3.0	<laplace=1>	        3.0	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	185
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	186
+        4.0	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	187
+<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	188
+        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	189
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	1963
+        4.0	<laplace=1>	        3.0	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	80
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	81
+        4.0	        3.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	82
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        3.0	        3.0	<laplace=1>	<laplace=1>	83
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	84
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	85
+<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	86
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	        5.0	<laplace=1>	<laplace=1>	87
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	88
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	<laplace=1>	89
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	190
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	192
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        5.0	<laplace=1>	<laplace=1>	193
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	194
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	195
+<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	196
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	197
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	198
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	199
+        4.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	90
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        4.0	91
+        4.0	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	92
+        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	93
+<laplace=1>	        5.0	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	        3.0	94
+<laplace=1>	        4.0	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	95
+        3.0	        3.0	<laplace=1>	<laplace=1>	        4.0	<laplace=1>	<laplace=1>	        3.0	96
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	97
+<laplace=1>	        3.0	<laplace=1>	<laplace=1>	        4.0	        3.0	<laplace=1>	        3.0	98
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        6.0	<laplace=1>	        3.0	99
+<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	<laplace=1>	        3.0	<laplace=1>	<laplace=1>	900
+
+
+Time taken to build model: 0.07 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1433               19.7329 %
+Incorrectly Classified Instances      5829               80.2671 %
+Kappa statistic                          0.0821
+Mean absolute error                      0.21  
+Root mean squared error                  0.3248
+Relative absolute error                 96.0187 %
+Root relative squared error             98.2241 %
+Total Number of Instances             7262     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.085    0.049    0.197      0.085    0.118      0.053    0.702     0.210     glb80
+                 0.286    0.084    0.325      0.286    0.304      0.213    0.744     0.264     glb70
+                 0.038    0.121    0.044      0.038    0.041      -0.088   0.608     0.161     glb86
+                 0.796    0.472    0.195      0.796    0.314      0.215    0.769     0.238     glb88
+                 0.039    0.029    0.166      0.039    0.064      0.021    0.499     0.137     glb87
+                 0.088    0.049    0.202      0.088    0.122      0.056    0.621     0.175     glb72
+                 0.195    0.088    0.242      0.195    0.216      0.117    0.754     0.231     glb85
+                 0.048    0.027    0.203      0.048    0.077      0.042    0.605     0.172     glb78
+Weighted Avg.    0.197    0.115    0.196      0.197    0.157      0.079    0.663     0.199     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   h   <-- classified as
+  76  96 214 327  32  79  38  37 |   a = glb80
+  76 258 126 212  65  93  22  51 |   b = glb70
+  35  69  35 567  15  43 139  12 |   c = glb86
+   2   5   4 728   0   0 176   0 |   d = glb88
+  55 158  72 429  36  53  84  28 |   e = glb87
+  80 115 157 349  32  79  48  40 |   f = glb72
+   8   9   6 705   4   4 178   1 |   g = glb85
+  53  84 189 407  33  41  50  43 |   h = glb78
+

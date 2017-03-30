@@ -17,7 +17,7 @@ public class MainSP {
 		String net = "datasets/nettalk_stress_";
 		String ocr = "datasets/ocrTrain.txt";
 		dataProcess(net+"train", data, sLabels);
-		dataProcess(net+"test", dataT, sLabelsT);
+		dataProcess(ocr, dataT, sLabelsT);
 		int featureLength = data.get(0).get(0).size(); 
 		int classNum = 5; 
 		int restarts = 20;
@@ -30,7 +30,17 @@ public class MainSP {
 		//sp.training(data, sLabels, complexity);
 		
 		int[] res = new int[]{1, 5, 10, 15, 25, 50, 100};
+
+		try {
+			ExactImitation ei = new ExactImitation(data, sLabels);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		
+		
+		/*
 		for(int beamWidth : res){
 			StructuredPerceptronBeam spb = new StructuredPerceptronBeam(featureLength, classNum, 
 					maxIter, learningRate);
@@ -49,6 +59,7 @@ public class MainSP {
 			System.out.println(rst);
 			System.out.println(rst1);
 		}
+		*/
 		/*
 		for(double a : sp.trainingRst){
 			System.out.println(a);
