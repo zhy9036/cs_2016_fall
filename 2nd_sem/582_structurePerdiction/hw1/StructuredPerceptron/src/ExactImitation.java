@@ -26,10 +26,10 @@ public class ExactImitation {
 		wekaData = csv.getDataSet();
 		wekaData.setClassIndex(wekaData.numAttributes()-1);
 		System.out.println("Building classifier...");
-		vp.buildClassifier(wekaData);
+		//vp.buildClassifier(wekaData);
 		System.out.println("Done!");
-		Evaluation eval = new Evaluation(wekaData);
-		System.out.println(eval.toSummaryString("\nResults\n======\n", false));
+		//Evaluation eval = new Evaluation(wekaData);
+		//System.out.println(eval.toSummaryString("\nResults\n======\n", false));
 		
 		
 	}
@@ -46,20 +46,18 @@ public class ExactImitation {
 		for(int i = 0; i < data.size(); i++){
 			ArrayList<ArrayList<Integer>> sample = data.get(i);
 			String sampleLabel = sLabels.get(i);
-			String tmpLabel = "";
+			String histroyLabel = "H";
 			for(int t = 0; t < sample.size(); t++){
 				String[] tmp = new String[size+2];
-				if(tmpLabel.length() < 1)
-					tmp[0] = "-";
-				else
-					tmp[0] = tmpLabel;
+				
+				tmp[0] = histroyLabel;
 				int iter = 1;
 				for(int a : sample.get(t)){
 					tmp[iter] = a+"";
 					iter++;
 				}
-				tmp[iter] = sampleLabel.charAt(t) + "";
-				tmpLabel += sampleLabel.charAt(t);
+				tmp[iter] = "L" + sampleLabel.charAt(t) + "";
+				histroyLabel += sampleLabel.charAt(t);
 				
 				datasetRaw.add(tmp);
 			}
