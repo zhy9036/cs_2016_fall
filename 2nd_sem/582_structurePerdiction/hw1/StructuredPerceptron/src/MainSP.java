@@ -16,8 +16,9 @@ public class MainSP {
 		ArrayList<String> sLabelsT = new ArrayList();
 		String net = "datasets/nettalk_stress_";
 		String ocr = "datasets/ocrTrain.txt";
-		dataProcess(net+"train", data, sLabels);
-		dataProcess(ocr, dataT, sLabelsT);
+		String ocrTest = "datasets/ocrT.txt";
+		dataProcess(ocr, data, sLabels);
+		dataProcess(ocrTest, dataT, sLabelsT);
 		int featureLength = data.get(0).get(0).size(); 
 		int classNum = 5; 
 		int restarts = 20;
@@ -32,7 +33,9 @@ public class MainSP {
 		int[] res = new int[]{1, 5, 10, 15, 25, 50, 100};
 
 		try {
-			ExactImitation ei = new ExactImitation(data, sLabels);
+			ExactImitation ei = new ExactImitation(data, sLabels, dataT, sLabelsT);
+			
+			ei.eval();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

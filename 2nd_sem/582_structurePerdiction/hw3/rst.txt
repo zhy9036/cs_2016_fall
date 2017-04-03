@@ -1,0 +1,61 @@
+Results
+======
+
+Correctly Classified Instances        5893               81.5076 %
+Incorrectly Classified Instances      1337               18.4924 %
+Kappa statistic                          0.7491
+Mean absolute error                      0.0933
+Root mean squared error                  0.2435
+Relative absolute error                 31.5964 %
+Root relative squared error             63.3809 %
+Total Number of Instances             7230     
+
+
+Results
+======
+
+Correctly Classified Instances        6070               41.9431 %
+Incorrectly Classified Instances      8402               58.0569 %
+Kappa statistic                          0.25  
+Mean absolute error                      0.239 
+Root mean squared error                  0.4489
+Relative absolute error                 76.4059 %
+Root relative squared error            110.4442 %
+Total Number of Instances            14472   
+
+
+
+
+
+
+
+
+
+
+Building classifier...
+Done!
+
+Results
+======
+
+Correctly Classified Instances        4146               89.7986 %
+Incorrectly Classified Instances       471               10.2014 %
+Kappa statistic                          0.8916
+Mean absolute error                      0.024 
+Root mean squared error                  0.089 
+Relative absolute error                 33.0995 %
+Root relative squared error             46.8135 %
+Total Number of Instances             4617     
+
+
+Results
+======
+
+Correctly Classified Instances        8155               85.7699 %
+Incorrectly Classified Instances      1353               14.2301 %
+Kappa statistic                          0.8487
+Mean absolute error                      0.0265
+Root mean squared error                  0.099 
+Relative absolute error                 36.6835 %
+Root relative squared error             52.0688 %
+Total Number of Instances             9508 
