@@ -37,6 +37,7 @@ public class ExactImitation {
 		}
 		
 		System.out.println("Building classifier...");
+<<<<<<< HEAD
 		model.setOptions(weka.core.Utils.splitOptions("-L 0.01 -M 0.2 -N 50 -V 0 -S 0 -E 20 -H 0"));
 		model.buildClassifier(test);
 		System.out.println("Done!");	
@@ -50,6 +51,14 @@ public class ExactImitation {
 			eval.evaluateModel(model, test);
 			System.out.println(eval.toSummaryString("\nResults\n======\n", false));
 		}
+=======
+		//vp.buildClassifier(wekaData);
+		System.out.println("Done!");
+		//Evaluation eval = new Evaluation(wekaData);
+		//System.out.println(eval.toSummaryString("\nResults\n======\n", false));
+		
+		
+>>>>>>> 7c2f3db66dc2529c8c5751b76101bc361af45c7b
 	}
 	
 	public void dagger(int dIter, double beta) throws Exception{
@@ -105,17 +114,30 @@ public class ExactImitation {
 		for(int i = 0; i < data.size(); i++){
 			ArrayList<ArrayList<Integer>> sample = data.get(i);
 			String sampleLabel = sLabels.get(i);
+<<<<<<< HEAD
 			String tmpLabel = "H";
 			for(int t = 0; t < sample.size(); t++){
 				String[] tmp = new String[size+2];
 				tmp[0] = tmpLabel;
+=======
+			String histroyLabel = "H";
+			for(int t = 0; t < sample.size(); t++){
+				String[] tmp = new String[size+2];
+				
+				tmp[0] = histroyLabel;
+>>>>>>> 7c2f3db66dc2529c8c5751b76101bc361af45c7b
 				int iter = 1;
 				for(int a : sample.get(t)){
 					tmp[iter] = a+"";
 					iter++;
 				}
+<<<<<<< HEAD
 				tmp[iter] = "L" + sampleLabel.charAt(t);
 				tmpLabel += sampleLabel.charAt(t);
+=======
+				tmp[iter] = "L" + sampleLabel.charAt(t) + "";
+				histroyLabel += sampleLabel.charAt(t);
+>>>>>>> 7c2f3db66dc2529c8c5751b76101bc361af45c7b
 				
 				datasetRaw.add(tmp);
 			}
