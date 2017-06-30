@@ -169,7 +169,8 @@ This the js file for puzzle game
 					tiles[r][c].classList.add("tile");
 					tiles[r][c].innerHTML = index+"";
 					tiles[r][c].id = index+"";
-					tiles[r][c].style.backgroundImage="url('background.jpg')";
+					//tiles[r][c].style.backgroundImage="url('{% static "personal/img/background.jpg" %}')";
+					//tiles[r][c].style.backgroundImage="url('{{ STATIC_URL }} personal/img/background.jpg ')";
 					tiles[r][c].style.backgroundPosition=x+"px "+y+"px";
 				}else{
 					tiles[r][c].classList.add("blank");

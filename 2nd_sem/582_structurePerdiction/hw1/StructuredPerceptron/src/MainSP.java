@@ -34,8 +34,8 @@ public class MainSP {
 
 		try {
 			ExactImitation ei = new ExactImitation(data, sLabels, dataT, sLabelsT);
-			
-			ei.eval();
+			ei.daggerEval();
+			//ei.eval(false);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
