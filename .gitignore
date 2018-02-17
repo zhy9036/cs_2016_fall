@@ -4,6 +4,16 @@
 # swap file
 *.swp
 
-# windows
+# Windows
 *.ini
 *.db
+
+# Mac
+.DS_Store
+
+# ignore all hidden files
+.*
+
+# keep the .gitignore file
+!/.gitignore
+
